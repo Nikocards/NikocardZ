@@ -2,105 +2,118 @@
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
       <q-toolbar>
-        <q-btn
-          flat
-          dense
-          round
-          icon="menu"
-          aria-label="Menu"
-          @click="toggleLeftDrawer"
-        />
-
-        <q-toolbar-title>
-          Quasar App
-        </q-toolbar-title>
-
-        <div>Quasar v{{ $q.version }}</div>
+        <q-toolbar-title>NikoCardz</q-toolbar-title>
       </q-toolbar>
     </q-header>
 
-    <q-drawer
-      v-model="leftDrawerOpen"
-      show-if-above
-      bordered
-    >
-      <q-list>
-        <q-item-label
-          header
-        >
-          Essential Links
-        </q-item-label>
-
-        <EssentialLink
-          v-for="link in linksList"
-          :key="link.title"
-          v-bind="link"
-        />
-      </q-list>
-    </q-drawer>
-
     <q-page-container>
-      <router-view />
+      <!-- Barre de recherche -->
+      <q-input
+        filled
+        v-model="searchTerm"
+        placeholder="Rechercher une collection..."
+      />
+    </q-page-container>
+
+    <q-page-container style="padding-top: 0px">
+      <q-page class="q-pa-md">
+        <q-row class="q-col-gutter-md">
+          <q-col cols="12" sm="6" v-for="carte in cartes" :key="carte.id">
+            <img
+              v-if="carte.possedee"
+              :src="`/cards/carte${carte.id}.png`"
+              class="full-size-image"
+            />
+            <img v-else src="/cards/cardzinconnu.png" class="full-size-image" />
+            <q-tooltip
+              class="custom-tooltip"
+              anchor="top middle"
+              self="center middle"
+            >
+              {{ carte.nb }}
+            </q-tooltip>
+          </q-col>
+        </q-row>
+      </q-page>
     </q-page-container>
   </q-layout>
 </template>
 
-<script setup lang="ts">
-import { ref } from 'vue';
-import EssentialLink, { EssentialLinkProps } from 'components/EssentialLink.vue';
+<style>
+.q-page-container custom-page {
+  min-height: 0px;
+}
 
-defineOptions({
-  name: 'MainLayout'
+.full-size-image {
+  width: 25%; /* Les images rempliront la largeur de la colonne */
+  height: auto; /* Pour garder les proportions de l'image */
+  max-height: 80vh; /* Empêche l'image de dépasser la hauteur de l'écran */
+}
+
+.custom-tooltip {
+  font-size: 1.9em; /* Augmenter la taille du texte */
+  padding: 25px; /* Augmenter le padding pour un plus grand tooltip */
+}
+</style>
+<script setup lang="ts">
+import { ref, computed, watch } from 'vue';
+
+const collections = ref([
+  { userId: 'user1', nom: 'A', cartes: [1, 13, 13, 12] },
+  { userId: 'user1', nom: 'Alice2', cartes: [13] },
+  { userId: 'user2', nom: 'Bob', cartes: [2, 3, 7, 12, 15] },
+]);
+
+const searchTerm = ref('');
+
+// Computed property pour filtrer les collections
+const collectionsFiltrees = computed(() => {
+  if (!searchTerm.value) {
+    return [];
+  }
+  return collections.value.filter(
+    (collection) =>
+      collection.nom.toLowerCase() === searchTerm.value.toLowerCase()
+  );
 });
 
-const linksList: EssentialLinkProps[] = [
-  {
-    title: 'Docs',
-    caption: 'quasar.dev',
-    icon: 'school',
-    link: 'https://quasar.dev'
-  },
-  {
-    title: 'Github',
-    caption: 'github.com/quasarframework',
-    icon: 'code',
-    link: 'https://github.com/quasarframework'
-  },
-  {
-    title: 'Discord Chat Channel',
-    caption: 'chat.quasar.dev',
-    icon: 'chat',
-    link: 'https://chat.quasar.dev'
-  },
-  {
-    title: 'Forum',
-    caption: 'forum.quasar.dev',
-    icon: 'record_voice_over',
-    link: 'https://forum.quasar.dev'
-  },
-  {
-    title: 'Twitter',
-    caption: '@quasarframework',
-    icon: 'rss_feed',
-    link: 'https://twitter.quasar.dev'
-  },
-  {
-    title: 'Facebook',
-    caption: '@QuasarFramework',
-    icon: 'public',
-    link: 'https://facebook.quasar.dev'
-  },
-  {
-    title: 'Quasar Awesome',
-    caption: 'Community Quasar projects',
-    icon: 'favorite',
-    link: 'https://awesome.quasar.dev'
-  }
-];
+// Définir les cartes de base
+const cartes = ref(
+  Array.from({ length: 45 }, (_, i) => ({
+    id: i + 1,
+    possedee: false,
+    nb: 0,
+  }))
+);
 
-const leftDrawerOpen = ref(false);
+watch(
+  collectionsFiltrees,
+  (nouvellesCollections) => {
+    // Réinitialiser les états de toutes les cartes
+    cartes.value.forEach((carte) => {
+      carte.possedee = false;
+      carte.nb = 0; // Réinitialiser le nombre de cartes possédées
+    });
 
-function toggleLeftDrawer () {
-  leftDrawerOpen.value = !leftDrawerOpen.value;
-}
+    // Si une collection est trouvée, mettre à jour les cartes possédées et leur quantité
+    if (nouvellesCollections.length > 0) {
+      const collectionTrouvee = nouvellesCollections[0];
+
+      collectionTrouvee.cartes.forEach((idCarte) => {
+        // Trouver et mettre à jour la carte correspondante
+        const carte = cartes.value.find((carte) => carte.id === idCarte);
+        if (carte) {
+          carte.possedee = true;
+          // Supposons que chaque ID de carte dans la collection représente une carte possédée
+          carte.nb += 1;
+        }
+      });
+    }
+  },
+  { immediate: true }
+);
+
+defineOptions({
+  name: 'MainLayout',
+});
 </script>
