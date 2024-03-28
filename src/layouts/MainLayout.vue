@@ -21,10 +21,14 @@
           <q-col cols="12" sm="6" v-for="carte in cartes" :key="carte.id">
             <img
               v-if="carte.possedee"
-              :src="`/cards/carte${carte.id}.png`"
+              :src="`/NikocardZ/cards/carte${carte.id}.png`"
               class="full-size-image"
             />
-            <img v-else src="/cards/cardzinconnu.png" class="full-size-image" />
+            <img
+              v-else
+              src="/NikocardZ/cards/cardzinconnu.png"
+              class="full-size-image"
+            />
             <q-tooltip
               class="custom-tooltip"
               anchor="top middle"
