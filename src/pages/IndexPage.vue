@@ -12,6 +12,6 @@ defineOptions({
 });
 
 const meta = ref<Meta>({
-  totalCount: 1200,
+  totalCount: 12,
 });
 </script>
