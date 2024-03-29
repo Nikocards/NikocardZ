@@ -26,9 +26,10 @@
             />
             <img
               v-else
-              src="/NikocardZ/cards/cardzinconnu.png"
+              :src="getImageInconnuePath(carte.id)"
               class="full-size-image"
             />
+
             <q-tooltip
               class="custom-tooltip"
               anchor="top middle"
@@ -89,6 +90,27 @@ const cartes = ref(
     nb: 0,
   }))
 );
+
+// Méthode pour obtenir le chemin de l'image inconnue
+function getImageInconnuePath(id: number) {
+  const nameTemp = '/NikocardZ/cards/cardzinconnu';
+  //const nameTemp = '/cards/cardzinconnu';
+  // rare 27
+  if (id == 28 || id == 31 || id == 34 || id == 37 || id == 40)
+    return nameTemp + '3.png';
+  if (id == 29 || id == 32 || id == 35 || id == 38 || id == 41)
+    return nameTemp + '4.png';
+  if (id == 30 || id == 33 || id == 36 || id == 39 || id == 42)
+    return nameTemp + '5.png';
+
+  // Legendaire 43
+  if (id >= 43) return nameTemp + `${id - 37}.png`;
+
+  // commune
+  if ((id + 1) % 3 == 0) return nameTemp + '1.png';
+  if (id % 3 == 0) return nameTemp + '2.png';
+  return nameTemp + '.png';
+}
 
 watch(
   collectionsFiltrees,
