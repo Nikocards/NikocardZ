@@ -23,6 +23,11 @@
             class="full-size-image"
             @click="toggleFullScreen($event)"
           />
+          <!--
+            :src="`/NikocardZ/cards/${carte.name}.png`"
+            :src="`/cards/${carte.name}.png`"
+         -->
+
           <q-tooltip
             class="custom-tooltip"
             anchor="top middle"
@@ -80,7 +85,9 @@ interface UserCards {
 // Fonction pour charger les données JSON -----------------------------------------------------------
 async function loadData() {
   try {
-    const response = await fetch('/Python/dist/users_cards.json');
+    const response = await fetch('/NikocardZ/Python/dist/users_cards.json');
+    //:src="`/NikocardZ/cards/${carte.name}.png`"
+    //:src="`/cards/${carte.name}.png`"
     if (!response.ok) throw new Error('Failed to fetch data');
     const jsonData: UserCards = await response.json();
     transformData(jsonData);
@@ -196,6 +203,7 @@ watch(
           });
         }
       }
+      console.log(DisplayCards);
     } else {
       setDefaultDisplayCards();
     }
