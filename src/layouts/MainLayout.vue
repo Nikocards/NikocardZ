@@ -15,30 +15,22 @@
       />
     </q-page-container>
 
-    <q-page-container style="padding-top: 0px">
-      <q-page class="q-pa-md">
-        <q-row class="q-col-gutter-md">
-          <q-col cols="12" sm="6" v-for="carte in cartes" :key="carte.id">
-            <img
-              v-if="carte.possedee"
-              :src="`/NikocardZ/cards/carte${carte.id}.png`"
-              class="full-size-image"
-            />
-            <img
-              v-else
-              :src="getImageInconnuePath(carte.id)"
-              class="full-size-image"
-            />
-
-            <q-tooltip
-              class="custom-tooltip"
-              anchor="top middle"
-              self="center middle"
-            >
-              {{ carte.nb }}
-            </q-tooltip>
-          </q-col>
-        </q-row>
+    <q-page-container style="padding-top: 10px">
+      <q-page class="q-gutter-x-md">
+        <q-col v-for="carte in DisplayCards" :key="carte.id">
+          <img
+            :src="`/NikocardZ/cards/${carte.name}.png`"
+            class="full-size-image"
+            @click="toggleFullScreen($event)"
+          />
+          <q-tooltip
+            class="custom-tooltip"
+            anchor="top middle"
+            self="center middle"
+          >
+            {{ carte.nb }}
+          </q-tooltip>
+        </q-col>
       </q-page>
     </q-page-container>
   </q-layout>
@@ -50,27 +42,64 @@
 }
 
 .full-size-image {
-  width: 25%; /* Les images rempliront la largeur de la colonne */
+  width: 14%; /* Les images rempliront la largeur de la colonne */
   height: auto; /* Pour garder les proportions de l'image */
   max-height: 80vh; /* Empêche l'image de dépasser la hauteur de l'écran */
 }
 
+.clickable-image {
+  cursor: pointer;
+  width: 100%; /* Adjust this to fit your layout */
+}
+
 .custom-tooltip {
-  font-size: 1.9em; /* Augmenter la taille du texte */
-  padding: 25px; /* Augmenter le padding pour un plus grand tooltip */
+  font-size: 1.7em; /* Augmenter la taille du texte */
+  padding: 18px; /* Augmenter le padding pour un plus grand tooltip */
 }
 </style>
 <script setup lang="ts">
-import { ref, computed, watch } from 'vue';
+import { ref, computed, watch, onMounted } from 'vue';
 
 const collections = ref([
-  { userId: 'user1', nom: 'A', cartes: [1, 13, 13, 12] },
-  { userId: 'user1', nom: 'Alice2', cartes: [13] },
-  { userId: 'user2', nom: 'Bob', cartes: [2, 3, 7, 12, 15] },
+  {
+    nom: 'personne',
+    cartes: [1],
+    nb: [1],
+  },
 ]);
 
-const searchTerm = ref('');
+interface CardData {
+  carte: number[];
+  nb: number[];
+}
 
+interface UserCards {
+  [username: string]: CardData;
+}
+
+// Fonction pour charger les données JSON -----------------------------------------------------------
+async function loadData() {
+  try {
+    const response = await fetch('/Python/dist/users_cards.json');
+    if (!response.ok) throw new Error('Failed to fetch data');
+    const jsonData: UserCards = await response.json();
+    transformData(jsonData);
+  } catch (error) {
+    console.error('Error fetching JSON data:', error);
+  }
+}
+function transformData(data: UserCards) {
+  const transformed = Object.entries(data).map(([username, { carte, nb }]) => ({
+    nom: username,
+    cartes: carte,
+    nb: nb,
+  }));
+  collections.value = transformed;
+}
+onMounted(loadData);
+// Fonction pour charger les données JSON -----------------------------------------------------------
+
+const searchTerm = ref('');
 // Computed property pour filtrer les collections
 const collectionsFiltrees = computed(() => {
   if (!searchTerm.value) {
@@ -82,62 +111,139 @@ const collectionsFiltrees = computed(() => {
   );
 });
 
-// Définir les cartes de base
-const cartes = ref(
-  Array.from({ length: 45 }, (_, i) => ({
-    id: i + 1,
-    possedee: false,
-    nb: 0,
-  }))
-);
-
-// Méthode pour obtenir le chemin de l'image inconnue
-function getImageInconnuePath(id: number) {
-  const nameTemp = '/NikocardZ/cards/cardzinconnu';
+function getCards(id: number) {
+  //const nameTemp = '/NikocardZ/cards/cardzinconnu';
   //const nameTemp = '/cards/cardzinconnu';
-  // rare 27
-  if (id == 28 || id == 31 || id == 34 || id == 37 || id == 40)
-    return nameTemp + '3.png';
-  if (id == 29 || id == 32 || id == 35 || id == 38 || id == 41)
-    return nameTemp + '4.png';
-  if (id == 30 || id == 33 || id == 36 || id == 39 || id == 42)
-    return nameTemp + '5.png';
-
-  // Legendaire 43
-  if (id >= 43) return nameTemp + `${id - 37}.png`;
-
-  // commune
-  if ((id + 1) % 3 == 0) return nameTemp + '1.png';
-  if (id % 3 == 0) return nameTemp + '2.png';
-  return nameTemp + '.png';
+  if (id >= 16) return 7; // legendaire
+  if (id >= 11) return 4; // rare
+  return 1;
 }
+
+const DisplayCards = ref([
+  {
+    id: Number([]),
+    name: String([]),
+    nb: Number([]),
+  },
+]);
 
 watch(
   collectionsFiltrees,
   (nouvellesCollections) => {
-    // Réinitialiser les états de toutes les cartes
-    cartes.value.forEach((carte) => {
-      carte.possedee = false;
-      carte.nb = 0; // Réinitialiser le nombre de cartes possédées
-    });
-
-    // Si une collection est trouvée, mettre à jour les cartes possédées et leur quantité
+    DisplayCards.value = [];
     if (nouvellesCollections.length > 0) {
       const collectionTrouvee = nouvellesCollections[0];
+      let j = 0;
+      for (let i = 1; i <= 16; i++) {
+        let idCarteInconnu = getCards(i);
+        let idCarteInconnuHolo = Number(idCarteInconnu) + 1;
+        let idCarteInconnuShiny = Number(idCarteInconnu) + 2;
 
-      collectionTrouvee.cartes.forEach((idCarte) => {
-        // Trouver et mettre à jour la carte correspondante
-        const carte = cartes.value.find((carte) => carte.id === idCarte);
-        if (carte) {
-          carte.possedee = true;
-          // Supposons que chaque ID de carte dans la collection représente une carte possédée
-          carte.nb += 1;
+        if (collectionTrouvee.cartes.includes(i)) {
+          // Carte commune
+          DisplayCards.value.push({
+            id: i,
+            name: String(i),
+            nb: collectionTrouvee.nb[j],
+          });
+
+          // Carte Holographique
+          if (collectionTrouvee.nb[j] >= 5) {
+            // oui
+            DisplayCards.value.push({
+              id: i,
+              name: String(i) + 'h',
+              nb: Math.floor(collectionTrouvee.nb[j] / 5),
+            });
+          } else {
+            // non
+            DisplayCards.value.push({
+              id: i,
+              name: 'cache' + idCarteInconnuHolo,
+              nb: collectionTrouvee.nb[j],
+            });
+          }
+
+          j++;
+          // Pas de carte Commune
+        } else {
+          DisplayCards.value.push({
+            id: i,
+            name: 'cache' + idCarteInconnu,
+            nb: 0,
+          });
+          DisplayCards.value.push({
+            id: i,
+            name: 'cache' + idCarteInconnuHolo,
+            nb: 0,
+          });
         }
-      });
+
+        // Carte Shiny
+        if (collectionTrouvee.cartes.includes(i + 16)) {
+          // oui
+          DisplayCards.value.push({
+            id: i,
+            name: String(i) + 's',
+            nb: Math.floor(collectionTrouvee.nb[j] / 5),
+          });
+        } else {
+          // non
+          DisplayCards.value.push({
+            id: i,
+            name: 'cache' + idCarteInconnuShiny,
+            nb: 0,
+          });
+        }
+      }
+    } else {
+      setDefaultDisplayCards();
     }
   },
   { immediate: true }
 );
+
+setDefaultDisplayCards();
+function setDefaultDisplayCards() {
+  DisplayCards.value = [];
+  for (let i = 1; i < 17; i++) {
+    let idCarteInconnu = getCards(i);
+    let idCarteInconnuHolo = Number(idCarteInconnu) + 1;
+    let idCarteInconnuShiny = Number(idCarteInconnu) + 2;
+
+    DisplayCards.value.push({
+      id: i,
+      name: 'cache' + idCarteInconnu,
+      nb: 0,
+    });
+    DisplayCards.value.push({
+      id: i,
+      name: 'cache' + idCarteInconnuHolo,
+      nb: 0,
+    });
+    DisplayCards.value.push({
+      id: i,
+      name: 'cache' + idCarteInconnuShiny,
+      nb: 0,
+    });
+  }
+}
+
+async function toggleFullScreen(event: MouseEvent) {
+  const imgElement = event.target as HTMLImageElement; // Cast to HTMLImageElement
+  if (!document.fullscreenElement) {
+    try {
+      imgElement.style.background = 'white'; // Ajoute un fond blanc (ou tout autre style)
+      await imgElement.requestFullscreen();
+    } catch (error) {
+      console.error('Error attempting to enable full-screen mode:', error);
+    }
+  } else {
+    if (document.exitFullscreen) {
+      await document.exitFullscreen();
+    }
+  }
+}
 
 defineOptions({
   name: 'MainLayout',
