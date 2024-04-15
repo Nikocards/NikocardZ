@@ -85,7 +85,7 @@ interface UserCards {
 // Fonction pour charger les données JSON -----------------------------------------------------------
 async function loadData() {
   try {
-    const response = await fetch('/NikocardZ/Python/dist/users_cards.json');
+    const response = await fetch('/NikocardZ/users_cards.json');
     //:src="`/NikocardZ/cards/${carte.name}.png`"
     //:src="`/cards/${carte.name}.png`"
     if (!response.ok) throw new Error('Failed to fetch data');
