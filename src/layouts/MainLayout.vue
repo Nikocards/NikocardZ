@@ -167,7 +167,7 @@ watch(
             DisplayCards.value.push({
               id: i,
               name: 'cache' + idCarteInconnuHolo,
-              nb: collectionTrouvee.nb[j],
+              nb: 0,
             });
           }
 
