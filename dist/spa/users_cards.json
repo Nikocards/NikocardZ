@@ -5,10 +5,10 @@
   },
   "NikoballZ": {
     "carte": [1],
-    "nb": [9]
+    "nb": [4]
   },
   "undefined": {
     "carte": [1, 1000],
-    "nb": [1, 2]
+    "nb": [2, 4]
   }
 }

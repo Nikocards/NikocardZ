@@ -187,12 +187,22 @@ module.exports = configure(function (/* ctx */) {
       builder: {
         // https://www.electron.build/configuration/configuration
         // Assurez-vous que webpack incorpore des hashes de contenu dans les noms de fichiers
+        scopeHoisting: true,
+        vueRouterMode: 'history', // available values: 'hash', 'history'
+
+        // Configurations for file naming
         filenames: {
-          // Configuration pour ajouter des hashes aux fichiers js et css
-          js: 'js/[name].[hash].js',
-          css: 'css/[name].[hash].css',
-          // Ajoutez des lignes similaires pour d'autres types de fichiers si nécessaire
+          app: ({ isDev }) => (isDev ? '[name].js' : '[name].[contenthash].js'),
+          chunk: ({ isDev }) =>
+            isDev ? '[name].js' : '[name].[contenthash].js',
+          css: ({ isDev }) =>
+            isDev ? '[name].css' : '[name].[contenthash].css',
+          img: ({ isDev }) =>
+            isDev ? '[path][name].[ext]' : 'img/[name].[contenthash:8].[ext]',
+          font: ({ isDev }) =>
+            isDev ? '[path][name].[ext]' : 'fonts/[name].[contenthash:8].[ext]',
         },
+
         appId: 'pack',
       },
     },
