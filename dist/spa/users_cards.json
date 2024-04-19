@@ -4,8 +4,8 @@
     "nb": [1]
   },
   "NikoballZ": {
-    "carte": [1],
-    "nb": [4]
+    "carte": [1, 2],
+    "nb": [4, 6]
   },
   "undefined": {
     "carte": [1, 1000],
