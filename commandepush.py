@@ -26,7 +26,7 @@ def main():
 
     # Commit des modifications
     print("Committing changes...")
-    run_command('git commit -m "commit"')
+    run_command('git commit -m "last"')
 
     # Pousser les changements sur le dépôt distant
     print("Pushing changes to remote...")
