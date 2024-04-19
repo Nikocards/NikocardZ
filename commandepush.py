@@ -1,36 +1,34 @@
 import subprocess
 
-import subprocess
-
 def run_command(command):
-    """Exécute une commande système et affiche la sortie."""
+    """Exécute une commande système et gère correctement la sortie."""
     try:
-        result = subprocess.run(command, shell=True, check=True, text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
-        print("Output:", result.stdout)
-        print("Error:", result.stderr)
+        process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, encoding='utf-8')
+        # Attendre que la commande se termine
+        stdout, stderr = process.communicate()
+
+        if process.returncode != 0:
+            print(f"Error: {stderr}")
+            raise subprocess.CalledProcessError(process.returncode, command, output=stdout, stderr=stderr)
+        else:
+            print("Output:", stdout)
+            print("Error:", stderr)
     except subprocess.CalledProcessError as e:
         print(f"Error executing {command}: {e}")
-    except UnicodeDecodeError as e:
-        print(f"Unicode decode error: {e}")
-
-
+    except Exception as e:
+        print(f"Other error: {e}")
 
 def main():
-    # Build du projet Quasar
-    print("Building Quasar project...")
-    run_command("quasar build")
-
-    # Ajouter tous les fichiers modifiés au commit
-    print("Adding files to git...")
-    run_command("git add *")
-
-    # Commit des modifications
-    print("Committing changes...")
-    run_command('git commit -m "last"')
-
-    # Pousser les changements sur le dépôt distant
-    print("Pushing changes to remote...")
-    run_command("git push")
+    # Liste des commandes à exécuter
+    commands = [
+        "quasar build",
+        "git add *",
+        'git commit -m "test"',
+        "git push"
+    ]
+    for cmd in commands:
+        print(f"Executing: {cmd}")
+        run_command(cmd)
 
 if __name__ == "__main__":
     main()
