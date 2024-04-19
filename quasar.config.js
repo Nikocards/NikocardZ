@@ -186,7 +186,13 @@ module.exports = configure(function (/* ctx */) {
 
       builder: {
         // https://www.electron.build/configuration/configuration
-
+        // Assurez-vous que webpack incorpore des hashes de contenu dans les noms de fichiers
+        filenames: {
+          // Configuration pour ajouter des hashes aux fichiers js et css
+          js: 'js/[name].[hash].js',
+          css: 'css/[name].[hash].css',
+          // Ajoutez des lignes similaires pour d'autres types de fichiers si nécessaire
+        },
         appId: 'pack',
       },
     },
