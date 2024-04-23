@@ -1,28 +1,30 @@
 {
-    "User1": {
-        "carte": [
-            1
-        ],
-        "nb": [
-            1
-        ]
-    },
-    "NikoballZ": {
-        "carte": [
-            1
-        ],
-        "nb": [
-            1
-        ]
-    },
-    "undefined": {
-        "carte": [
-            1,
-            1000
-        ],
-        "nb": [
-            5,
-            10
-        ]
-    }
+  "User1": {
+    "carte": [1],
+    "nb": [1]
+  },
+  "NikoballZ": {
+    "carte": [1],
+    "nb": [1]
+  },
+  "undefined": {
+    "carte": [1, 1000],
+    "nb": [5, 10]
+  },
+  "calietoxique": {
+    "carte": [1, 1000],
+    "nb": [1, 2]
+  },
+  "getkantoine": {
+    "carte": [1, 1000],
+    "nb": [1, 2]
+  },
+  "klaurofeel": {
+    "carte": [1, 1000],
+    "nb": [1, 2]
+  },
+  "chanmaderasio": {
+    "carte": [1, 1000],
+    "nb": [1, 2]
+  }
 }
