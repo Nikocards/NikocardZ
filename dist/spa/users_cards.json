@@ -796,5 +796,17 @@
             1,
             1
         ]
+    },
+    "djyoshi_lapetitepatate": {
+        "carte": [
+            2,
+            3,
+            9
+        ],
+        "nb": [
+            1,
+            1,
+            1
+        ]
     }
 }
