@@ -36,7 +36,7 @@ def read_data(filename):
             parts = line.strip().split('=')
             if parts and len(parts) == 2:
                 # Handle user name with potential '@' prefix
-                user = parts[0].strip().lstrip('@"')
+                user = parts[0].strip().lstrip('@"').lower()
                 cards = parts[1].strip().strip('"')
                 card_numbers = [int(num) for num in cards.split() if num.isdigit()]
                 if user not in data:
