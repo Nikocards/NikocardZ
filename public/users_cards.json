@@ -1,26 +1,80 @@
 {
-  "undefined": {
-    "carte": [1],
-    "nb": [6]
-  },
-  "calietoxique": {
-    "carte": [1, 1000],
-    "nb": [1, 2]
-  },
-  "getkantoine": {
-    "carte": [1, 1000],
-    "nb": [1, 2]
-  },
-  "klaurofeel": {
-    "carte": [1, 1000],
-    "nb": [1, 2]
-  },
-  "chanmaderasio": {
-    "carte": [1, 1000],
-    "nb": [1, 2]
-  },
-  "nikoballz": {
-    "carte": [1],
-    "nb": [2]
-  }
+    "undefined": {
+        "carte": [
+            1
+        ],
+        "nb": [
+            6
+        ]
+    },
+    "calietoxique": {
+        "carte": [
+            1,
+            1000
+        ],
+        "nb": [
+            1,
+            2
+        ]
+    },
+    "getkantoine": {
+        "carte": [
+            1,
+            1000
+        ],
+        "nb": [
+            1,
+            2
+        ]
+    },
+    "klaurofeel": {
+        "carte": [
+            1,
+            1000
+        ],
+        "nb": [
+            2,
+            4
+        ]
+    },
+    "chanmaderasio": {
+        "carte": [
+            1,
+            1000
+        ],
+        "nb": [
+            1,
+            2
+        ]
+    },
+    "nikoballz": {
+        "carte": [
+            1
+        ],
+        "nb": [
+            2
+        ]
+    },
+    "ilgon_": {
+        "carte": [
+            1,
+            1000
+        ],
+        "nb": [
+            1,
+            2
+        ]
+    },
+    "ellanatv": {
+        "carte": [
+            6,
+            7,
+            9
+        ],
+        "nb": [
+            1,
+            1,
+            1
+        ]
+    }
 }
