@@ -1,0 +1,260 @@
+
+body {
+	margin: 0;
+	font-family: "MedievalSharp", cursive;
+	font-weight: 400;
+	font-style: normal;
+	background: #333;
+}
+
+main {
+	width: 100%;
+	overflow: hidden;
+}
+
+select, input {
+    color: #fff;
+    background: #333;
+    border: solid 1px #000;
+    font-size: 16px;
+    font-family: serif;
+    padding: 4px;
+	border-radius: 4px;
+    flex: 1;
+}
+
+/* Styles pour le header */
+header {
+    background-color: #292222;
+    color: #fff8d5;
+    padding: 20px;
+    margin: 0 0 20px 0;
+    border-bottom: solid 1px #000;
+    position: sticky;
+    top: 0;
+}
+
+header h1 {
+    font-size: 36px;
+    margin: 0; /* Supprimer les marges par défaut */
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 4px;
+    flex-wrap: wrap;
+}
+
+header nav div {
+	display: flex;
+    align-items: center;
+}
+
+@media (max-width: 660px) {
+	header nav div {
+		margin: 4px 0;
+		width: 100%;
+	}
+	header h1 {
+		font-size: 28px;
+	}
+	header {
+		padding: 12px;
+	}
+}
+
+header label, header input, header button, header select {
+    margin-right: 10px; /* Espacement entre les éléments de la barre de navigation */
+}
+
+header button {
+    background-color: #333;
+    color: #fff;
+    border: solid 1px #000;
+    padding: 4px;
+    cursor: pointer;
+	font-family: "MedievalSharp", cursive;
+	display: flex;
+	border-radius: 4px;
+}
+
+header button:hover {
+    background-color: #666;
+}
+
+header input:focus:valid {
+	outline-color: #2a2;
+	border-color: #2a2;
+}
+header input:focus:invalid {
+	outline-color: #a22;
+	border-color: #a22;
+}
+
+/* Styles pour le conteneur de cartes */
+#card-container {
+	display: flex;
+    flex-direction: column;
+}
+.album-page-container {
+	display: flex;
+    justify-content: center;
+}
+
+/* Styles pour les pages d'album */
+.album-page {
+	display: none;
+	align-items: flex-start;
+	background-color: #eae3ce;
+	border: solid 1px #888;
+	padding: 0.5vh 3vh;
+    flex-direction: column;
+}
+
+.album-page.visible {
+	display: flex;
+}
+.album-page.visible.next-visible + .album-page {
+	display: flex;
+}
+
+.album-page-grid {
+	display: grid;
+	grid-template-columns: auto auto auto;
+	gap: 2vh;
+    width: 47.5vh;
+    height: 66vh;
+}
+.album-page-head {
+    width: 100%;
+    text-align: center;
+}
+.album-page-head::before,
+.album-page-head::after {
+    content: '~~';
+    margin: 0 10px;
+}
+.album-page-footer {
+    width: 100%;
+    text-align: right;
+}
+.album-page .card {
+	width: 100%;
+	max-height: 20vh;
+    max-width: 14.5vh;
+	transition: 0.5s;
+    position: relative;
+}
+
+.album-page img {
+	width: 100%;
+	height: auto;
+	transition: 0s;
+	background-image: url("fond4.jpg");
+	background-size: 18vh;
+}
+
+
+.album-page .card.locked{
+    filter: grayscale(0.6);
+    opacity: 0.8;
+}
+.album-page .card.locked:hover{
+    filter: grayscale(0);
+    opacity: 1;
+}
+
+.album-page .card.unlocked:hover {
+    transform: scale(1.2);
+}
+
+.album-button-container {
+	display: flex;
+}
+
+.album-button-container button {
+	border: none;
+	padding: 12px;
+	flex: 1;
+	background: none;
+	color: #fff8d5;
+	font-size: 16px;
+	height: 48px;
+	font-family: "MedievalSharp", cursive;
+}
+
+.album-button-container button:hover {
+	border: none;
+	color: #fff;
+    font-weight: 900;
+}
+
+.album-button-container button:first-child::before, .album-button-container button:last-child::after {
+	content: " ";
+	display: inline-block;
+	width: 38px;
+	height: 16px;
+	background-image: url("fleche.svg");
+	margin: 0 8px;
+}
+
+.album-button-container button:first-child::before {
+	transform: scalex(-1);
+}
+
+.max {
+	background-image: url("fond.png");
+	background-size: 64px;
+}
+
+#card-container h2, #card-container>img {
+	align-self: center;
+	color: #fff;
+	font-size: 24px;
+}
+
+.holo.unlocked::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(hologra4.png);
+    opacity: 0.6;
+    background-size: 160vh;
+    background-position: left;
+    background-attachment: fixed;
+    animation: fade-in-out 40s infinite;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes fade-in-out {
+    0% { background-position-x: left; }
+    25% { background-position-y: top; }
+    50% { background-position-x: right; }
+    75% { background-position-y: bottom; }
+    100% { background-position-x: left; }
+}
+
+/* Affichage spécial */
+
+#page-6 .album-page-grid {
+    grid-template-columns: auto auto;
+    width: 31vh;
+    margin: 0 8.25vh;
+    justify-items: center;
+}
+
+#card-48 {
+    max-height: 40vh;
+    max-width: 29vh;
+    display: unset;
+    grid-column-end: span 2;
+    grid-row-end: span 2;
+}
+#card-48.unlocked:hover {
+    transform: scale(1.1);
+}
