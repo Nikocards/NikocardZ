@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
 	<link href="public/style.css" rel="stylesheet">
-    <title>Page de collection de cartes</title>
-    <script defer src="public/script.js"></script>
+	<title>Page de collection de cartes</title>
+	<script defer src="public/script.js"></script>
+	<link rel="preload" href="public/cards/cache1.png" as="image">
+	<link rel="preload" href="public/cards/cache2.png" as="image">
+	<link rel="preload" href="public/cards/cache3.png" as="image">
+	<link rel="preload" href="public/cards/cache4.png" as="image">
+	<link rel="preload" href="public/cards/cache5.png" as="image">
+	<link rel="preload" href="public/cards/cache6.png" as="image">
+	<link rel="preload" href="public/cards/cache7.png" as="image">
+	<link rel="preload" href="public/cards/cache8.png" as="image">
+	<link rel="preload" href="public/cards/cache9.png" as="image">
 </head>
 <body>
-
-    <header>
+	<header>
 		<h1>NikoCardZ</h1>
 		<nav>
 			<div>
@@ -24,7 +30,10 @@
 			</div>
 			<div>
 				<label for="collection-name">Collection de :</label>
-				<input type="text" id="collection-name" minlength="1">
+				<div>
+					<input type="text" id="collection-name">
+					<div id="dropDown"></div>
+				</div>
 				<button id="refresh-page">
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="20" height="20" >
 						<path d="M56 34A1 1 90 018 34a24 24 90 0147-7m3-19-2 19-18-6" stroke="#fff" stroke-width="6" fill="none"/>
@@ -33,8 +42,8 @@
 			</div>
 		</nav>
 	</header>
-    <main>
+	<main>
 		<div id="card-container"></div>
-    </main>
+	</main>
 </body>
 </html>

@@ -21,6 +21,7 @@ select, input {
     padding: 4px;
 	border-radius: 4px;
     flex: 1;
+	wifth: 160px;
 }
 
 /* Styles pour le header */
@@ -32,6 +33,7 @@ header {
     border-bottom: solid 1px #000;
     position: sticky;
     top: 0;
+	z-index: 20;
 }
 
 header h1 {
@@ -63,6 +65,9 @@ header nav div {
 	header {
 		padding: 12px;
 	}
+	select, input {
+		width: unset;
+	}
 }
 
 header label, header input, header button, header select {
@@ -84,13 +89,45 @@ header button:hover {
     background-color: #666;
 }
 
-header input:focus:valid {
-	outline-color: #2a2;
-	border-color: #2a2;
+/* DopDown */
+
+#dropDown {
+    position: fixed;
+    background-color: #333;
+    padding: 6px;
+    width: 246px;
+    display: none;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    max-height: 180px;
+    margin-top: 30px;
+    border: solid 1px #000;
+    border-radius: 4px;
+    align-self: flex-start;
+    margin-left: -36px;
+	z-index: 25;
+    box-shadow: 0 4px 8px #000;
 }
-header input:focus:invalid {
-	outline-color: #a22;
-	border-color: #a22;
+#dropDown.visible {
+    display: flex;
+}
+#dropDown p {
+    display: flex;
+	flex: 1;
+	margin: 0;
+	padding: 1px 8px;
+	width: 100%;
+    align-items: center;
+}
+#dropDown p:hover {
+	background: #666;
+	font-weight: bold;
+}
+#dropDown img.avatar {
+    margin-right: 8px;
+	width: 28px;
+	height: 28px;
 }
 
 /* Styles pour le conteneur de cartes */
@@ -146,6 +183,9 @@ header input:focus:invalid {
     max-width: 14.5vh;
 	transition: 0.5s;
     position: relative;
+    border-radius: 6px;
+    overflow: hidden;
+	z-index: 10;
 }
 
 .album-page img {
@@ -168,6 +208,7 @@ header input:focus:invalid {
 
 .album-page .card.unlocked:hover {
     transform: scale(1.2);
+	z-index: 11;
 }
 
 .album-button-container {
@@ -213,6 +254,12 @@ header input:focus:invalid {
 	align-self: center;
 	color: #fff;
 	font-size: 24px;
+    text-align: center;
+    margin: 7vh 16px;
+}
+
+.holo.unlocked {
+    box-shadow: 1px 1px 8px #ff8, -1px -1px 8px #faf;
 }
 
 .holo.unlocked::before {
@@ -231,12 +278,52 @@ header input:focus:invalid {
     animation-timing-function: ease-in-out;
 }
 
+.shiny:hover img {
+	filter: saturate(1.5);
+}
+
+.progress {
+    display: block;
+    background: #222;
+    margin: 16px auto;
+    border: solid 1px #000;
+    border-radius: 4px;
+	overflow: hidden;
+}
+.progress>div {
+	background-image: url("progress.svg");
+	background-color: #f55;
+	background-size: 24px 36px;
+	background-position-x: 0;
+    animation: progress 2s infinite;
+    animation-timing-function: linear;
+	height: 100%;
+}
+
+#mainLoad {
+    width: 50%;
+    height: 32px;
+}
+
 @keyframes fade-in-out {
     0% { background-position-x: left; }
     25% { background-position-y: top; }
     50% { background-position-x: right; }
     75% { background-position-y: bottom; }
     100% { background-position-x: left; }
+}
+
+@keyframes progress {
+    0% { background-position-x: 0px; }
+    100% { background-position-x: 24px; }
+}
+
+@media (max-width: 660px) {
+	.album-page-grid {
+		gap: 1vh;
+		width: 45.5vh;
+		height: 64vh;
+	}
 }
 
 /* Affichage spécial */
@@ -248,13 +335,23 @@ header input:focus:invalid {
     justify-items: center;
 }
 
-#card-48 {
+.album-page #card-48 {
     max-height: 40vh;
     max-width: 29vh;
     display: unset;
     grid-column-end: span 2;
     grid-row-end: span 2;
 }
-#card-48.unlocked:hover {
+.album-page #card-48.unlocked:hover {
     transform: scale(1.1);
+}
+
+.album-page #card-7, .album-page #card-8, .album-page #card-9 {
+	margin: 0 -1vh 0 1vh;
+}
+
+@media (min-width: 661px) {
+	.album-page #card-10, .album-page #card-11, .album-page #card-12 {
+		margin: 0 1vh 0 -1vh;
+	}
 }
