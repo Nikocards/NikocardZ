@@ -50,9 +50,10 @@ async function fetchUserCards() {
 				}
 				collectionsData[user].cards = {}
 				for(i in responseData[user].carte) {
-					const card = responseData[user].carte[i];
+					const card = Card2Id(responseData[user].carte[i]);
 					if(card == 1000) continue;
-					collectionsData[user].cards[Card2Id(card)] = responseData[user].nb[i];
+					collectionsData[user].cards[card] = responseData[user].nb[i];
+					if(card%3) collectionsData[user].cards[card+1] = Math.floor(responseData[user].nb[i]/5);
 				}
 			}
 			if(newUsers.length) {
@@ -105,6 +106,11 @@ async function fetchUserCards() {
 		} catch (error) {
 			console.error('Error fetching data from Twitch API:', error);
 		}
+	}
+
+	function Card2Id(card) {
+		if(card == 1000) return 1000
+		return ((card - 1) % 16) * 3 + (card > 16 ? 3 : 1)
 	}
 }
 
@@ -160,6 +166,7 @@ function displayAlbumCards(collector) {
 
 			cardsOnPage.forEach(cardNumber => {
 				const cardElement = document.createElement('div');
+				const cardImgContainer = document.createElement('div');
 				const cardImage = document.createElement('img');
 
 				cardElement.classList.add('card');
@@ -169,10 +176,10 @@ function displayAlbumCards(collector) {
 				} else if(cardNumber % 3 == 0) {
 					cardElement.classList.add('shiny');
 				}
-				if(collection.cards[cardNumber] || false) {///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+				if(collection.cards[cardNumber] || true) {///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 					cardImage.src = `public/cards/${getVisible(cardNumber)}`;
 					cardElement.classList.add('unlocked');
-					cardImage.addEventListener('click', toogleFullscreen);
+					cardElement.addEventListener('click', toogleFullscreen);
 				} else {
 					cardImage.src = `public/cards/${getLocked(cardNumber)}`;
 					cardElement.classList.add('locked');
@@ -181,7 +188,8 @@ function displayAlbumCards(collector) {
 				cardImage.width = 290;
 				cardImage.height = 400;
 
-				cardElement.appendChild(cardImage);
+				cardElement.appendChild(cardImgContainer);
+				cardImgContainer.appendChild(cardImage);
 				pageGrid.appendChild(cardElement);
 			});
 
@@ -260,7 +268,9 @@ function displayAlbumCards(collector) {
 		if(document.fullscreenElement) {
 			document.exitFullscreen();
 		} else {
-			e.target.requestFullscreen();
+			let target = e.target;
+			while(target && !target.classList.contains("unlocked")) target = target.parentNode;
+			if(target) target.requestFullscreen();
 		}
 	}
 }
@@ -307,15 +317,9 @@ function initInput() {
 	})
 
 	input.addEventListener('focusout', (e) => {
-		console.log(e.relatedTarget)
-		//~ if(e.relatedTarget && (e.relatedTarget.dataset.collector || e.relatedTarget.parentNode.dataset.collector)) {
-			//~ // Clic sur l'une des suggestions
-			//~ if(collector != (e.relatedTarget.dataset.collector || e.relatedTarget.parentNode.dataset.collector)) {
-				//~ e.target.value = (e.relatedTarget.innerText || e.relatedTarget.parentNode.innerText);
-				//~ collector = (e.relatedTarget.dataset.collector || e.relatedTarget.parentNode.dataset.collector);
-				//~ displayAlbumCards(collector);
-			//~ }
-		//~ }
+		if(collector.startsWith(input.value.toLowerCase())) {
+			input.value = collectionsData[collector].pseudo;
+		}
 		setTimeout(() => dropDown.classList.remove("visible"), 250)
 	})
 
@@ -349,15 +353,3 @@ document.addEventListener('DOMContentLoaded', function () {
 	initInput();
 });
 
-function Card2Id(card) {
-	//~ const m = card.toString().match(/([0-9]+)([hs]?)/)
-	//~ if(!m || m.length<2 || m[1] == '1000') return 1000
-	//~ let id = m[1]*3;
-	//~ if(m.length == 2 || m[2] == "") {
-		//~ id -= 2;
-	//~ } else if(m[2] == "h") {
-		//~ id -= 1;
-	//~ }
-	//~ return id
-	return ((card - 1) % 16) * 3 + (card > 16 ? 3 : 1)
-}
