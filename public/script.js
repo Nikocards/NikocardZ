@@ -176,7 +176,7 @@ function displayAlbumCards(collector) {
 				} else if(cardNumber % 3 == 0) {
 					cardElement.classList.add('shiny');
 				}
-				if(collection.cards[cardNumber] || true) {///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+				if(collection.cards[cardNumber] || cardNumber < 10) {///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 					cardImage.src = `public/cards/${getVisible(cardNumber)}`;
 					cardElement.classList.add('unlocked');
 					cardElement.addEventListener('click', toogleFullscreen);
@@ -255,7 +255,7 @@ function displayAlbumCards(collector) {
 	}
 
 	function getVisible(id) {
-		return `${Math.floor((id+2)/3)}${id%3==0?"s":""}.png`
+		return `${Math.floor((id+2)/3)}${id%3==0?"s":(id%3==1?"":"h")}.png`
 	}
 
 	function getLocked(id) {
