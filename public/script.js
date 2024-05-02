@@ -116,17 +116,107 @@ async function fetchUserCards() {
 
 function displayAlbumCards(collector) {
 	const cardContainer = document.getElementById('card-container');
+	const selectDisplay = document.getElementById('style-select');
 	cardContainer.innerHTML = ''; // Effacer le contenu précédent du conteneur
 
 	const collection = collectionsData.hasOwnProperty(collector) ? collectionsData[collector] : {pseudo: collector, cards: {}};
 
 	console.log(collection);
 
-	displayAlbum(collection)
-
-	function displayStats() {
-
+	switch(selectDisplay.value) {
+		case 'debloquees':
+			displayStats(collection)
+			break;
+		default:
+			displayAlbum(collection)
 	}
+
+	function displayStats(collection) {
+		// Statistiques initiales par rareté
+		const totalCards = { Commune: 30, Rare: 15, Legendaire: 3, Normale: 16, Holographique: 16, "E-X Card": 16 }; // Total par type
+		const rarityStats = { Commune: 0, Rare: 0, Legendaire: 0 };
+		const variantStats = { Normale: 0, Holographique: 0, "E-X Card": 0 };
+		const uniqueStats = { Commune: 0, Rare: 0, Legendaire: 0, Normale: 0, Holographique: 0, "E-X Card": 0 };
+
+		let listContent = '<div class="cardList">';
+
+		// Calcul des statistiques
+		Object.entries(collection.cards).forEach(([cardId, quantity]) => {
+			if(quantity > 0) { // Ajoute l'id pour compter les uniques
+				const type = getType(cardId); // S'assurer que cardId est un nombre
+				const rarity = getRarity(type);
+				const variant = ["E-X Card", "Normale", "Holographique"][cardId%3];
+				const imagePath = `public/cards/${getVisible(cardId*1)}`;
+
+				rarityStats[rarity] += quantity;
+				variantStats[variant] += quantity;
+				listContent += `<div class="cardRender">
+					<div class="card unlocked${cardId%3==0?' ex':''}${cardId%3==2?' holo':''}">
+						<div><img src="${imagePath}" alt="Card ${cardId}" width="290" height="400"/></div>
+					</div>
+					<div class="cardInfo">
+						<h3>N°${cardId}</h3>
+						<p>${rarity}</p>
+						<h4>Variante</h4>
+						<p>${variant}</p>
+						<h4>Quantité</h4>
+						<p>x ${quantity}</p>
+					</div>
+				</div>`;
+				uniqueStats[rarity] ++;
+				uniqueStats[variant] ++;
+			}
+		});
+		listContent += '</div>';
+
+		// Construction des éléments HTML pour l'affichage des statistiques
+		let htmlContent = '<h2 class="stats">';
+		if(collection.avatar) {
+			htmlContent += `<img class="avatar" src=${JSON.stringify(collection.avatar.replace(/-28x28\./,'-50x50.'))} alt="${collection.pseudo}" onerror="this.style.visibility = 'hidden'" width="50" height="50"/>`;
+		}
+		htmlContent += `Collection de ${collection.pseudo}</h2><div class="stats"><table>`;
+		htmlContent += `<tr><th>Rareté</th><th>Collectées</th><th>Uniques</th></tr>`;
+
+		// Ajout des statistiques de rareté avec des barres de progression personnalisées
+		Object.keys(rarityStats).forEach(rarity => {
+			const total = totalCards[rarity];
+			const count = rarityStats[rarity];
+			const uniques = uniqueStats[rarity];
+			const progressPercent = (uniques / total * 100).toFixed(2); // Calcul du pourcentage
+
+			htmlContent += `<tr>
+				<td>${rarity}</td>
+				<td>${count}</td>
+				<td><p>${uniques}/${total}</p><div class="progress"><div style="width: ${progressPercent}%"></div></div></td>
+			</tr>`;
+		});
+
+		htmlContent += `</table><table><tr><th>Rareté</th><th>Collectées</th><th>Uniques</th></tr>`;
+
+		// Ajout des statistiques de rareté avec des barres de progression personnalisées
+		Object.keys(variantStats).forEach(variation => {
+			const total = totalCards[variation];
+			const count = variantStats[variation];
+			const uniques = uniqueStats[variation];
+			const progressPercent = (uniques / total * 100).toFixed(2); // Calcul du pourcentage
+
+			htmlContent += `<tr>
+				<td>${variation}</td>
+				<td>${count}</td>
+				<td><p>${uniques}/${total}</p><div class="progress"><div style="width: ${progressPercent}%"></div></div></td>
+			</tr>`;
+		});
+
+		htmlContent += '</table></div>';
+		htmlContent += listContent;
+
+		// Ajout du contenu HTML au container de cartes
+		cardContainer.innerHTML = htmlContent;
+		cardContainer.querySelectorAll('.card').forEach(cardElement => {
+			cardElement.addEventListener('click', toogleFullscreen);
+		})
+	}
+
 
 	function displayAlbum(collection) {
 		const pages = [
@@ -174,9 +264,9 @@ function displayAlbumCards(collector) {
 				if(cardNumber%3 == 2) {
 					cardElement.classList.add('holo');
 				} else if(cardNumber % 3 == 0) {
-					cardElement.classList.add('shiny');
+					cardElement.classList.add('ex');
 				}
-				if(collection.cards[cardNumber] || cardNumber < 10) {///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+				if(collection.cards[cardNumber]) {
 					cardImage.src = `public/cards/${getVisible(cardNumber)}`;
 					cardElement.classList.add('unlocked');
 					cardElement.addEventListener('click', toogleFullscreen);
@@ -258,10 +348,14 @@ function displayAlbumCards(collector) {
 		return `${Math.floor((id+2)/3)}${id%3==0?"s":(id%3==1?"":"h")}.png`
 	}
 
+	function getType(id) {
+		if(id < 31) return 1+(id-1)%3;
+		if(id < 46) return 4+(id-1)%3;
+		return 7+(id-1)%3;
+	}
+
 	function getLocked(id) {
-		if(id < 31) return `cache${1+(id-1)%3}.png`
-		if(id < 46) return `cache${4+(id-1)%3}.png`
-		return `cache${7+(id-1)%3}.png`
+		return `cache${getType(id)}.png`
 	}
 
 	function toogleFullscreen(e) {
@@ -273,12 +367,23 @@ function displayAlbumCards(collector) {
 			if(target) target.requestFullscreen();
 		}
 	}
+
+	function getRarity(typeId) {
+		if ([1, 2, 3].includes(typeId)) {
+			return 'Commune';
+		} else if ([4, 5, 6].includes(typeId)) {
+			return 'Rare';
+		} else {
+			return 'Legendaire';
+		}
+	}
 }
 
 function initInput() {
 	const input = document.getElementById('collection-name');
 	const dropDown = document.getElementById('dropDown');
 	const refresh = document.getElementById('refresh-page');
+	const selectDisplay = document.getElementById('style-select');
 
 	input.addEventListener('keyup', (e) => {
 		const start = e.target.value.toLowerCase();
@@ -334,13 +439,15 @@ function initInput() {
 		}
 	})
 
+	selectDisplay.addEventListener('change', () => {displayAlbumCards(collector)});
+
 	refresh.addEventListener('click', fetchUserCards);
 
 	function setDropDownContent(s) {
 		dropDown.innerHTML = "";
 		for(suggestion of s) {
 			const p = document.createElement("p");
-			p.innerHTML = `<img class="avatar" src=${JSON.stringify(suggestion.avatar)} alt="${suggestion.pseudo}" onerror="this.style.visibility = 'hidden'" /> ${suggestion.pseudo}`;
+			p.innerHTML = `<img class="avatar" src=${JSON.stringify(suggestion.avatar)} alt="${suggestion.pseudo}" onerror="this.style.visibility = 'hidden'" width="28" height="28"/> ${suggestion.pseudo}`;
 			p.dataset.collector = suggestion.id;
 			dropDown.appendChild(p);
 		}
