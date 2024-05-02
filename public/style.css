@@ -193,12 +193,12 @@ header button:hover {
     background-size: cover;
 }
 
-.album-page img {
+.album-page img, .card img {
 	width: 100%;
 	height: auto;
 	transition: 0s;
 	background-image: url("cards/back_.png");
-	background-size: 18vh;
+	background-size: cover;
 }
 
 
@@ -440,7 +440,7 @@ div.stats {
 	text-align: center;
 }
 .cardRender h4 {
-	margin: 4px;
+	margin: 12px 0 4px 0;
 	font-size: 20px;
 }
 .cardRender p {

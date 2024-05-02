@@ -8,7 +8,8 @@
 
 const clientId = 'kimne78kx3ncx6brgo4mv6wki5h1ko'; // s'te plait me kack pô :(
 let collectionsData = {}
-let collector = "nikoballz"
+//~ let collector = "nikoballz"
+let collector = ""
 const totalCards = 16 * 3; // Nombre total de cartes dans la collection
 
 async function fetchUserCards() {
@@ -20,7 +21,7 @@ async function fetchUserCards() {
 
 	try {
 		const prog = document.querySelector('#mainLoad>div');
-		const response = await fetch('https://raw.githubusercontent.com/Nikocards/NikocardZ/main/public/users_cards.json', {
+		const response = await fetch('https://raw.githubusercontent.com/Nikocards/NikocardZ/bdd/public/users_cards.json', {
 			cache: 'no-cache'
 		});
 		const responseData = await response.json();
