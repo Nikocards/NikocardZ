@@ -20,7 +20,9 @@ async function fetchUserCards() {
 
 	try {
 		const prog = document.querySelector('#mainLoad>div');
-		const response = await fetch('https://raw.githubusercontent.com/Nikocards/NikocardZ/main/public/users_cards.json');
+		const response = await fetch('https://raw.githubusercontent.com/Nikocards/NikocardZ/main/public/users_cards.json', {
+			cache: 'no-cache'
+		});
 		const responseData = await response.json();
 		delete responseData.undefined;
 		console.log('User Cards API Response:', response.status, responseData);

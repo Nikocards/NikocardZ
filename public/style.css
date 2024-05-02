@@ -189,6 +189,8 @@ header button:hover {
 	border-radius: 6px;
 	overflow: hidden;
 	z-index: 10;
+    background-image: url(cards/back_.png);
+    background-size: cover;
 }
 
 .album-page img {
@@ -387,7 +389,7 @@ div.stats {
 	border: solid 1px #000;
 	border-radius: 8px;
 	overflow: hidden;
-	margin: 12px;
+	margin: 8px;
 }
 .stats table .progress {
 	margin: 0 0 8px 0;
@@ -476,6 +478,7 @@ div.stats {
 	margin-top: calc(50vh - 69%);
 	width: 100%;
 	height: auto;
+    background: none;
 }
 
 /* Affichage spécial */
