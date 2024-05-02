@@ -1,0 +1,512 @@
+
+body {
+	margin: 0;
+	font-family: "MedievalSharp", cursive;
+	font-weight: 400;
+	font-style: normal;
+	background: #333;
+}
+
+main {
+	width: 100%;
+	overflow: hidden;
+}
+
+select, input {
+	color: #fff;
+	background: #333;
+	border: solid 1px #000;
+	font-size: 16px;
+	font-family: serif;
+	padding: 4px;
+	border-radius: 4px;
+	flex: 1;
+	wifth: 160px;
+}
+
+/* Styles pour le header */
+header {
+	background-color: #292222;
+	color: #fff8d5;
+	padding: 20px;
+	margin: 0 0 20px 0;
+	border-bottom: solid 1px #000;
+	position: sticky;
+	top: 0;
+	z-index: 20;
+}
+
+header h1 {
+	font-size: 36px;
+	margin: 0; /* Supprimer les marges par défaut */
+}
+
+header nav {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-top: 4px;
+	flex-wrap: wrap;
+}
+
+header nav div {
+	display: flex;
+	align-items: center;
+}
+
+@media (max-width: 660px) {
+	header nav div {
+		margin: 4px 0;
+		width: 100%;
+	}
+	header h1 {
+		font-size: 28px;
+	}
+	header {
+		padding: 12px;
+	}
+	select, input {
+		width: unset;
+	}
+	label {
+		width: 140px;
+	}
+}
+
+header label, header input, header button, header select {
+	margin-right: 10px; /* Espacement entre les éléments de la barre de navigation */
+}
+
+header button {
+	background-color: #333;
+	color: #fff;
+	border: solid 1px #000;
+	padding: 4px;
+	cursor: pointer;
+	font-family: "MedievalSharp", cursive;
+	display: flex;
+	border-radius: 4px;
+}
+
+header button:hover {
+	background-color: #666;
+}
+
+/* DopDown */
+
+#dropDown {
+	position: fixed;
+	background-color: #333;
+	padding: 6px;
+	width: 246px;
+	display: none;
+	flex-direction: column;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	max-height: 180px;
+	margin-top: 30px;
+	border: solid 1px #000;
+	border-radius: 4px;
+	align-self: flex-start;
+	margin-left: -36px;
+	z-index: 25;
+	box-shadow: 0 4px 8px #000;
+}
+#dropDown.visible {
+	display: flex;
+}
+#dropDown p {
+	display: flex;
+	flex: 1;
+	margin: 0;
+	padding: 1px 8px;
+	width: 100%;
+	align-items: center;
+}
+#dropDown p:hover {
+	background: #666;
+	font-weight: bold;
+}
+#dropDown img.avatar {
+	margin-right: 8px;
+	width: 28px;
+	height: 28px;
+}
+
+/* Styles pour le conteneur de cartes */
+#card-container {
+	display: flex;
+	flex-direction: column;
+}
+.album-page-container {
+	display: flex;
+	justify-content: center;
+}
+
+/* Styles pour les pages d'album */
+.album-page {
+	display: none;
+	align-items: flex-start;
+	background-color: #eae3ce;
+	border: solid 1px #888;
+	padding: 0.5vh 3vh;
+	flex-direction: column;
+}
+
+.album-page.visible {
+	display: flex;
+}
+.album-page.visible.next-visible + .album-page {
+	display: flex;
+}
+
+.album-page-grid {
+	display: grid;
+	grid-template-columns: auto auto auto;
+	gap: 2vh;
+	width: 47.5vh;
+	height: 66vh;
+}
+.album-page-head {
+	width: 100%;
+	text-align: center;
+}
+.album-page-head::before,
+.album-page-head::after {
+	content: '~~';
+	margin: 0 10px;
+}
+.album-page-footer {
+	width: 100%;
+	text-align: right;
+}
+.album-page .card {
+	width: 100%;
+	max-height: 20vh;
+	max-width: 14.5vh;
+	transition: 0.5s;
+	position: relative;
+	border-radius: 6px;
+	overflow: hidden;
+	z-index: 10;
+    background-image: url(cards/back_.png);
+    background-size: cover;
+}
+
+.album-page img, .card img {
+	width: 100%;
+	height: auto;
+	transition: 0s;
+	background-image: url("cards/back_.png");
+	background-size: cover;
+}
+
+
+.album-page .card.locked{
+	filter: grayscale(0.6);
+	opacity: 0.8;
+}
+.album-page .card.locked:hover{
+	filter: grayscale(0);
+	opacity: 1;
+}
+
+.album-page .card.unlocked:hover {
+	transform: scale(1.2);
+	z-index: 11;
+}
+
+.album-button-container {
+	display: flex;
+}
+
+.album-button-container button {
+	border: none;
+	padding: 12px;
+	flex: 1;
+	background: none;
+	color: #fff8d5;
+	font-size: 16px;
+	height: 48px;
+	font-family: "MedievalSharp", cursive;
+}
+
+.album-button-container button:hover {
+	border: none;
+	color: #fff;
+	font-weight: 900;
+}
+
+.album-button-container button:first-child::before, .album-button-container button:last-child::after {
+	content: " ";
+	display: inline-block;
+	width: 38px;
+	height: 16px;
+	background-image: url("fleche.svg");
+	margin: 0 8px;
+}
+
+.album-button-container button:first-child::before {
+	transform: scalex(-1);
+}
+
+.max {
+	background-image: url("fond.png");
+	background-size: 64px;
+}
+
+#card-container h2, #card-container>img {
+	align-self: center;
+	color: #fff8d5;
+	font-size: 24px;
+	text-align: center;
+	margin: 7vh 16px;
+}
+
+.holo.unlocked {
+	box-shadow: 1px 1px 8px #ff8, -1px -1px 8px #faf;
+}
+
+.holo.unlocked::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-image: url(hologra4.png);
+	opacity: 0.6;
+	background-size: 160vh;
+	background-position: left;
+	background-attachment: fixed;
+	animation: fade-in-out 40s infinite;
+	animation-timing-function: ease-in-out;
+	pointer-events: none;
+}
+
+.ex:hover img {
+	filter: saturate(1.5);
+}
+
+.progress {
+	display: block;
+	background: #222;
+	margin: 16px auto;
+	border: solid 1px #000;
+	border-radius: 4px;
+	overflow: hidden;
+}
+.progress>div {
+	background-image: url("progress.svg");
+	background-color: #f55;
+	background-size: 24px 36px;
+	background-position-x: 0;
+	animation: progress 2s infinite;
+	animation-timing-function: linear;
+	height: 100%;
+}
+
+#mainLoad {
+	width: 50%;
+	height: 32px;
+}
+
+@keyframes fade-in-out {
+	0% { background-position-x: left; }
+	25% { background-position-y: top; }
+	50% { background-position-x: right; }
+	75% { background-position-y: bottom; }
+	100% { background-position-x: left; }
+}
+
+@keyframes progress {
+	0% { background-position-x: 0px; }
+	100% { background-position-x: 24px; }
+}
+
+@media (max-width: 660px) {
+	.album-page-grid {
+		gap: 1vh;
+		width: 45.5vh;
+		height: 64vh;
+	}
+	#dropDown {
+		width: calc(100% - 194px);
+		max-height: 360px;
+		margin-left: 0px;
+		z-index: 25;
+	}
+	#dropDown p {
+		margin: 8px;
+		font-size: 18px;
+	}
+}
+
+/* Page stats */
+
+#card-container h2.stats {
+	margin: 4vh 0 16px 0;
+	font-size: 32px;
+	display: flex;
+	align-items: center;
+}
+
+#card-container h2.stats img {
+	width: 50px;
+	height: 50px;
+	margin: 0 16px;
+}
+
+div.stats {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 4vh;
+}
+
+.stats tbody, .stats td, .stats th {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	color: #fff;
+	justify-content: center;
+	font-size: 16px;
+}
+.stats tr {
+	min-height: 32px;
+	display: flex;
+	background: #444;
+	padding: 0 8px 0 4px;
+}
+.stats tr:nth-of-type(odd) {
+	background: #303030;
+}
+
+.stats table {
+	width: 40%;
+	min-width: 330px;
+	text-align: center;
+	display: flex;
+	border: solid 1px #000;
+	border-radius: 8px;
+	overflow: hidden;
+	margin: 8px;
+}
+.stats table .progress {
+	margin: 0 0 8px 0;
+	height: 6px;
+	width: 100%;
+}
+.stats table p {
+	margin: 0;
+}
+
+.cardList {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.cardList .cardRender {
+	width: calc(14.5vh + 150px);
+	background: #222;
+	padding: 8px;
+	border: solid 1px #000;
+	border-radius: 4px;
+	display: flex;
+	margin: 8px;
+	color: #fff8d5;
+}
+
+.cardRender .card {
+	height: 20vh;
+	width: 14.5vh;
+	position: relative;
+	border-radius: 6px;
+	overflow: hidden;
+	z-index: 10;
+	margin-right: 12px;
+}
+.cardRender .cardInfo {
+	flex: 1;
+}
+.cardRender .card img {
+	height: 20vh;
+	width: 14.5vh;
+}
+
+.cardRender h3 {
+	margin: 0;
+	font-size: 32px;
+	text-align: center;
+}
+.cardRender h4 {
+	margin: 12px 0 4px 0;
+	font-size: 20px;
+}
+.cardRender p {
+	margin: 4px;
+	font-size: 16px;
+}
+
+
+@media (max-width: 660px) {
+	div.stats {
+		flex-direction: column;
+		align-items: center;
+	}
+	.stats table {
+		width: 90%;
+	}
+}
+
+/* Full screen */
+
+.card:fullscreen {
+	background-image: url("fond4.jpg");
+	transition: 0s;
+	background-size: 18vh;
+}
+.card:fullscreen>div {
+	display: grid;
+	align-content: center;
+	justify-content: center;
+}
+
+.card:fullscreen img {
+	max-width: 100%;
+	max-height: 100vh;
+	margin-top: calc(50vh - 69%);
+	width: 100%;
+	height: auto;
+    background: none;
+}
+
+/* Affichage spécial */
+
+#page-6 .album-page-grid {
+	grid-template-columns: auto auto;
+	width: 31vh;
+	margin: 0 8.25vh;
+	justify-items: center;
+}
+
+.album-page #card-48 {
+	max-height: 40vh;
+	max-width: 29vh;
+	display: unset;
+	grid-column-end: span 2;
+	grid-row-end: span 2;
+}
+.album-page #card-48.unlocked:hover {
+	transform: scale(1.1);
+}
+
+.album-page #card-7, .album-page #card-8, .album-page #card-9 {
+	margin: 0 -1vh 0 1vh;
+}
+
+@media (min-width: 661px) {
+	.album-page #card-10, .album-page #card-11, .album-page #card-12 {
+		margin: 0 1vh 0 -1vh;
+	}
+}
