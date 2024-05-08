@@ -5,10 +5,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
 	<link href="public/style.css" rel="stylesheet">
-	<title>Page de collection de cartes</title>
+	<title>NikoCardZ - Regardez votre collection de cartes </title>
 	<script defer src="public/script.js"></script>
-	<link rel="preload" href="public/fond4.jpg" as="image">
-	<link rel="preload" href="public/cards/back_.png" as="image">
 	<link rel="preload" href="public/cards/cache1.png" as="image">
 	<link rel="preload" href="public/cards/cache2.png" as="image">
 	<link rel="preload" href="public/cards/cache3.png" as="image">
@@ -22,21 +20,21 @@
 	<meta property="og:title" content="NikoCardZ - Regardez votre collection de cartes" />
 	<meta property="og:type" content="website" />
 	<meta property="og:image" content="https://aprylpe.github.io/NikocardZ/public/cards/back_.png" />
-	<meta property="og:description" content="Gagne des cartes lors des lives et viens admirer ta collection. Alors, il t'en manque encore beaucoup ?" />
+	<meta property="og:description" content="Venez-en prestement vous peler le jonc en guerroyant entres Seigneureries !
+Récoltez moulte cartes de batailles et allez quérir la victoire !
+Mon joie, ma mie !" />
 	<meta property="og:site_name" content="NikoCardZ" />
 	<meta property="og:locale" content="fr_FR" />
 
 </head>
 <body>
-	<header>
+	<header style="display: none">
 		<h1>NikoCardZ</h1>
 		<nav>
-			<div>
-				<label for="style-select">Style d'affichage :</label>
-				<select id="style-select">
-					<option value="album">Album</option>
-					<option value="debloquees">Débloquées</option>
-				</select>
+			<div id="style-select" data-value="album">
+				<button data-value="album">Album</button>
+				<button data-value="progress">Progression</button>
+				<button data-value="rank">Classement</button>
 			</div>
 			<div>
 				<label for="collection-name">Collection de :</label>
@@ -53,7 +51,19 @@
 		</nav>
 	</header>
 	<main>
-		<div id="card-container"></div>
+		<div id="card-container">
+			<div class="start">
+				<div class="cadre">
+					<div class="jeu">
+						<img src="public/cards/back_.png" alt="" width="116" height="160"></img>
+						<img src="public/cards/back_.png" alt="" width="116" height="160"></img>
+						<img src="public/cards/back_.png" alt="" width="116" height="160"></img>
+						<img src="public/cards/back_.png" alt="" width="116" height="160"></img>
+					</div>
+					<div id="start-content"></div>
+				</div>
+			</div>
+		</div>
 	</main>
 </body>
 </html>
