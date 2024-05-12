@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Caveat+Brush&family=Playball&display=swap" rel="stylesheet">
+	<link href="public/style_create.css" rel="stylesheet">
+
+	<title>NikoCardZ - Créez vos propres cartes !</title>
+	<meta property="og:title" content="NikoCardZ - Créez vos propres cartes !" />
+	<meta property="og:type" content="website" />
+	<meta property="og:image" content="https://aprylpe.github.io/NikocardZ/public/cards/back_.png" />
+	<meta property="og:description" content="Venez-en prestement vous peler le jonc en guerroyant entres Seigneureries !
+Récoltez moulte cartes de batailles et allez quérir la victoire !
+Mon joie, ma mie !" />
+	<meta property="og:site_name" content="NikoCardZ" />
+	<meta property="og:locale" content="fr_FR" />
+
+	<title>NikoCardZ - Créez vos propres cartes !</title>
+	<script src="public/script_create.js" defer></script>
+</head>
+<body>
+	<header>
+		<h1>NikoCardZ</h1>
+		<h2>Créez vos propres cartes !</h2>
+	</header>
+	<main class="form">
+		<div class="cardBuilder form">
+			<input type="text" id="name" placeholder="Nom" maxlength="25" required style="font-family: 'Caveat Brush';"/>
+			<input type="file" id="image" accept="image/*" required />
+			<textarea id="effet" required style="font-family: Playball;">Effet : </textarea>
+			<div class="bottom">
+				<input type="number" min="0" max="4" id="force" placeholder="Force" required maxlength="1" />
+				<textarea id="lore" placeholder="Lore" required style="font-family: Playball;"></textarea>
+				<input type="number" min="0" max="4" id="vie" placeholder="Vie" required maxlength="1" />
+			</div>
+			<button id="generateButton">Générer la carte</button>
+		</div>
+		<div id="options" class="form">
+			<h2>Informations</h2>
+			<p>Cet outil ne permet de générer que des cartes Communes Normales.</p>
+			<p>Une carte commune ne peut pas avoir une force ou une vie supérieure à 4.</p>
+			<p>Les dimsensions idéales de l'image à importer sont 1471 par 1228 pixels.</p>
+			<h2>Options</h2>
+			<h3>Position de l'image</h3>
+			<form id="imageOptions">
+				<label>
+					<input type="radio" name="fit" value="stretch"> <b>Étirer</b>: L'image sera étirée pour s'adapter au cadre. Elle peut être déformée.<br/>
+				</label>
+				<label>
+					<input type="radio" name="fit" value="adapt" checked> <b>Adapter</b>: L'image est recadrée puis étirée pour s'adapter au cadre sans être déformée. Certaines zones de l'image seront donc perdues.<br/>
+				</label>
+				<label>
+					<input type="radio" name="fit" value="center"> <b>Centrer</b>: L'image est rétrécie pour s'adapter au cadre sans être déformée. Des bordures peuvent apparaître.<br/>
+				</label>
+			</form>
+			<h3>Effet</h3>
+			<label><input id="effetDessin" type="checkbox" /><b>Effet dessin</b>: réduction du nombre de couleurs</label>
+			<h3>Couleur de fond</h3>
+			<input id="bgColor" type="color" value="#E74C3C" />
+		</div>
+		<div id="cardPreview" class="form share">
+			<img src="public/cards/back_.png" />
+		</div>
+		<div class="share" id="shareDialog">
+			<h2>Partager</h2>
+			<p>Ta carte sera postée dans le salon <b>#Vos-cartes</b> sur le serveur discord.</p>
+			<p>Indique ton pseudo Twitch pour signer ta carte, et si tu veux ajoute un petit message. =)</p>
+			<div class="bottom">
+				<img width="96" height="96" src="https://static-cdn.jtvnw.net/emoticons/v2/emotesv2_a2b08e2a08db40ff886c76a7220a59d1/default/light/4.0" id="avatar"></img>
+				<input placeholder="Pseudo Twitch" id="pseudo" />
+			</div>
+			<textarea id="message" placeholder="Message"></textarea>
+			<button id="sendButton">Envoyer</button>
+			<button id="goBack">Annuler</button>
+		</div>
+		<div class="newcard">
+			<button id="shareButton">Partager</button>
+		</div>
+		<div class="process" id="process">
+			<h2>Génération de l'image en cours...</h2>
+			<img width="112" height="112" alt"Chat qui danse" src="https://static-cdn.jtvnw.net/emoticons/v2/emotesv2_9d758856a6544239a47fdf3bcd8f4313/animated/light/4.0"></img>
+			<div id="mainLoad" class="progress"><div style="width: 0%"></div></div>
+		</div>
+	</main>
+</body>
+</html>
