@@ -61,6 +61,22 @@ header {
 header h1 {
 	font-size: 36px;
 	margin: 0; /* Supprimer les marges par défaut */
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+header h1 a {
+	text-decoration: none;
+}
+header h1 button {
+	font-size: 16px;
+	display: flex;
+	width: 180px;
+	justify-content: flex-end;
+}
+header h1 svg {
+	width: 16px;
+	height: 16px;
 }
 
 header nav {
