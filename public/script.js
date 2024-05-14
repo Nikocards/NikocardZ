@@ -7,9 +7,62 @@
 */
 
 const clientId = 'kimne78kx3ncx6brgo4mv6wki5h1ko'; // s'te plait me kack pô :(
+const allCards = [
+	{id:  1, num:  1, bdd:    1, img:   "1", hide: "cache1", rarity:    "Commune", variant:       "Normale", name: "Follow"},
+	{id:  2, num:  1, bdd: null, img:  "1h", hide: "cache2", rarity:    "Commune", variant: "Holographique", name: "Follow"},
+	{id:  3, num:  1, bdd:   18, img:  "1s", hide: "cache3", rarity:    "Commune", variant:      "E-X Card", name: "Follow"},
+	{id:  4, num:  2, bdd:    2, img:   "2", hide: "cache1", rarity:    "Commune", variant:       "Normale", name: "Caca"},
+	{id:  5, num:  2, bdd: null, img:  "2h", hide: "cache2", rarity:    "Commune", variant: "Holographique", name: "Caca"},
+	{id:  6, num:  2, bdd:   19, img:  "2s", hide: "cache3", rarity:    "Commune", variant:      "E-X Card", name: "Caca"},
+	{id:  7, num:  3, bdd:    3, img:   "3", hide: "cache1", rarity:    "Commune", variant:       "Normale", name: "Raid 1"},
+	{id:  8, num:  3, bdd: null, img:  "3h", hide: "cache2", rarity:    "Commune", variant: "Holographique", name: "Raid 1"},
+	{id:  9, num:  3, bdd:   20, img:  "3s", hide: "cache3", rarity:    "Commune", variant:      "E-X Card", name: "Raid 1"},
+	{id: 10, num:  4, bdd:    4, img:   "4", hide: "cache1", rarity:    "Commune", variant:       "Normale", name: "Raid 2"},
+	{id: 11, num:  4, bdd: null, img:  "4h", hide: "cache2", rarity:    "Commune", variant: "Holographique", name: "Raid 2"},
+	{id: 12, num:  4, bdd:   21, img:  "4s", hide: "cache3", rarity:    "Commune", variant:      "E-X Card", name: "Raid 2"},
+	{id: 13, num:  5, bdd:    5, img:   "5", hide: "cache1", rarity:    "Commune", variant:       "Normale", name: "Artiste"},
+	{id: 14, num:  5, bdd: null, img:  "5h", hide: "cache2", rarity:    "Commune", variant: "Holographique", name: "Artiste"},
+	{id: 15, num:  5, bdd:   22, img:  "5s", hide: "cache3", rarity:    "Commune", variant:      "E-X Card", name: "Artiste"},
+	{id: 16, num:  6, bdd:    6, img:   "6", hide: "cache1", rarity:    "Commune", variant:       "Normale", name: "Lecture"},
+	{id: 17, num:  6, bdd: null, img:  "6h", hide: "cache2", rarity:    "Commune", variant: "Holographique", name: "Lecture"},
+	{id: 18, num:  6, bdd:   23, img:  "6s", hide: "cache3", rarity:    "Commune", variant:      "E-X Card", name: "Lecture"},
+	{id: 19, num:  7, bdd:    7, img:   "7", hide: "cache1", rarity:    "Commune", variant:       "Normale", name: "Tournois"},
+	{id: 20, num:  7, bdd: null, img:  "7h", hide: "cache2", rarity:    "Commune", variant: "Holographique", name: "Tournois"},
+	{id: 21, num:  7, bdd:   24, img:  "7s", hide: "cache3", rarity:    "Commune", variant:      "E-X Card", name: "Tournois"},
+	{id: 22, num:  8, bdd:    8, img:   "8", hide: "cache1", rarity:    "Commune", variant:       "Normale", name: "Lurk"},
+	{id: 23, num:  8, bdd: null, img:  "8h", hide: "cache2", rarity:    "Commune", variant: "Holographique", name: "Lurk"},
+	{id: 24, num:  8, bdd:   25, img:  "8s", hide: "cache3", rarity:    "Commune", variant:      "E-X Card", name: "Lurk"},
+	{id: 25, num:  9, bdd:    9, img:   "9", hide: "cache1", rarity:    "Commune", variant:       "Normale", name: "Ouin Ouin"},
+	{id: 26, num:  9, bdd: null, img:  "9h", hide: "cache2", rarity:    "Commune", variant: "Holographique", name: "Ouin Ouin"},
+	{id: 27, num:  9, bdd:   26, img:  "9s", hide: "cache3", rarity:    "Commune", variant:      "E-X Card", name: "Ouin Ouin"},
+	{id: 28, num: 10, bdd:   10, img:  "10", hide: "cache1", rarity:    "Commune", variant:       "Normale", name: "Popcorn"},
+	{id: 29, num: 10, bdd: null, img: "10h", hide: "cache2", rarity:    "Commune", variant: "Holographique", name: "Popcorn"},
+	{id: 30, num: 10, bdd:   27, img: "10s", hide: "cache3", rarity:    "Commune", variant:      "E-X Card", name: "Popcorn"},
+	{id: 31, num: 11, bdd:   11, img:  "11", hide: "cache4", rarity:       "Rare", variant:       "Normale", name: "Princess Lexi"},
+	{id: 32, num: 11, bdd: null, img: "11h", hide: "cache5", rarity:       "Rare", variant: "Holographique", name: "Princess Lexi"},
+	{id: 33, num: 11, bdd:   28, img: "11s", hide: "cache6", rarity:       "Rare", variant:      "E-X Card", name: "Princess Lexi"},
+	{id: 34, num: 12, bdd:   12, img:  "12", hide: "cache4", rarity:       "Rare", variant:       "Normale", name: "Ban"},
+	{id: 35, num: 12, bdd: null, img: "12h", hide: "cache5", rarity:       "Rare", variant: "Holographique", name: "Ban"},
+	{id: 36, num: 12, bdd:   29, img: "12s", hide: "cache6", rarity:       "Rare", variant:      "E-X Card", name: "Ban"},
+	{id: 37, num: 13, bdd:   13, img:  "13", hide: "cache4", rarity:       "Rare", variant:       "Normale", name: "Poulet"},
+	{id: 38, num: 13, bdd: null, img: "13h", hide: "cache5", rarity:       "Rare", variant: "Holographique", name: "Poulet"},
+	{id: 39, num: 13, bdd:   30, img: "13s", hide: "cache6", rarity:       "Rare", variant:      "E-X Card", name: "Poulet"},
+	{id: 40, num: 14, bdd:   14, img:  "14", hide: "cache4", rarity:       "Rare", variant:       "Normale", name: "JDR"},
+	{id: 41, num: 14, bdd: null, img: "14h", hide: "cache5", rarity:       "Rare", variant: "Holographique", name: "JDR"},
+	{id: 42, num: 14, bdd:   31, img: "14s", hide: "cache6", rarity:       "Rare", variant:      "E-X Card", name: "JDR"},
+	{id: 43, num: 15, bdd:   15, img:  "15", hide: "cache4", rarity:       "Rare", variant:       "Normale", name: "Sponsor"},
+	{id: 44, num: 15, bdd: null, img: "15h", hide: "cache5", rarity:       "Rare", variant: "Holographique", name: "Sponsor"},
+	{id: 45, num: 15, bdd:   32, img: "15s", hide: "cache6", rarity:       "Rare", variant:      "E-X Card", name: "Sponsor"},
+	{id: 46, num: 16, bdd:   16, img:  "16", hide: "cache7", rarity: "Legendaire", variant:       "Normale", name: "Baston"},
+	{id: 47, num: 16, bdd: null, img: "16h", hide: "cache8", rarity: "Legendaire", variant: "Holographique", name: "Baston"},
+	{id: 48, num: 16, bdd:   33, img: "16s", hide: "cache9", rarity: "Legendaire", variant:      "E-X Card", name: "Baston"},
+	{id: 49, num: 17, bdd:   17, img:  "17", hide: "cache7", rarity: "Legendaire", variant:       "Normale", name: "Imposteur"},
+	{id: 50, num: 17, bdd: null, img: "17h", hide: "cache8", rarity: "Legendaire", variant: "Holographique", name: "Imposteur"},
+	{id: 51, num: 17, bdd:   34, img: "17s", hide: "cache9", rarity: "Legendaire", variant:      "E-X Card", name: "Imposteur"},
+]
 let collectionsData = {}
 let collector = ""
-const totalCards = 16 * 3; // Nombre total de cartes dans la collection
+const totalCards = allCards.length; // Nombre total de cartes dans la collection
 
 async function fetchUserCards(container) {
 	// Si un élément DOM est passé en argument, on l'utilise pour afficher le message de chargement
@@ -71,15 +124,16 @@ async function fetchUserCards(container) {
 				collectionsData[user].total = 0
 				collectionsData[user].uniques = 0
 				for(i in responseData[user].carte) {
-					const card = Card2Id(responseData[user].carte[i]);
-					if(card == 1000) continue;
-					collectionsData[user].cards[card] = responseData[user].nb[i];
-					if(card%3 && responseData[user].nb[i] > 4) {
-						collectionsData[user].cards[card+1] = Math.floor(responseData[user].nb[i]/5);
-						collectionsData[user].total += collectionsData[user].cards[card+1];
-						collectionsData[user].uniques ++;
-					}
+					//~ const card = Card2Id(responseData[user].carte[i]);
+					const card = allCards.find((element) => element.bdd == responseData[user].carte[i]);;
+					if(card == undefined) continue;
+					collectionsData[user].cards[card.id] = responseData[user].nb[i];
 					if(responseData[user].nb[i] > 0) {
+						if(card.variant == "Normale" && responseData[user].nb[i] > 4) {
+							collectionsData[user].cards[card.id+1] = Math.floor(responseData[user].nb[i]/5);
+							collectionsData[user].total += collectionsData[user].cards[card.id+1];
+							collectionsData[user].uniques ++;
+						}
 						collectionsData[user].total += responseData[user].nb[i];
 						collectionsData[user].uniques ++;
 					}
@@ -138,11 +192,6 @@ async function fetchUserCards(container) {
 		} catch (error) {
 			console.error('Error fetching data from Twitch API:', error);
 		}
-	}
-
-	function Card2Id(card) {
-		if(card == 1000) return 1000
-		return ((card - 1) % 16) * 3 + (card > 16 ? 3 : 1)
 	}
 }
 
@@ -222,7 +271,7 @@ function displayAlbumCards() {
 
 	function displayStats(collection) {
 		// Statistiques initiales par rareté
-		const totalCards = { Commune: 30, Rare: 15, Legendaire: 3, Normale: 16, Holographique: 16, "E-X Card": 16 }; // Total par type
+		const totalCards = { Commune: 30, Rare: 15, Legendaire: 6, Normale: 17, Holographique: 17, "E-X Card": 17 }; // Total par type
 		const rarityStats = { Commune: 0, Rare: 0, Legendaire: 0 };
 		const variantStats = { Normale: 0, Holographique: 0, "E-X Card": 0 };
 		const uniqueStats = { Commune: 0, Rare: 0, Legendaire: 0, Normale: 0, Holographique: 0, "E-X Card": 0 };
@@ -232,28 +281,28 @@ function displayAlbumCards() {
 		// Calcul des statistiques
 		Object.entries(collection.cards).forEach(([cardId, quantity]) => {
 			if(quantity > 0) { // Ajoute l'id pour compter les uniques
-				const type = getType(cardId); // S'assurer que cardId est un nombre
-				const rarity = getRarity(type);
-				const variant = ["E-X Card", "Normale", "Holographique"][cardId%3];
-				const imagePath = `public/cards/${getVisible(cardId*1)}`;
+				const card = allCards.find((element) => element.id == cardId);
+				if(card != undefined) {
+					const imagePath = `public/cards/${card.img}.png`;
 
-				rarityStats[rarity] += quantity;
-				variantStats[variant] += quantity;
-				listContent += `<div class="cardRender">
-					<div class="card unlocked${cardId%3==0?' ex':''}${cardId%3==2?' holo':''}">
-						<div><img src="${imagePath}" alt="Card ${cardId}" width="290" height="400"/></div>
-					</div>
-					<div class="cardInfo">
-						<h3>N°${1 + Math.floor((cardId - 1) / 3)}</h3>
-						<p>${rarity}</p>
-						<h4>Variante</h4>
-						<p>${variant}</p>
-						<h4>Quantité</h4>
-						<p>x ${quantity}</p>
-					</div>
-				</div>`;
-				uniqueStats[rarity] ++;
-				uniqueStats[variant] ++;
+					rarityStats[card.rarity] += quantity;
+					variantStats[card.variant] += quantity;
+					listContent += `<div class="cardRender ${card.rarity}">
+						<div class="card unlocked${cardId%3==0?' ex':''}${cardId%3==2?' holo':''}">
+							<div><img src="${imagePath}" alt="Card ${cardId}" width="290" height="400"/></div>
+						</div>
+						<div class="cardInfo">
+							<h3>N°${card.num}</h3>
+							<p>${card.rarity}</p>
+							<h4>Variante</h4>
+							<p>${card.variant}</p>
+							<h4>Quantité</h4>
+							<p>x ${quantity}</p>
+						</div>
+					</div>`;
+					uniqueStats[card.rarity] ++;
+					uniqueStats[card.variant] ++;
+				}
 			}
 		});
 		listContent += '</div>';
@@ -308,12 +357,14 @@ function displayAlbumCards() {
 
 	function displayAlbum(collection) {
 		const pages = [
+			[],
 			[1, 2, 3, 4, 5, 6, 13,14,15],
 			[7, 10,16, 8,11,17, 9,12,18],
 			[19,20,21,22,23,24,25,26,27],
 			[28,29,30,31,32,33,34,35,36],
 			[37,38,39,40,41,42,43,44,45],
-			[46,47,48]
+			[46,47,48],
+			[49,50,51]
 		];
 
 		const totalPages = pages.length;
@@ -343,38 +394,41 @@ function displayAlbumCards() {
 			const cardsOnPage = pages[page - 1] || []; // Récupérer les cartes pour la page actuelle
 
 			cardsOnPage.forEach(cardNumber => {
-				const cardElement = document.createElement('div');
-				const cardImgContainer = document.createElement('div');
-				const cardImage = document.createElement('img');
-				cardElement.classList.add('card');
-				cardElement.id = "card-" + cardNumber;
-				if(cardNumber%3 == 2) {
-					cardElement.classList.add('holo');
-				} else if(cardNumber % 3 == 0) {
-					cardElement.classList.add('ex');
-				}
-				if(collection.cards[cardNumber]) {
-					cardImage.src = `public/cards/${getVisible(cardNumber)}`;
-					cardElement.classList.add('unlocked');
-					cardElement.addEventListener('click', toogleFullscreen);
-				} else {
-					cardImage.src = `public/cards/${getLocked(cardNumber)}`;
-					cardElement.classList.add('locked');
-				}
-				cardImage.alt = `Carte ${cardNumber}`;
-				cardImage.width = 290;
-				cardImage.height = 400;
+				const card = allCards.find((element) => element.id == cardNumber);
+				if(card != undefined) {
+					const cardElement = document.createElement('div');
+					const cardImgContainer = document.createElement('div');
+					const cardImage = document.createElement('img');
+					cardElement.classList.add('card');
+					cardElement.id = "card-" + card.id;
+					if(card.variant == "Holographique") {
+						cardElement.classList.add('holo');
+					} else if(card.variant == "E-X Card") {
+						cardElement.classList.add('ex');
+					}
+					if(collection.cards[cardNumber]) {
+						cardImage.src = `public/cards/${card.img}.png`;
+						cardElement.classList.add('unlocked');
+						cardElement.addEventListener('click', toogleFullscreen);
+					} else {
+						cardImage.src = `public/cards/${card.hide}.png`;
+						cardElement.classList.add('locked');
+					}
+					cardImage.alt = `Carte ${card.id}`;
+					cardImage.width = 290;
+					cardImage.height = 400;
 
-				cardElement.appendChild(cardImgContainer);
-				cardImgContainer.appendChild(cardImage);
-				if(collection.cards[cardNumber]) {
-					const cardCount = document.createElement('p');
+					cardElement.appendChild(cardImgContainer);
+					cardImgContainer.appendChild(cardImage);
+					if(collection.cards[card.id]) {
+						const cardCount = document.createElement('p');
 
-					cardCount.classList.add('card-count');
-					cardCount.innerText = "x " + collection.cards[cardNumber];
-					cardImgContainer.appendChild(cardCount);
+						cardCount.classList.add('card-count');
+						cardCount.innerText = "x " + collection.cards[cardNumber];
+						cardImgContainer.appendChild(cardCount);
+					}
+					pageGrid.appendChild(cardElement);
 				}
-				pageGrid.appendChild(cardElement);
 			});
 
 			pageElement.appendChild(pageHead);
@@ -404,15 +458,18 @@ function displayAlbumCards() {
 
 		// Vérifier si l'écran permet d'afficher les pages deux par deux
 		const pageWidth = document.querySelector('.album-page').clientWidth;
+		console.log(pageWidth)
 		const screenWidth = document.body.clientWidth;
 		const displayTwoPages = pageWidth * 2 <= screenWidth;// Fonction pour naviguer entre les pages
 
+		let firstPage;
 		if(displayTwoPages) {
-			// Afficher la première page par défaut
-			const firstPage = document.getElementById('page-1');
-			if (firstPage) {
-				firstPage.classList.add('next-visible');
-			}
+			firstPage = document.getElementById('page-1');
+			firstPage.classList.add('visible');
+			firstPage.classList.add('next-visible');
+		} else {
+			document.getElementById('page-1').classList.remove('visible');
+			document.getElementById('page-2').classList.add('visible');
 		}
 
 		function navigatePage(direction) {
@@ -438,20 +495,6 @@ function displayAlbumCards() {
 		}
 	}
 
-	function getVisible(id) {
-		return `${Math.floor((id+2)/3)}${id%3==0?"s":(id%3==1?"":"h")}.png`
-	}
-
-	function getType(id) {
-		if(id < 31) return 1+(id-1)%3;
-		if(id < 46) return 4+(id-1)%3;
-		return 7+(id-1)%3;
-	}
-
-	function getLocked(id) {
-		return `cache${getType(id)}.png`
-	}
-
 	function toogleFullscreen(e) {
 		if(document.fullscreenElement) {
 			document.exitFullscreen();
@@ -459,16 +502,6 @@ function displayAlbumCards() {
 			let target = e.target;
 			while(target && !target.classList.contains("unlocked")) target = target.parentNode;
 			if(target) target.requestFullscreen();
-		}
-	}
-
-	function getRarity(typeId) {
-		if ([1, 2, 3].includes(typeId)) {
-			return 'Commune';
-		} else if ([4, 5, 6].includes(typeId)) {
-			return 'Rare';
-		} else {
-			return 'Legendaire';
 		}
 	}
 }

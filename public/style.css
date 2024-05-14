@@ -61,6 +61,22 @@ header {
 header h1 {
 	font-size: 36px;
 	margin: 0; /* Supprimer les marges par défaut */
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+header h1 a {
+	text-decoration: none;
+}
+header h1 button {
+	font-size: 16px;
+	display: flex;
+	width: 180px;
+	justify-content: flex-end;
+}
+header h1 svg {
+	width: 16px;
+	height: 16px;
 }
 
 header nav {
@@ -476,6 +492,15 @@ div.stats {
 	color: #fff8d5;
 }
 
+.cardList .cardRender.Rare {
+	border-color: #4bf;
+	background: #123;
+}
+.cardList .cardRender.Legendaire {
+	border-color: #ff8;
+	background: #221;
+}
+
 .cardRender .card {
 	height: 20vh;
 	width: 14.5vh;
@@ -736,21 +761,21 @@ div.stats {
 
 /* Affichage spécial */
 
-#page-6 .album-page-grid {
+#page-7 .album-page-grid, #page-8 .album-page-grid {
 	grid-template-columns: auto auto;
 	width: 31vh;
 	margin: 0 8.25vh;
 	justify-items: center;
 }
 
-.album-page #card-48 {
+.album-page #card-48, .album-page #card-51 {
 	max-height: 40vh;
 	max-width: 29vh;
 	display: unset;
 	grid-column-end: span 2;
 	grid-row-end: span 2;
 }
-.album-page #card-48.unlocked:hover {
+.album-page #card-48.unlocked:hover, .album-page #card-51.unlocked:hover {
 	transform: scale(1.1);
 }
 
