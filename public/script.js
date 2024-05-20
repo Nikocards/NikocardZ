@@ -8,57 +8,57 @@
 
 const clientId = 'kimne78kx3ncx6brgo4mv6wki5h1ko'; // s'te plait me kack pô :(
 const allCards = [
-	{id:  1, num:  1, bdd:    1, img:   "1", hide: "cache1", rarity:    "Commune", variant:       "Normale", name: "Follow"},
-	{id:  2, num:  1, bdd: null, img:  "1h", hide: "cache2", rarity:    "Commune", variant: "Holographique", name: "Follow"},
-	{id:  3, num:  1, bdd:   18, img:  "1s", hide: "cache3", rarity:    "Commune", variant:      "E-X Card", name: "Follow"},
-	{id:  4, num:  2, bdd:    2, img:   "2", hide: "cache1", rarity:    "Commune", variant:       "Normale", name: "Caca"},
-	{id:  5, num:  2, bdd: null, img:  "2h", hide: "cache2", rarity:    "Commune", variant: "Holographique", name: "Caca"},
-	{id:  6, num:  2, bdd:   19, img:  "2s", hide: "cache3", rarity:    "Commune", variant:      "E-X Card", name: "Caca"},
-	{id:  7, num:  3, bdd:    3, img:   "3", hide: "cache1", rarity:    "Commune", variant:       "Normale", name: "Raid 1"},
-	{id:  8, num:  3, bdd: null, img:  "3h", hide: "cache2", rarity:    "Commune", variant: "Holographique", name: "Raid 1"},
-	{id:  9, num:  3, bdd:   20, img:  "3s", hide: "cache3", rarity:    "Commune", variant:      "E-X Card", name: "Raid 1"},
-	{id: 10, num:  4, bdd:    4, img:   "4", hide: "cache1", rarity:    "Commune", variant:       "Normale", name: "Raid 2"},
-	{id: 11, num:  4, bdd: null, img:  "4h", hide: "cache2", rarity:    "Commune", variant: "Holographique", name: "Raid 2"},
-	{id: 12, num:  4, bdd:   21, img:  "4s", hide: "cache3", rarity:    "Commune", variant:      "E-X Card", name: "Raid 2"},
-	{id: 13, num:  5, bdd:    5, img:   "5", hide: "cache1", rarity:    "Commune", variant:       "Normale", name: "Artiste"},
-	{id: 14, num:  5, bdd: null, img:  "5h", hide: "cache2", rarity:    "Commune", variant: "Holographique", name: "Artiste"},
-	{id: 15, num:  5, bdd:   22, img:  "5s", hide: "cache3", rarity:    "Commune", variant:      "E-X Card", name: "Artiste"},
-	{id: 16, num:  6, bdd:    6, img:   "6", hide: "cache1", rarity:    "Commune", variant:       "Normale", name: "Lecture"},
-	{id: 17, num:  6, bdd: null, img:  "6h", hide: "cache2", rarity:    "Commune", variant: "Holographique", name: "Lecture"},
-	{id: 18, num:  6, bdd:   23, img:  "6s", hide: "cache3", rarity:    "Commune", variant:      "E-X Card", name: "Lecture"},
-	{id: 19, num:  7, bdd:    7, img:   "7", hide: "cache1", rarity:    "Commune", variant:       "Normale", name: "Tournois"},
-	{id: 20, num:  7, bdd: null, img:  "7h", hide: "cache2", rarity:    "Commune", variant: "Holographique", name: "Tournois"},
-	{id: 21, num:  7, bdd:   24, img:  "7s", hide: "cache3", rarity:    "Commune", variant:      "E-X Card", name: "Tournois"},
-	{id: 22, num:  8, bdd:    8, img:   "8", hide: "cache1", rarity:    "Commune", variant:       "Normale", name: "Lurk"},
-	{id: 23, num:  8, bdd: null, img:  "8h", hide: "cache2", rarity:    "Commune", variant: "Holographique", name: "Lurk"},
-	{id: 24, num:  8, bdd:   25, img:  "8s", hide: "cache3", rarity:    "Commune", variant:      "E-X Card", name: "Lurk"},
-	{id: 25, num:  9, bdd:    9, img:   "9", hide: "cache1", rarity:    "Commune", variant:       "Normale", name: "Ouin Ouin"},
-	{id: 26, num:  9, bdd: null, img:  "9h", hide: "cache2", rarity:    "Commune", variant: "Holographique", name: "Ouin Ouin"},
-	{id: 27, num:  9, bdd:   26, img:  "9s", hide: "cache3", rarity:    "Commune", variant:      "E-X Card", name: "Ouin Ouin"},
-	{id: 28, num: 10, bdd:   10, img:  "10", hide: "cache1", rarity:    "Commune", variant:       "Normale", name: "Popcorn"},
-	{id: 29, num: 10, bdd: null, img: "10h", hide: "cache2", rarity:    "Commune", variant: "Holographique", name: "Popcorn"},
-	{id: 30, num: 10, bdd:   27, img: "10s", hide: "cache3", rarity:    "Commune", variant:      "E-X Card", name: "Popcorn"},
-	{id: 31, num: 11, bdd:   11, img:  "11", hide: "cache4", rarity:       "Rare", variant:       "Normale", name: "Princess Lexi"},
-	{id: 32, num: 11, bdd: null, img: "11h", hide: "cache5", rarity:       "Rare", variant: "Holographique", name: "Princess Lexi"},
-	{id: 33, num: 11, bdd:   28, img: "11s", hide: "cache6", rarity:       "Rare", variant:      "E-X Card", name: "Princess Lexi"},
-	{id: 34, num: 12, bdd:   12, img:  "12", hide: "cache4", rarity:       "Rare", variant:       "Normale", name: "Ban"},
-	{id: 35, num: 12, bdd: null, img: "12h", hide: "cache5", rarity:       "Rare", variant: "Holographique", name: "Ban"},
-	{id: 36, num: 12, bdd:   29, img: "12s", hide: "cache6", rarity:       "Rare", variant:      "E-X Card", name: "Ban"},
-	{id: 37, num: 13, bdd:   13, img:  "13", hide: "cache4", rarity:       "Rare", variant:       "Normale", name: "Poulet"},
-	{id: 38, num: 13, bdd: null, img: "13h", hide: "cache5", rarity:       "Rare", variant: "Holographique", name: "Poulet"},
-	{id: 39, num: 13, bdd:   30, img: "13s", hide: "cache6", rarity:       "Rare", variant:      "E-X Card", name: "Poulet"},
-	{id: 40, num: 14, bdd:   14, img:  "14", hide: "cache4", rarity:       "Rare", variant:       "Normale", name: "JDR"},
-	{id: 41, num: 14, bdd: null, img: "14h", hide: "cache5", rarity:       "Rare", variant: "Holographique", name: "JDR"},
-	{id: 42, num: 14, bdd:   31, img: "14s", hide: "cache6", rarity:       "Rare", variant:      "E-X Card", name: "JDR"},
-	{id: 43, num: 15, bdd:   15, img:  "15", hide: "cache4", rarity:       "Rare", variant:       "Normale", name: "Sponsor"},
-	{id: 44, num: 15, bdd: null, img: "15h", hide: "cache5", rarity:       "Rare", variant: "Holographique", name: "Sponsor"},
-	{id: 45, num: 15, bdd:   32, img: "15s", hide: "cache6", rarity:       "Rare", variant:      "E-X Card", name: "Sponsor"},
-	{id: 46, num: 16, bdd:   16, img:  "16", hide: "cache7", rarity: "Legendaire", variant:       "Normale", name: "Baston"},
-	{id: 47, num: 16, bdd: null, img: "16h", hide: "cache8", rarity: "Legendaire", variant: "Holographique", name: "Baston"},
-	{id: 48, num: 16, bdd:   33, img: "16s", hide: "cache9", rarity: "Legendaire", variant:      "E-X Card", name: "Baston"},
-	{id: 49, num: 17, bdd:   17, img:  "17", hide: "cache7", rarity: "Legendaire", variant:       "Normale", name: "Imposteur"},
-	{id: 50, num: 17, bdd: null, img: "17h", hide: "cache8", rarity: "Legendaire", variant: "Holographique", name: "Imposteur"},
-	{id: 51, num: 17, bdd:   34, img: "17s", hide: "cache9", rarity: "Legendaire", variant:      "E-X Card", name: "Imposteur"},
+	{id:  1, num:  1, bdd:    1, img:   "1", hide: "cache1.webp", rarity:    "Commune", variant:       "Normale", name: "Follow"},
+	{id:  2, num:  1, bdd: null, img:  "1h", hide: "cache2.webp", rarity:    "Commune", variant: "Holographique", name: "Follow"},
+	{id:  3, num:  1, bdd:   18, img:  "1s", hide: "cache3.webp", rarity:    "Commune", variant:      "E-X Card", name: "Follow"},
+	{id:  4, num:  2, bdd:    2, img:   "2", hide: "cache1.webp", rarity:    "Commune", variant:       "Normale", name: "Caca"},
+	{id:  5, num:  2, bdd: null, img:  "2h", hide: "cache2.webp", rarity:    "Commune", variant: "Holographique", name: "Caca"},
+	{id:  6, num:  2, bdd:   19, img:  "2s", hide: "cache3.webp", rarity:    "Commune", variant:      "E-X Card", name: "Caca"},
+	{id:  7, num:  3, bdd:    3, img:   "3", hide: "cache1.webp", rarity:    "Commune", variant:       "Normale", name: "Raid 1"},
+	{id:  8, num:  3, bdd: null, img:  "3h", hide: "cache2.webp", rarity:    "Commune", variant: "Holographique", name: "Raid 1"},
+	{id:  9, num:  3, bdd:   20, img:  "3s", hide: "cache3.webp", rarity:    "Commune", variant:      "E-X Card", name: "Raid 1"},
+	{id: 10, num:  4, bdd:    4, img:   "4", hide: "cache1.webp", rarity:    "Commune", variant:       "Normale", name: "Raid 2"},
+	{id: 11, num:  4, bdd: null, img:  "4h", hide: "cache2.webp", rarity:    "Commune", variant: "Holographique", name: "Raid 2"},
+	{id: 12, num:  4, bdd:   21, img:  "4s", hide: "cache3.webp", rarity:    "Commune", variant:      "E-X Card", name: "Raid 2"},
+	{id: 13, num:  5, bdd:    5, img:   "5", hide: "cache1.webp", rarity:    "Commune", variant:       "Normale", name: "Artiste"},
+	{id: 14, num:  5, bdd: null, img:  "5h", hide: "cache2.webp", rarity:    "Commune", variant: "Holographique", name: "Artiste"},
+	{id: 15, num:  5, bdd:   22, img:  "5s", hide: "cache3.webp", rarity:    "Commune", variant:      "E-X Card", name: "Artiste"},
+	{id: 16, num:  6, bdd:    6, img:   "6", hide: "cache1.webp", rarity:    "Commune", variant:       "Normale", name: "Lecture"},
+	{id: 17, num:  6, bdd: null, img:  "6h", hide: "cache2.webp", rarity:    "Commune", variant: "Holographique", name: "Lecture"},
+	{id: 18, num:  6, bdd:   23, img:  "6s", hide: "cache3.webp", rarity:    "Commune", variant:      "E-X Card", name: "Lecture"},
+	{id: 19, num:  7, bdd:    7, img:   "7", hide: "cache1.webp", rarity:    "Commune", variant:       "Normale", name: "Tournois"},
+	{id: 20, num:  7, bdd: null, img:  "7h", hide: "cache2.webp", rarity:    "Commune", variant: "Holographique", name: "Tournois"},
+	{id: 21, num:  7, bdd:   24, img:  "7s", hide: "cache3.webp", rarity:    "Commune", variant:      "E-X Card", name: "Tournois"},
+	{id: 22, num:  8, bdd:    8, img:   "8", hide: "cache1.webp", rarity:    "Commune", variant:       "Normale", name: "Lurk"},
+	{id: 23, num:  8, bdd: null, img:  "8h", hide: "cache2.webp", rarity:    "Commune", variant: "Holographique", name: "Lurk"},
+	{id: 24, num:  8, bdd:   25, img:  "8s", hide: "cache3.webp", rarity:    "Commune", variant:      "E-X Card", name: "Lurk"},
+	{id: 25, num:  9, bdd:    9, img:   "9", hide: "cache1.webp", rarity:    "Commune", variant:       "Normale", name: "Ouin Ouin"},
+	{id: 26, num:  9, bdd: null, img:  "9h", hide: "cache2.webp", rarity:    "Commune", variant: "Holographique", name: "Ouin Ouin"},
+	{id: 27, num:  9, bdd:   26, img:  "9s", hide: "cache3.webp", rarity:    "Commune", variant:      "E-X Card", name: "Ouin Ouin"},
+	{id: 28, num: 10, bdd:   10, img:  "10", hide: "cache1.webp", rarity:    "Commune", variant:       "Normale", name: "Popcorn"},
+	{id: 29, num: 10, bdd: null, img: "10h", hide: "cache2.webp", rarity:    "Commune", variant: "Holographique", name: "Popcorn"},
+	{id: 30, num: 10, bdd:   27, img: "10s", hide: "cache3.webp", rarity:    "Commune", variant:      "E-X Card", name: "Popcorn"},
+	{id: 31, num: 11, bdd:   11, img:  "11", hide: "cache4.webp" , rarity:       "Rare", variant:       "Normale", name: "Princess Lexi"},
+	{id: 32, num: 11, bdd: null, img: "11h", hide: "cache5.webp" , rarity:       "Rare", variant: "Holographique", name: "Princess Lexi"},
+	{id: 33, num: 11, bdd:   28, img: "11s", hide: "cache6.webp" , rarity:       "Rare", variant:      "E-X Card", name: "Princess Lexi"},
+	{id: 34, num: 12, bdd:   12, img:  "12", hide: "cache4.webp" , rarity:       "Rare", variant:       "Normale", name: "Ban"},
+	{id: 35, num: 12, bdd: null, img: "12h", hide: "cache5.webp" , rarity:       "Rare", variant: "Holographique", name: "Ban"},
+	{id: 36, num: 12, bdd:   29, img: "12s", hide: "cache6.webp" , rarity:       "Rare", variant:      "E-X Card", name: "Ban"},
+	{id: 37, num: 13, bdd:   13, img:  "13", hide: "cache4.webp" , rarity:       "Rare", variant:       "Normale", name: "Poulet"},
+	{id: 38, num: 13, bdd: null, img: "13h", hide: "cache5.webp" , rarity:       "Rare", variant: "Holographique", name: "Poulet"},
+	{id: 39, num: 13, bdd:   30, img: "13s", hide: "cache6.webp" , rarity:       "Rare", variant:      "E-X Card", name: "Poulet"},
+	{id: 40, num: 14, bdd:   14, img:  "14", hide: "cache4.webp" , rarity:       "Rare", variant:       "Normale", name: "JDR"},
+	{id: 41, num: 14, bdd: null, img: "14h", hide: "cache5.webp" , rarity:       "Rare", variant: "Holographique", name: "JDR"},
+	{id: 42, num: 14, bdd:   31, img: "14s", hide: "cache6.webp" , rarity:       "Rare", variant:      "E-X Card", name: "JDR"},
+	{id: 43, num: 15, bdd:   15, img:  "15", hide: "cache4.webp" , rarity:       "Rare", variant:       "Normale", name: "Sponsor"},
+	{id: 44, num: 15, bdd: null, img: "15h", hide: "cache5.webp" , rarity:       "Rare", variant: "Holographique", name: "Sponsor"},
+	{id: 45, num: 15, bdd:   32, img: "15s", hide: "cache6.webp" , rarity:       "Rare", variant:      "E-X Card", name: "Sponsor"},
+	{id: 46, num: 16, bdd:   16, img:  "16", hide: "cache7.webp" , rarity: "Legendaire", variant:       "Normale", name: "Baston"},
+	{id: 47, num: 16, bdd: null, img: "16h", hide: "cache8.webp" , rarity: "Legendaire", variant: "Holographique", name: "Baston"},
+	{id: 48, num: 16, bdd:   33, img: "16s", hide: "cache9.webp" , rarity: "Legendaire", variant:      "E-X Card", name: "Baston"},
+	{id: 49, num: 17, bdd:   17, img:  "17", hide: "cache7.webp" , rarity: "Legendaire", variant:       "Normale", name: "Imposteur"},
+	{id: 50, num: 17, bdd: null, img: "17h", hide: "cache8.webp" , rarity: "Legendaire", variant: "Holographique", name: "Imposteur"},
+	{id: 51, num: 17, bdd:   34, img: "17s", hide: "cache9.webp" , rarity: "Legendaire", variant:      "E-X Card", name: "Imposteur"},
 ]
 let collectionsData = {}
 let collector = ""
@@ -283,13 +283,13 @@ function displayAlbumCards() {
 			if(quantity > 0) { // Ajoute l'id pour compter les uniques
 				const card = allCards.find((element) => element.id == cardId);
 				if(card != undefined) {
-					const imagePath = `public/cards/${card.img}.png`;
+					const imagePath = `public/cards/${card.img}.webp`;
 
 					rarityStats[card.rarity] += quantity;
 					variantStats[card.variant] += quantity;
 					listContent += `<div class="cardRender ${card.rarity}">
-						<div class="card unlocked${cardId%3==0?' ex':''}${cardId%3==2?' holo':''}">
-							<div><img src="${imagePath}" alt="Card ${cardId}" width="290" height="400"/></div>
+						<div class="card unlocked${card.variant == 'E-X Card' ?' ex':''}${card.variant == 'Holographique'?' holo':''}">
+							<div><img src="${imagePath}" alt="Card ${card.name}" width="290" height="400"/></div>
 						</div>
 						<div class="cardInfo">
 							<h3>N°${card.num}</h3>
@@ -407,11 +407,11 @@ function displayAlbumCards() {
 						cardElement.classList.add('ex');
 					}
 					if(collection.cards[cardNumber]) {
-						cardImage.src = `public/cards/${card.img}.png`;
+						cardImage.src = `public/cards/${card.img}.webp`;
 						cardElement.classList.add('unlocked');
 						cardElement.addEventListener('click', toogleFullscreen);
 					} else {
-						cardImage.src = `public/cards/${card.hide}.png`;
+						cardImage.src = `public/cards/${card.hide}`;
 						cardElement.classList.add('locked');
 					}
 					cardImage.alt = `Carte ${card.id}`;
