@@ -789,3 +789,249 @@ div.stats {
 		margin: 0 1vh 0 -1vh;
 	}
 }
+
+/* EE */
+:root {
+	--prim-color: #fff;
+	--sec-color: #f00;
+}
+.poulet {
+    overflow: visible;
+}
+.poulet .contour {
+	fill: transparent;
+	stroke: #000;
+	stroke-width: 2px;
+}
+.poulet .prim-color {
+	fill: var(--prim-color);
+}
+.poulet .sec-color {
+	fill: var(--sec-color);
+}
+.poulet .ombre {
+	fill: #0004;
+}
+
+.poulet.saut .corps {
+	animation: saut-corps 1s infinite ease-in-out;
+}
+.poulet.saut .patte1 {
+	animation: saut-patte1 1s infinite ease-in-out;
+}
+.poulet.saut .patte2 {
+	animation: saut-patte2 1s infinite ease-in-out;
+}
+.poulet.saut .aile {
+	animation: saut-aile 1s infinite ease-in-out;
+}
+@keyframes saut-corps {
+  0%, 100% { transform: translate(-15px, 22px) rotate(-5deg); }
+  30% { transform: translate(-27px, 64px) rotate(-10deg); }
+  70% { transform: translate( 0, -90px); }
+}
+@keyframes saut-patte1 {
+  0%, 100% { transform: translate(0, 0); }
+  30% { transform: translate( 60px, -9px) rotate(10deg); }
+  70% { transform: translate( 0, -80px) rotate(-2deg); }
+}
+@keyframes saut-patte2 {
+  0%, 100% { transform: translate(0, 0); }
+  30% { transform: translate( 50px, -10px) rotate(10deg); }
+  70% { transform: translate( 0, -80px) rotate(-2deg); }
+}
+@keyframes saut-aile {
+  0%, 100% { transform: translate(5px, 5px); }
+  30% { transform: translate( 0, 0px); }
+  70% { transform: translate( 10px, -10px); }
+}
+
+.poulet.marche .patte1 {
+	animation: marche-patte1 1.6s infinite linear;
+}
+.poulet.marche .patte2 {
+	animation: marche-patte2 1.6s infinite linear;
+}
+.poulet.marche .aile {
+	animation: marche-aile 1.6s infinite linear;
+}
+@keyframes marche-patte1 {
+  0%, 50%, 100% { transform: translate(20px, 0); }
+  25% { transform: translate(-33px, 61px) rotate(-19deg); }
+  75% { transform: translate(150px, -35px) rotate(24deg); }
+}
+@keyframes marche-patte2 {
+  0%, 50%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(90px, -55px) rotate(24deg); }
+  75% { transform: translate(-63px, 71px) rotate(-19deg); }
+}
+@keyframes marche-aile {
+  0%, 50%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(2px, -5px); }
+  75% { transform: translate(3px, -10px); }
+}
+
+.poulet.mange .corps {
+	animation: mange-corps 4s infinite linear;
+}
+.poulet.mange .patte1 {
+	animation: mange-patte1 4s infinite linear;
+}
+.poulet.mange .patte2 {
+	animation: mange-patte2 4s infinite linear;
+}
+.poulet.mange .aile {
+	animation: mange-aile 4s infinite linear;
+}
+@keyframes mange-corps {
+  0%, 60%, 100% { transform: translate(0, 0) rotate(0deg); }
+  10% { transform: translate(-115px, 203px) rotate(-45deg); }
+  15% { transform: translate(-100px, 451px) rotate(-90deg); }
+  20% { transform: translate(-63px, 544px) rotate(-102deg); }
+  25% { transform: translate(-75px, 451px) rotate(-90deg); }
+  30% { transform: translate(-43px, 544px) rotate(-102deg); }
+  35% { transform: translate(-55px, 451px) rotate(-90deg); }
+  40% { transform: translate(-23px, 544px) rotate(-102deg); }
+  45% { transform: translate(-35px, 451px) rotate(-90deg); }
+  50% { transform: translate(-3px, 544px) rotate(-102deg); }
+  55% { transform: translate(-15px, 203px) rotate(-45deg); }
+  60% { transform: translate(120px, 0) rotate(0deg); }
+}
+@keyframes mange-patte1 {
+  0%, 100% { transform: translate(0, 0); }
+  60% { transform: translate(120px, 0); }
+  65% { transform: translate(72px, 61px) rotate(-19deg); }
+  70% { transform: translate(90px, 0); }
+  75% { transform: translate(225px, -35px) rotate(24deg); }
+  80% { transform: translate(60px, 0); }
+  85% { transform: translate(12px, 61px) rotate(-19deg); }
+  90% { transform: translate(30px, 0); }
+  95% { transform: translate(165px, -35px) rotate(24deg); }
+}
+@keyframes mange-patte2 {
+  0%, 100% { transform: translate(0, 0); }
+  60% { transform: translate(120px, 0); }
+  65% { transform: translate(195px, -55px) rotate(24deg); }
+  70% { transform: translate(90px, 0); }
+  75% { transform: translate(12px, 71px) rotate(-19deg); }
+  80% { transform: translate(60px, 0); }
+  85% { transform: translate(135px, -55px) rotate(24deg); }
+  90% { transform: translate(30px, 0); }
+  95% { transform: translate(-48px, 71px) rotate(-19deg); }
+}
+@keyframes mange-aile {
+  0%, 60%, 70%, 80%, 90%, 100% { transform: translate(0, 0); }
+  15%, 50% { transform: translate(145px, -45px) rotate(23deg); }
+  65%, 85% { transform: translate(2px, -5px); }
+  75%, 95% { transform: translate(3px, -10px); }
+}
+
+
+.poulet.exp {
+	pointer-events: none !important;
+}
+.poulet.exp .corps {
+	animation: exp-corps 4s linear;
+}
+.poulet.exp .patte1 {
+	animation: exp-patte1 4s linear;
+}
+.poulet.exp .patte2 {
+	animation: exp-patte2 4s linear;
+}
+.poulet.exp .aile {
+	animation: exp-aile 4s linear;
+}
+.poulet.exp .bec {
+	animation: exp-bec 4s linear;
+}
+.poulet.exp .coiffe {
+	animation: exp-coiffe 4s linear;
+}
+.poulet.exp .wattle {
+	animation: exp-wattle 4s linear;
+}
+.poulet.exp .yeux {
+	animation: exp-yeux 4s linear;
+}
+@keyframes exp-corps {
+  0% {opacity: 1;}
+  5%, 100% { transform: translate(100px, -400px); opacity: 0;}
+}
+@keyframes exp-patte1 {
+  0% {opacity: 1;}
+  5%, 100% { transform: translate(-400px, 40px); opacity: 0; }
+}
+@keyframes exp-patte2 {
+  0% {opacity: 1;}
+  5%, 100% { transform: translate(400px, 40px); opacity: 0; }
+}
+@keyframes exp-aile {
+  0% {opacity: 1;}
+  5%, 100% { transform: translate(400px, -100px); }
+}
+@keyframes exp-bec {
+  0% {opacity: 1;}
+  5%, 100% { transform: translate(-500px, 100px); }
+}
+@keyframes exp-coiffe {
+  0% {opacity: 1;}
+  5%, 100% { transform: translate(500px, -100px); }
+}
+@keyframes exp-wattle {
+  0% {opacity: 1;}
+  5%, 100% { transform: translate(20px, 700px); }
+}
+@keyframes exp-yeux {
+  0% {opacity: 1;}
+  5%, 100% { transform: translate(-500px, -100px); }
+}
+
+.poulet {
+	position: fixed;
+	bottom: 1vh;
+	animation: movePoulet 90s linear infinite;
+	transform: scaleX(-1);
+}
+
+@keyframes movePoulet {
+	from {
+		right: 100vw;
+	}
+	to {
+		right: -50vw;
+		display: none;
+	}
+}
+
+#pc {
+    position: fixed;
+    width: 100vw;
+	height: 100vh;
+    left: 0;
+    top: 0;
+    z-index: 1024;
+	pointer-events: none;
+}
+#pc > * {
+	position: absolute;
+	pointer-events: auto;
+}
+
+#btnp {
+    position: fixed;
+    width: 200px;
+    height: 60px;
+    color: #fff;
+    background: linear-gradient(161deg, #ffca0d, #fa7c0a, #ffc10d);
+    font-size: 24px;
+    font-weight: bold;
+    border: none;
+    border-radius: 12px;
+    left: 8vh;
+    bottom: 8vh;
+    z-index: 1028;
+}
+#btnp:hover {
+   background: linear-gradient(161deg, #e9ff0d, #fa970a, #e6ff0d);
+}
