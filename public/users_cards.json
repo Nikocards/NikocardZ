@@ -4358,5 +4358,15 @@
             1,
             2
         ]
+    },
+    "feikkkesenseichomeur": {
+        "carte": [
+            1,
+            1000
+        ],
+        "nb": [
+            1,
+            2
+        ]
     }
 }
