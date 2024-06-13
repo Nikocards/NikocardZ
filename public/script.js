@@ -8,57 +8,57 @@
 
 const clientId = 'kimne78kx3ncx6brgo4mv6wki5h1ko'; // s'te plait me kack pô :(
 const allCards = [
-	{id:  1, num:  1, bdd:    1, img:   "1", hide: "cache1", rarity:    "Commune", variant:       "Normale", name: "Follow"},
-	{id:  2, num:  1, bdd: null, img:  "1h", hide: "cache2", rarity:    "Commune", variant: "Holographique", name: "Follow"},
-	{id:  3, num:  1, bdd:   18, img:  "1s", hide: "cache3", rarity:    "Commune", variant:      "E-X Card", name: "Follow"},
-	{id:  4, num:  2, bdd:    2, img:   "2", hide: "cache1", rarity:    "Commune", variant:       "Normale", name: "Caca"},
-	{id:  5, num:  2, bdd: null, img:  "2h", hide: "cache2", rarity:    "Commune", variant: "Holographique", name: "Caca"},
-	{id:  6, num:  2, bdd:   19, img:  "2s", hide: "cache3", rarity:    "Commune", variant:      "E-X Card", name: "Caca"},
-	{id:  7, num:  3, bdd:    3, img:   "3", hide: "cache1", rarity:    "Commune", variant:       "Normale", name: "Raid 1"},
-	{id:  8, num:  3, bdd: null, img:  "3h", hide: "cache2", rarity:    "Commune", variant: "Holographique", name: "Raid 1"},
-	{id:  9, num:  3, bdd:   20, img:  "3s", hide: "cache3", rarity:    "Commune", variant:      "E-X Card", name: "Raid 1"},
-	{id: 10, num:  4, bdd:    4, img:   "4", hide: "cache1", rarity:    "Commune", variant:       "Normale", name: "Raid 2"},
-	{id: 11, num:  4, bdd: null, img:  "4h", hide: "cache2", rarity:    "Commune", variant: "Holographique", name: "Raid 2"},
-	{id: 12, num:  4, bdd:   21, img:  "4s", hide: "cache3", rarity:    "Commune", variant:      "E-X Card", name: "Raid 2"},
-	{id: 13, num:  5, bdd:    5, img:   "5", hide: "cache1", rarity:    "Commune", variant:       "Normale", name: "Artiste"},
-	{id: 14, num:  5, bdd: null, img:  "5h", hide: "cache2", rarity:    "Commune", variant: "Holographique", name: "Artiste"},
-	{id: 15, num:  5, bdd:   22, img:  "5s", hide: "cache3", rarity:    "Commune", variant:      "E-X Card", name: "Artiste"},
-	{id: 16, num:  6, bdd:    6, img:   "6", hide: "cache1", rarity:    "Commune", variant:       "Normale", name: "Lecture"},
-	{id: 17, num:  6, bdd: null, img:  "6h", hide: "cache2", rarity:    "Commune", variant: "Holographique", name: "Lecture"},
-	{id: 18, num:  6, bdd:   23, img:  "6s", hide: "cache3", rarity:    "Commune", variant:      "E-X Card", name: "Lecture"},
-	{id: 19, num:  7, bdd:    7, img:   "7", hide: "cache1", rarity:    "Commune", variant:       "Normale", name: "Tournois"},
-	{id: 20, num:  7, bdd: null, img:  "7h", hide: "cache2", rarity:    "Commune", variant: "Holographique", name: "Tournois"},
-	{id: 21, num:  7, bdd:   24, img:  "7s", hide: "cache3", rarity:    "Commune", variant:      "E-X Card", name: "Tournois"},
-	{id: 22, num:  8, bdd:    8, img:   "8", hide: "cache1", rarity:    "Commune", variant:       "Normale", name: "Lurk"},
-	{id: 23, num:  8, bdd: null, img:  "8h", hide: "cache2", rarity:    "Commune", variant: "Holographique", name: "Lurk"},
-	{id: 24, num:  8, bdd:   25, img:  "8s", hide: "cache3", rarity:    "Commune", variant:      "E-X Card", name: "Lurk"},
-	{id: 25, num:  9, bdd:    9, img:   "9", hide: "cache1", rarity:    "Commune", variant:       "Normale", name: "Ouin Ouin"},
-	{id: 26, num:  9, bdd: null, img:  "9h", hide: "cache2", rarity:    "Commune", variant: "Holographique", name: "Ouin Ouin"},
-	{id: 27, num:  9, bdd:   26, img:  "9s", hide: "cache3", rarity:    "Commune", variant:      "E-X Card", name: "Ouin Ouin"},
-	{id: 28, num: 10, bdd:   10, img:  "10", hide: "cache1", rarity:    "Commune", variant:       "Normale", name: "Popcorn"},
-	{id: 29, num: 10, bdd: null, img: "10h", hide: "cache2", rarity:    "Commune", variant: "Holographique", name: "Popcorn"},
-	{id: 30, num: 10, bdd:   27, img: "10s", hide: "cache3", rarity:    "Commune", variant:      "E-X Card", name: "Popcorn"},
-	{id: 31, num: 11, bdd:   11, img:  "11", hide: "cache4", rarity:       "Rare", variant:       "Normale", name: "Princess Lexi"},
-	{id: 32, num: 11, bdd: null, img: "11h", hide: "cache5", rarity:       "Rare", variant: "Holographique", name: "Princess Lexi"},
-	{id: 33, num: 11, bdd:   28, img: "11s", hide: "cache6", rarity:       "Rare", variant:      "E-X Card", name: "Princess Lexi"},
-	{id: 34, num: 12, bdd:   12, img:  "12", hide: "cache4", rarity:       "Rare", variant:       "Normale", name: "Ban"},
-	{id: 35, num: 12, bdd: null, img: "12h", hide: "cache5", rarity:       "Rare", variant: "Holographique", name: "Ban"},
-	{id: 36, num: 12, bdd:   29, img: "12s", hide: "cache6", rarity:       "Rare", variant:      "E-X Card", name: "Ban"},
-	{id: 37, num: 13, bdd:   13, img:  "13", hide: "cache4", rarity:       "Rare", variant:       "Normale", name: "Poulet"},
-	{id: 38, num: 13, bdd: null, img: "13h", hide: "cache5", rarity:       "Rare", variant: "Holographique", name: "Poulet"},
-	{id: 39, num: 13, bdd:   30, img: "13s", hide: "cache6", rarity:       "Rare", variant:      "E-X Card", name: "Poulet"},
-	{id: 40, num: 14, bdd:   14, img:  "14", hide: "cache4", rarity:       "Rare", variant:       "Normale", name: "JDR"},
-	{id: 41, num: 14, bdd: null, img: "14h", hide: "cache5", rarity:       "Rare", variant: "Holographique", name: "JDR"},
-	{id: 42, num: 14, bdd:   31, img: "14s", hide: "cache6", rarity:       "Rare", variant:      "E-X Card", name: "JDR"},
-	{id: 43, num: 15, bdd:   15, img:  "15", hide: "cache4", rarity:       "Rare", variant:       "Normale", name: "Sponsor"},
-	{id: 44, num: 15, bdd: null, img: "15h", hide: "cache5", rarity:       "Rare", variant: "Holographique", name: "Sponsor"},
-	{id: 45, num: 15, bdd:   32, img: "15s", hide: "cache6", rarity:       "Rare", variant:      "E-X Card", name: "Sponsor"},
-	{id: 46, num: 16, bdd:   16, img:  "16", hide: "cache7", rarity: "Legendaire", variant:       "Normale", name: "Baston"},
-	{id: 47, num: 16, bdd: null, img: "16h", hide: "cache8", rarity: "Legendaire", variant: "Holographique", name: "Baston"},
-	{id: 48, num: 16, bdd:   33, img: "16s", hide: "cache9", rarity: "Legendaire", variant:      "E-X Card", name: "Baston"},
-	{id: 49, num: 17, bdd:   17, img:  "17", hide: "cache7", rarity: "Legendaire", variant:       "Normale", name: "Imposteur"},
-	{id: 50, num: 17, bdd: null, img: "17h", hide: "cache8", rarity: "Legendaire", variant: "Holographique", name: "Imposteur"},
-	{id: 51, num: 17, bdd:   34, img: "17s", hide: "cache9", rarity: "Legendaire", variant:      "E-X Card", name: "Imposteur"},
+	{id:  1, num:  1, bdd:    1, img:   "1", hide: "cache1.webp", rarity:    "Commune", variant:       "Normale", name: "Follow"},
+	{id:  2, num:  1, bdd: null, img:  "1h", hide: "cache2.webp", rarity:    "Commune", variant: "Holographique", name: "Follow"},
+	{id:  3, num:  1, bdd:   18, img:  "1s", hide: "cache3.webp", rarity:    "Commune", variant:      "E-X Card", name: "Follow"},
+	{id:  4, num:  2, bdd:    2, img:   "2", hide: "cache1.webp", rarity:    "Commune", variant:       "Normale", name: "Caca"},
+	{id:  5, num:  2, bdd: null, img:  "2h", hide: "cache2.webp", rarity:    "Commune", variant: "Holographique", name: "Caca"},
+	{id:  6, num:  2, bdd:   19, img:  "2s", hide: "cache3.webp", rarity:    "Commune", variant:      "E-X Card", name: "Caca"},
+	{id:  7, num:  3, bdd:    3, img:   "3", hide: "cache1.webp", rarity:    "Commune", variant:       "Normale", name: "Raid 1"},
+	{id:  8, num:  3, bdd: null, img:  "3h", hide: "cache2.webp", rarity:    "Commune", variant: "Holographique", name: "Raid 1"},
+	{id:  9, num:  3, bdd:   20, img:  "3s", hide: "cache3.webp", rarity:    "Commune", variant:      "E-X Card", name: "Raid 1"},
+	{id: 10, num:  4, bdd:    4, img:   "4", hide: "cache1.webp", rarity:    "Commune", variant:       "Normale", name: "Raid 2"},
+	{id: 11, num:  4, bdd: null, img:  "4h", hide: "cache2.webp", rarity:    "Commune", variant: "Holographique", name: "Raid 2"},
+	{id: 12, num:  4, bdd:   21, img:  "4s", hide: "cache3.webp", rarity:    "Commune", variant:      "E-X Card", name: "Raid 2"},
+	{id: 13, num:  5, bdd:    5, img:   "5", hide: "cache1.webp", rarity:    "Commune", variant:       "Normale", name: "Artiste"},
+	{id: 14, num:  5, bdd: null, img:  "5h", hide: "cache2.webp", rarity:    "Commune", variant: "Holographique", name: "Artiste"},
+	{id: 15, num:  5, bdd:   22, img:  "5s", hide: "cache3.webp", rarity:    "Commune", variant:      "E-X Card", name: "Artiste"},
+	{id: 16, num:  6, bdd:    6, img:   "6", hide: "cache1.webp", rarity:    "Commune", variant:       "Normale", name: "Lecture"},
+	{id: 17, num:  6, bdd: null, img:  "6h", hide: "cache2.webp", rarity:    "Commune", variant: "Holographique", name: "Lecture"},
+	{id: 18, num:  6, bdd:   23, img:  "6s", hide: "cache3.webp", rarity:    "Commune", variant:      "E-X Card", name: "Lecture"},
+	{id: 19, num:  7, bdd:    7, img:   "7", hide: "cache1.webp", rarity:    "Commune", variant:       "Normale", name: "Tournois"},
+	{id: 20, num:  7, bdd: null, img:  "7h", hide: "cache2.webp", rarity:    "Commune", variant: "Holographique", name: "Tournois"},
+	{id: 21, num:  7, bdd:   24, img:  "7s", hide: "cache3.webp", rarity:    "Commune", variant:      "E-X Card", name: "Tournois"},
+	{id: 22, num:  8, bdd:    8, img:   "8", hide: "cache1.webp", rarity:    "Commune", variant:       "Normale", name: "Lurk"},
+	{id: 23, num:  8, bdd: null, img:  "8h", hide: "cache2.webp", rarity:    "Commune", variant: "Holographique", name: "Lurk"},
+	{id: 24, num:  8, bdd:   25, img:  "8s", hide: "cache3.webp", rarity:    "Commune", variant:      "E-X Card", name: "Lurk"},
+	{id: 25, num:  9, bdd:    9, img:   "9", hide: "cache1.webp", rarity:    "Commune", variant:       "Normale", name: "Ouin Ouin"},
+	{id: 26, num:  9, bdd: null, img:  "9h", hide: "cache2.webp", rarity:    "Commune", variant: "Holographique", name: "Ouin Ouin"},
+	{id: 27, num:  9, bdd:   26, img:  "9s", hide: "cache3.webp", rarity:    "Commune", variant:      "E-X Card", name: "Ouin Ouin"},
+	{id: 28, num: 10, bdd:   10, img:  "10", hide: "cache1.webp", rarity:    "Commune", variant:       "Normale", name: "Popcorn"},
+	{id: 29, num: 10, bdd: null, img: "10h", hide: "cache2.webp", rarity:    "Commune", variant: "Holographique", name: "Popcorn"},
+	{id: 30, num: 10, bdd:   27, img: "10s", hide: "cache3.webp", rarity:    "Commune", variant:      "E-X Card", name: "Popcorn"},
+	{id: 31, num: 11, bdd:   11, img:  "11", hide: "cache4.webp" , rarity:       "Rare", variant:       "Normale", name: "Princess Lexi"},
+	{id: 32, num: 11, bdd: null, img: "11h", hide: "cache5.webp" , rarity:       "Rare", variant: "Holographique", name: "Princess Lexi"},
+	{id: 33, num: 11, bdd:   28, img: "11s", hide: "cache6.webp" , rarity:       "Rare", variant:      "E-X Card", name: "Princess Lexi"},
+	{id: 34, num: 12, bdd:   12, img:  "12", hide: "cache4.webp" , rarity:       "Rare", variant:       "Normale", name: "Ban"},
+	{id: 35, num: 12, bdd: null, img: "12h", hide: "cache5.webp" , rarity:       "Rare", variant: "Holographique", name: "Ban"},
+	{id: 36, num: 12, bdd:   29, img: "12s", hide: "cache6.webp" , rarity:       "Rare", variant:      "E-X Card", name: "Ban"},
+	{id: 37, num: 13, bdd:   13, img:  "13", hide: "cache4.webp" , rarity:       "Rare", variant:       "Normale", name: "Poulet"},
+	{id: 38, num: 13, bdd: null, img: "13h", hide: "cache5.webp" , rarity:       "Rare", variant: "Holographique", name: "Poulet"},
+	{id: 39, num: 13, bdd:   30, img: "13s", hide: "cache6.webp" , rarity:       "Rare", variant:      "E-X Card", name: "Poulet"},
+	{id: 40, num: 14, bdd:   14, img:  "14", hide: "cache4.webp" , rarity:       "Rare", variant:       "Normale", name: "JDR"},
+	{id: 41, num: 14, bdd: null, img: "14h", hide: "cache5.webp" , rarity:       "Rare", variant: "Holographique", name: "JDR"},
+	{id: 42, num: 14, bdd:   31, img: "14s", hide: "cache6.webp" , rarity:       "Rare", variant:      "E-X Card", name: "JDR"},
+	{id: 43, num: 15, bdd:   15, img:  "15", hide: "cache4.webp" , rarity:       "Rare", variant:       "Normale", name: "Sponsor"},
+	{id: 44, num: 15, bdd: null, img: "15h", hide: "cache5.webp" , rarity:       "Rare", variant: "Holographique", name: "Sponsor"},
+	{id: 45, num: 15, bdd:   32, img: "15s", hide: "cache6.webp" , rarity:       "Rare", variant:      "E-X Card", name: "Sponsor"},
+	{id: 46, num: 16, bdd:   16, img:  "16", hide: "cache7.webp" , rarity: "Legendaire", variant:       "Normale", name: "Baston"},
+	{id: 47, num: 16, bdd: null, img: "16h", hide: "cache8.webp" , rarity: "Legendaire", variant: "Holographique", name: "Baston"},
+	{id: 48, num: 16, bdd:   33, img: "16s", hide: "cache9.webp" , rarity: "Legendaire", variant:      "E-X Card", name: "Baston"},
+	{id: 49, num: 17, bdd:   17, img:  "17", hide: "cache7.webp" , rarity: "Legendaire", variant:       "Normale", name: "Imposteur"},
+	{id: 50, num: 17, bdd: null, img: "17h", hide: "cache8.webp" , rarity: "Legendaire", variant: "Holographique", name: "Imposteur"},
+	{id: 51, num: 17, bdd:   34, img: "17s", hide: "cache9.webp" , rarity: "Legendaire", variant:      "E-X Card", name: "Imposteur"},
 ]
 let collectionsData = {}
 let collector = ""
@@ -283,13 +283,13 @@ function displayAlbumCards() {
 			if(quantity > 0) { // Ajoute l'id pour compter les uniques
 				const card = allCards.find((element) => element.id == cardId);
 				if(card != undefined) {
-					const imagePath = `public/cards/${card.img}.png`;
+					const imagePath = `public/cards/${card.img}.webp`;
 
 					rarityStats[card.rarity] += quantity;
 					variantStats[card.variant] += quantity;
 					listContent += `<div class="cardRender ${card.rarity}">
-						<div class="card unlocked${cardId%3==0?' ex':''}${cardId%3==2?' holo':''}">
-							<div><img src="${imagePath}" alt="Card ${cardId}" width="290" height="400"/></div>
+						<div class="card unlocked${card.variant == 'E-X Card' ?' ex':''}${card.variant == 'Holographique'?' holo':''}">
+							<div><img src="${imagePath}" alt="Carte ${card.name}" width="290" height="400"/></div>
 						</div>
 						<div class="cardInfo">
 							<h3>N°${card.num}</h3>
@@ -407,14 +407,14 @@ function displayAlbumCards() {
 						cardElement.classList.add('ex');
 					}
 					if(collection.cards[cardNumber]) {
-						cardImage.src = `public/cards/${card.img}.png`;
+						cardImage.src = `public/cards/${card.img}.webp`;
 						cardElement.classList.add('unlocked');
 						cardElement.addEventListener('click', toogleFullscreen);
 					} else {
-						cardImage.src = `public/cards/${card.hide}.png`;
+						cardImage.src = `public/cards/${card.hide}`;
 						cardElement.classList.add('locked');
 					}
-					cardImage.alt = `Carte ${card.id}`;
+					cardImage.alt = `Carte ${card.name}`;
 					cardImage.width = 290;
 					cardImage.height = 400;
 
@@ -458,7 +458,7 @@ function displayAlbumCards() {
 
 		// Vérifier si l'écran permet d'afficher les pages deux par deux
 		const pageWidth = document.querySelector('.album-page').clientWidth;
-		console.log(pageWidth)
+		//~ console.log(pageWidth)
 		const screenWidth = document.body.clientWidth;
 		const displayTwoPages = pageWidth * 2 <= screenWidth;// Fonction pour naviguer entre les pages
 
@@ -502,6 +502,7 @@ function displayAlbumCards() {
 			let target = e.target;
 			while(target && !target.classList.contains("unlocked")) target = target.parentNode;
 			if(target) target.requestFullscreen();
+			if(target.querySelector('img[alt="Carte Poulet"]')) ee();
 		}
 	}
 }
@@ -617,6 +618,120 @@ function initInput() {
 	}
 
 	inputStart.focus();
+}
+
+function ee() {
+    if(document.getElementById('btnp')) return;
+
+    function init() {
+        // Créer le container
+        const container = document.createElement('div');
+        container.id = 'pc';
+        document.body.appendChild(container);
+
+        // Créer le bouton jaune
+        const btnp = document.createElement('button');
+        btnp.id = 'btnp';
+        btnp.textContent = 'Poulet !';
+        container.appendChild(btnp);
+
+        // Ajouter l'event listener sur le bouton jaune (add)
+        btnp.addEventListener('click', add);
+        container.addEventListener('click', big);
+    }
+
+    function add(e) {
+		btnp.animate(
+			[{ opacity: 0.4, pointerEvents: "none"},{ opacity: 0.4, pointerEvents: "none"}],
+			{duration: 2000,easing: 'linear',}
+		);
+        // Créer et ajouter un poulet
+        const poulet = document.createElement('svg');
+		let html = `<svg class="poulet ${['saut', 'mange', 'marche'][Math.floor(Math.random() * 3)]}" style="--prim-color: hsl(${Math.floor(Math.random() * 360)} 100% ${50 + Math.floor(Math.random() * 40)}%); --sec-color: hsl(${Math.floor(Math.random() * 360)} 100% ${50 + Math.floor(Math.random() * 40)}%); width: 10vw;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 540">
+<g class="patte1">
+	<path fill="#c83" d="M170 368c15 44-56 63-63 11m49 27c9 15-9 19-11 10-3 12-18 5-15-7m20 2-10 57c23-7 40 0 33 7s-25 7-42 13-52 27-52 12c-12 0-9-9-7-11-10-2-6-22 56-18l11-59" />
+	<path class="prim-color" d="M170 368c15 44-56 63-63 11m49 27c9 15-9 19-11 10-3 12-18 5-15-7" />
+	<path class="ombre" d="M170 368c8 42-29 44-41 41 24-8 34-19 41-41m-14 38c9 15-9 19-11 10-3 12-18 5-15-7" />
+	<path class="contour" d="M170 368c15 44-56 63-63 11m49 27c9 15-9 19-11 10-3 12-18 5-15-7m18 11-8 48c23-7 40 0 33 7s-25 7-42 13-46 24-51 15 12-18 38-24m-39 21c-23-3 2-26 35-24m-42 13c-10-2-6-22 56-18l9-49" />
+</g><g class="corps"><g class="body">
+	<path class="prim-color" d="M325 227c8-11 11-8 9 6s-15 57-33 89-76 76-151 65-110-28-123-67c-12-16-21-35-11-62-18 51-16-9 9-39-11 15-14 19-17 17s8-18 25-38 29-53 35-74 6-44 4-55-5-35 10-50 28-17 41-9 28 19 37 48 10 37 10 58 3 50 12 70c26 0 51 23 58 29 12-3 22-10 28-14 0-5 4-10 8-14s13-13 15-7c4-4 9-12 18-7s9 15 9 24c4-8 7-11 9-2s0 21-2 32" />
+	<path class="ombre" d="M123 10s28 19 37 48 10 37 10 58 3 50 12 70c26 0 51 23 58 29s44 35 62 22 14-16 16-40c4-8 7-11 9-2s0 21-2 32c8-11 11-8 9 6s-15 57-33 89-61 64-140 26-79-148 34-94 94-21-7-50c-44-53-13-125-65-194m27 377c-75-11-110-28-123-67 58 43 62 48 123 67" />
+	<path class="contour" d="M55 340c-43-21-49-55-39-82-18 51-16-9 9-39-11 15-14 19-17 17s8-18 25-38 29-53 35-74 6-44 4-55-5-35 10-50 28-17 41-9 28 19 37 48 10 37 10 58 3 57 18 88m-7-19c27 1 59 28 82 51m-23-21c12-3 22-10 34-18m-6 4c0-5 4-10 8-14s13-13 15-7m-10 13c8-8 17-27 27-20s11 13 9 35m1-12c4-7 7-10 9-1s1 32-7 51m6-20c7-10 10-7 8 7s-15 57-33 89-76 76-151 65-110-28-123-67m99-5c6 10-13 8-21 8 22-1 18 19-33 11" />
+</g><g class="aile">
+	<path class="prim-color" d="M252 242c40-1 73 20 36 15l0 0c39 8 58 20 36 19l0 0c30 12 32 18 25 19l-15 1c20 2 6 8 2 9s-29 7-48 23-43 28-72 26-80-38-97-61-26-47-10-67 34-6 61-7" />
+	<path class="ombre" d="M271 255l0 0c62 6 84 31 36 16m29 34c-21-5-57 10-49 0m0 0c53-18 68-4 49 0s-29 7-48 23-43 28-72 26-80-38-97-61-26-47-10-67c-21 43 53 104 125 101s69-23 102-22m-100-50c52 12 14 11 2 11-4 11 9-2 28 10s56-1-30-21" />
+	<path class="contour" d="M252 242c40-1 73 20 36 15l-17-2c62 6 75 26 53 21l-17-5c52 14 49 23 42 24s-40-1-62 10m47-9c20 2 6 8 2 9s-29 7-48 23-43 28-72 26-80-38-97-61-26-47-10-67 34-6 61-7m66 36c52 12 14 11 2 11 26-1 35 3 52 12" />
+</g>`;
+html += [`<g class="coiffe">
+	<path class="sec-color" d="M155 46c-49-36-58-12-84-13s-28-22-14-27c-13-5-27-36 1-36s43 6 71 36c-26-37 10-42 18-12s-3 24 8 52" />
+	<path class="ombre" d="M155 46c-49-36-50-7-91-14 31-3 49-22 80 3-1-33 5-30-11-58 29 22 9 38 22 68m-98-39c10 7 23 9 30 7 4 9-28 6-36-3m1-39c24-3 49 1 77 35-3 17-23-33-77-35" />
+	<path class="contour" d="M155 46c-49-36-58-12-84-13s-28-22-14-27m28 8c-49-4-56-44-27-44s43 6 71 36c-26-37 10-42 18-12s-3 24 8 52" />
+	<path class="contour prim-color" d="M135 38c-21-9-20-27-34-12-3-3-17 0-17 3-10-9-13-4-12 8" />
+</g>`, `<g class="coiffe">
+	<path class="sec-color contour" d="M73 36c-14-74 32-87 21-42 15-40 68-39 30-2 41-30 87 1 22 15 69-11 78 44 20 26 79 31 9 39-4 29-27-35-56-57-89-26" />
+	<path class="ombre" d="M73 36c52-50 71 30 130 16 0 13-23 18-41 10-27-35-56-57-89-26m61-71c3 2 9 8-10 27-10-6 15-17 10-27m32 15c28 7 4 23-20 27-13-10 36-14 20-27m36 40c8 13-8 22-36 13-7-10 27 3 36-13" />
+</g>`][Math.floor(Math.random() * 2)];
+html += [`<g class="yeux">
+	<path fill="#fff" stroke="#000" stroke-width="2" d="M128 78c-10 0-20-1-28 3l-9-6c-8-11 8-32 25-24l-3-4c10 10 11 22 7 31m-51-5c-8-5-7-21 9-24 5 4 4 17 0 23z" />
+	<path fill="#000" d="M112 78l-12 3-9-6c-7-10 4-25 14-25 2 1 6 5 8 12-14 4-8 6 1 3 1 5 0 10-2 13m-16-1a1 1 0 000-6 1 1 0 000 6m8-15a1 1 0 000-7 1 1 0 000 7m-35 11c-7-6-4-21 7-22 2 1 3 5 3 9-12-2-4 3-1 3 0 3-1 6-2 9m-6-1a1 1 0 000-5 1 1 0 000 5m4-14a1 1 0 000-4 1 1 0 000 4" />
+</g>`, `<g class="yeux">
+	<path fill="#fff" d="M85 58c-4 1-11 2-15 1-3 7 0 13 2 15l10-1c2-3 4-10 3-15m12 1c3 1 18 0 24-3 5 8 5 14 3 20-7-1-23-1-31 1-2-8 1-16 4-18" />
+	<path fill="transparent" stroke="#000" stroke-width="2" d="M66 55c6-6 14-5 18 0m1 3c-4 1-11 2-15 1-3 7 0 13 2 15l10-1c2-3 4-10 3-15m9 0c11 2 22 1 30-4m-3 2c5 8 5 14 3 20m-6 4c3-1 6-1 9 1m-6 2h4m5-6c-13-2-29-2-39 1m2-1c-2-8 1-16 4-18m-1-5c14-21 22-22 31-5" />
+	<path fill="#000" d="M81 59c-2 0-7 1-11 0-3 7 0 13 2 15l7-1c2-4 3-8 2-14m17 0c5 1 13 0 17-1 4 6 3 12 2 17m0 0c-3 0-11-1-18 0-4-4-3-11-1-16m1 12c0 4 16 2 16 0s-1-2-3-1-8 1-10 0-3-1-3 1m13-6a1 1 0 000-5 1 1 0 000 5m-34 0a1 1 0 010-4 1 1 0 010 4m-6 5c0-2 6-2 6 0s-6 2-6 0" />
+</g>`][Math.floor(Math.random() * 2)];
+html += `<g class="wattle">
+	<path class="sec-color contour" d="M74 92c20 22 1 48-14 48s-13-19-6-27zm45-1c18 8 15 15 30 29s13 50-7 50-17-28-16-39-3-25-8-35" />
+	<path class="ombre" d="M74 92c11 14 9 29 4 36 1-20-3-24-8-31m49-6c18 8 15 15 30 30s10 42-3 48c5-31-5-55-27-78" />
+</g>`;
+html += [`<g class="bec">
+	<path fill="#C58A2C" d="M104 86c11-2 12 3 16 6 1 5-3 5-9 10s-18 27-41 10l2-12c-10-1-14-1-24 2 3-37 40-34 56-16" />
+	<path fill="#88510E" d="M72 100c-10-1-14-1-24 2 5-8 32-4 54-11 14-1 11 4 18 1 1 5-3 5-11 9s-24 24-39 11" />
+	<path fill="#A22124" d="M102 97c-6 10-27 24-15 3" />
+	<path class="contour" d="M99 86c17-3 17 3 21 6 1 5-3 5-9 10s-18 27-41 10l2-12m15 0c-2 3-5 8-3 11m-9-5c-8 14 22 2 26-8m1-8c8 0 10 1 13 4m-3-2c-18 15-52 3-64 10 3-37 40-33 55-17" />
+</g>`, `<g class="bec">
+	<path fill="#C58A2C" d="M66 101c-3-1-13 0-19 2 6-29 16-26 26-28s16 0 31 12c8-2 12 2 16 8" />
+	<path fill="#88510E" d="M66 101c-3-1-13 0-19 2 4-6 15-5 31-7s25-2 28-9c6-2 10 2 14 8-21 7-30 30-54 6" />
+	<path fill="#eee" d="M111 94c-10 7-21 7-30 7 11 0 18-6 23-10" />
+	<path class="contour" d="M81 101c11 0 18-6 23-10l7 3c-14 13-43 3-64 9 6-29 16-26 26-28s16 0 31 12m-6 1c15-4 18 1 22 7-21 7-30 30-54 6m41-12c3 0 7 2 8 4" />
+</g>`][Math.floor(Math.random() * 2)];
+html += `</g><g class="patte2">
+	<path fill="#c83" d="M208 430l-11 64c28-9 47 0 41 7s-31 9-52 17-64 33-64 14c-14 0-11-10-8-13-12-3-7-26 69-22l12-66" />
+	<path class="prim-color" d="M235 368c21 57-73 82-79 13m60 37c13 17-10 22-14 12-2 12-20 6-15-8" />
+	<path class="ombre" d="M235 368c9 32-7 42-19 50 13 17-10 22-14 12-2 12-20 6-15-8 54-24 37-50 48-54" />
+	<path class="contour" d="M235 368c21 57-73 82-79 13m60 37c13 17-10 22-14 12-2 12-20 6-15-8m20 13-10 59c28-9 47 0 41 7s-31 9-52 17-58 29-63 18 14-23 47-29m-48 25c-30-3 8-33 43-29m-51 16c-12-3-7-26 69-22l11-61" />
+</g></svg>`;
+        document.getElementById('pc').appendChild(poulet);
+		poulet.outerHTML = html;
+        setTimeout(() => {console.log(poulet.addEventListener('click', big));}, 1000)
+    }
+
+    function big(e) {
+		let pz = e.target;
+		while(pz.localName != "svg") {
+			if(pz == document.body) return;
+			pz = pz.parentNode;
+		}
+		console.log(pz)
+
+        const currentWidth = parseInt(pz.style.width);
+        const newWidth = Math.floor(currentWidth * 1.3);
+
+        // Si poulet pas trop gros
+        if (newWidth < 50) {
+            pz.style.width = newWidth + 'vw';
+            const cotSound = new Audio('public/cot.ogg');
+            cotSound.play();
+        } else {
+            // Jouer animation boom
+            pz.classList = "poulet exp";
+            const exSound = new Audio('public/ex.ogg');
+            exSound.play();
+			setTimeout(() => {pz.style.display = "none"}, 1000)
+        }
+    }
+
+    // Initialiser les éléments
+    init();
 }
 
 document.addEventListener('DOMContentLoaded', async function () {
