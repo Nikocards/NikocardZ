@@ -59,6 +59,9 @@ const allCards = [
 	{id: 49, num: 17, bdd:   17, img:  "17", hide: "cache7.webp" , rarity: "Legendaire", variant:       "Normale", name: "Imposteur"},
 	{id: 50, num: 17, bdd: null, img: "17h", hide: "cache8.webp" , rarity: "Legendaire", variant: "Holographique", name: "Imposteur"},
 	{id: 51, num: 17, bdd:   34, img: "17s", hide: "cache9.webp" , rarity: "Legendaire", variant:      "E-X Card", name: "Imposteur"},
+	{id: 52, num: 18, bdd:   35, img:  "18", hide: "cache4.webp" , rarity:       "Rare", variant:       "Normale", name: "La Cour du Roi"},
+	{id: 53, num: 18, bdd: null, img: "18h", hide: "cache5.webp" , rarity:       "Rare", variant: "Holographique", name: "La Cour du Roi"},
+	{id: 54, num: 18, bdd:   36, img: "18s", hide: "cache6.webp" , rarity:       "Rare", variant:      "E-X Card", name: "La Cour du Roi"},
 ]
 let collectionsData = {}
 let collector = ""
@@ -271,7 +274,7 @@ function displayAlbumCards() {
 
 	function displayStats(collection) {
 		// Statistiques initiales par rareté
-		const totalCards = { Commune: 30, Rare: 15, Legendaire: 6, Normale: 17, Holographique: 17, "E-X Card": 17 }; // Total par type
+		const totalCards = { Commune: 30, Rare: 18, Legendaire: 6, Normale: 18, Holographique: 18, "E-X Card": 18 }; // Total par type
 		const rarityStats = { Commune: 0, Rare: 0, Legendaire: 0 };
 		const variantStats = { Normale: 0, Holographique: 0, "E-X Card": 0 };
 		const uniqueStats = { Commune: 0, Rare: 0, Legendaire: 0, Normale: 0, Holographique: 0, "E-X Card": 0 };
@@ -357,12 +360,12 @@ function displayAlbumCards() {
 
 	function displayAlbum(collection) {
 		const pages = [
-			[],
 			[1, 2, 3, 4, 5, 6, 13,14,15],
-			[7, 10,16, 8,11,17, 9,12,18],
-			[19,20,21,22,23,24,25,26,27],
-			[28,29,30,31,32,33,34,35,36],
-			[37,38,39,40,41,42,43,44,45],
+			[7, 10, 8,11, 9,12],
+			[16,17,18,19,20,21,22,23,24],
+			[25,26,27,28,29,30],
+			[31,32,33,34,35,36,37,38,39],
+			[40,41,42,43,44,45,52,53,54],
 			[46,47,48],
 			[49,50,51]
 		];
@@ -467,9 +470,9 @@ function displayAlbumCards() {
 			firstPage = document.getElementById('page-1');
 			firstPage.classList.add('visible');
 			firstPage.classList.add('next-visible');
-		} else {
-			document.getElementById('page-1').classList.remove('visible');
-			document.getElementById('page-2').classList.add('visible');
+		//~ } else {
+			//~ document.getElementById('page-1').classList.remove('visible');
+			//~ document.getElementById('page-2').classList.add('visible');
 		}
 
 		function navigatePage(direction) {
@@ -720,13 +723,15 @@ html += `</g><g class="patte2">
         if (newWidth < 50) {
             pz.style.width = newWidth + 'vw';
             const cotSound = new Audio('public/cot.ogg');
+			cotSound.volume = 0.4;
             cotSound.play();
         } else {
             // Jouer animation boom
             pz.classList = "poulet exp";
             const exSound = new Audio('public/ex.ogg');
             exSound.play();
-			setTimeout(() => {pz.style.display = "none"}, 1000)
+			exSound.volume = 0.4;
+			setTimeout(() => pz.remove(), 1000)
         }
     }
 

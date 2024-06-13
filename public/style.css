@@ -223,6 +223,7 @@ header button:hover {
 	gap: 2vh;
 	width: 47.5vh;
 	height: 66vh;
+    align-content: center;
 }
 .album-page-head {
 	width: 100%;
@@ -768,6 +769,12 @@ div.stats {
 	margin: 0 8.25vh;
 	justify-items: center;
 }
+#page-2 .album-page-grid {
+	gap: 0;
+	grid-template-columns: auto auto;
+	justify-content: center;
+	align-content: space-around;
+}
 
 .album-page #card-48, .album-page #card-51 {
 	max-height: 40vh;
@@ -780,7 +787,7 @@ div.stats {
 	transform: scale(1.1);
 }
 
-.album-page #card-7, .album-page #card-8, .album-page #card-9 {
+/*.album-page #card-7, .album-page #card-8, .album-page #card-9 {
 	margin: 0 -1vh 0 1vh;
 }
 
@@ -788,7 +795,8 @@ div.stats {
 	.album-page #card-10, .album-page #card-11, .album-page #card-12 {
 		margin: 0 1vh 0 -1vh;
 	}
-}
+}*/
+
 
 /* EE */
 :root {
