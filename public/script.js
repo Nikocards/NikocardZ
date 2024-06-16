@@ -7,7 +7,7 @@
 */
 
 const clientId = 'kimne78kx3ncx6brgo4mv6wki5h1ko'; // s'te plait me kack pô :(
-const allCards = [
+let allCards = [
 	{id:  1, num:  1, bdd:    1, img:   "1", hide: "cache1.webp", rarity:    "Commune", variant:       "Normale", name: "Follow"},
 	{id:  2, num:  1, bdd: null, img:  "1h", hide: "cache2.webp", rarity:    "Commune", variant: "Holographique", name: "Follow"},
 	{id:  3, num:  1, bdd:   18, img:  "1s", hide: "cache3.webp", rarity:    "Commune", variant:      "E-X Card", name: "Follow"},
@@ -38,30 +38,30 @@ const allCards = [
 	{id: 28, num: 10, bdd:   10, img:  "10", hide: "cache1.webp", rarity:    "Commune", variant:       "Normale", name: "Popcorn"},
 	{id: 29, num: 10, bdd: null, img: "10h", hide: "cache2.webp", rarity:    "Commune", variant: "Holographique", name: "Popcorn"},
 	{id: 30, num: 10, bdd:   27, img: "10s", hide: "cache3.webp", rarity:    "Commune", variant:      "E-X Card", name: "Popcorn"},
-	{id: 31, num: 11, bdd:   11, img:  "11", hide: "cache4.webp" , rarity:       "Rare", variant:       "Normale", name: "Princess Lexi"},
-	{id: 32, num: 11, bdd: null, img: "11h", hide: "cache5.webp" , rarity:       "Rare", variant: "Holographique", name: "Princess Lexi"},
-	{id: 33, num: 11, bdd:   28, img: "11s", hide: "cache6.webp" , rarity:       "Rare", variant:      "E-X Card", name: "Princess Lexi"},
-	{id: 34, num: 12, bdd:   12, img:  "12", hide: "cache4.webp" , rarity:       "Rare", variant:       "Normale", name: "Ban"},
-	{id: 35, num: 12, bdd: null, img: "12h", hide: "cache5.webp" , rarity:       "Rare", variant: "Holographique", name: "Ban"},
-	{id: 36, num: 12, bdd:   29, img: "12s", hide: "cache6.webp" , rarity:       "Rare", variant:      "E-X Card", name: "Ban"},
-	{id: 37, num: 13, bdd:   13, img:  "13", hide: "cache4.webp" , rarity:       "Rare", variant:       "Normale", name: "Poulet"},
-	{id: 38, num: 13, bdd: null, img: "13h", hide: "cache5.webp" , rarity:       "Rare", variant: "Holographique", name: "Poulet"},
-	{id: 39, num: 13, bdd:   30, img: "13s", hide: "cache6.webp" , rarity:       "Rare", variant:      "E-X Card", name: "Poulet"},
-	{id: 40, num: 14, bdd:   14, img:  "14", hide: "cache4.webp" , rarity:       "Rare", variant:       "Normale", name: "JDR"},
-	{id: 41, num: 14, bdd: null, img: "14h", hide: "cache5.webp" , rarity:       "Rare", variant: "Holographique", name: "JDR"},
-	{id: 42, num: 14, bdd:   31, img: "14s", hide: "cache6.webp" , rarity:       "Rare", variant:      "E-X Card", name: "JDR"},
-	{id: 43, num: 15, bdd:   15, img:  "15", hide: "cache4.webp" , rarity:       "Rare", variant:       "Normale", name: "Sponsor"},
-	{id: 44, num: 15, bdd: null, img: "15h", hide: "cache5.webp" , rarity:       "Rare", variant: "Holographique", name: "Sponsor"},
-	{id: 45, num: 15, bdd:   32, img: "15s", hide: "cache6.webp" , rarity:       "Rare", variant:      "E-X Card", name: "Sponsor"},
-	{id: 46, num: 16, bdd:   16, img:  "16", hide: "cache7.webp" , rarity: "Legendaire", variant:       "Normale", name: "Baston"},
-	{id: 47, num: 16, bdd: null, img: "16h", hide: "cache8.webp" , rarity: "Legendaire", variant: "Holographique", name: "Baston"},
-	{id: 48, num: 16, bdd:   33, img: "16s", hide: "cache9.webp" , rarity: "Legendaire", variant:      "E-X Card", name: "Baston"},
-	{id: 49, num: 17, bdd:   17, img:  "17", hide: "cache7.webp" , rarity: "Legendaire", variant:       "Normale", name: "Imposteur"},
-	{id: 50, num: 17, bdd: null, img: "17h", hide: "cache8.webp" , rarity: "Legendaire", variant: "Holographique", name: "Imposteur"},
-	{id: 51, num: 17, bdd:   34, img: "17s", hide: "cache9.webp" , rarity: "Legendaire", variant:      "E-X Card", name: "Imposteur"},
-	{id: 52, num: 18, bdd:   35, img:  "18", hide: "cache4.webp" , rarity:       "Rare", variant:       "Normale", name: "La Cour du Roi"},
-	{id: 53, num: 18, bdd: null, img: "18h", hide: "cache5.webp" , rarity:       "Rare", variant: "Holographique", name: "La Cour du Roi"},
-	{id: 54, num: 18, bdd:   36, img: "18s", hide: "cache6.webp" , rarity:       "Rare", variant:      "E-X Card", name: "La Cour du Roi"},
+	{id: 31, num: 11, bdd:   11, img:  "11", hide: "cache4.webp", rarity:       "Rare", variant:       "Normale", name: "Princess Lexi"},
+	{id: 32, num: 11, bdd: null, img: "11h", hide: "cache5.webp", rarity:       "Rare", variant: "Holographique", name: "Princess Lexi"},
+	{id: 33, num: 11, bdd:   28, img: "11s", hide: "cache6.webp", rarity:       "Rare", variant:      "E-X Card", name: "Princess Lexi"},
+	{id: 34, num: 12, bdd:   12, img:  "12", hide: "cache4.webp", rarity:       "Rare", variant:       "Normale", name: "Ban"},
+	{id: 35, num: 12, bdd: null, img: "12h", hide: "cache5.webp", rarity:       "Rare", variant: "Holographique", name: "Ban"},
+	{id: 36, num: 12, bdd:   29, img: "12s", hide: "cache6.webp", rarity:       "Rare", variant:      "E-X Card", name: "Ban"},
+	{id: 37, num: 13, bdd:   13, img:  "13", hide: "cache4.webp", rarity:       "Rare", variant:       "Normale", name: "Poulet"},
+	{id: 38, num: 13, bdd: null, img: "13h", hide: "cache5.webp", rarity:       "Rare", variant: "Holographique", name: "Poulet"},
+	{id: 39, num: 13, bdd:   30, img: "13s", hide: "cache6.webp", rarity:       "Rare", variant:      "E-X Card", name: "Poulet"},
+	{id: 40, num: 14, bdd:   14, img:  "14", hide: "cache4.webp", rarity:       "Rare", variant:       "Normale", name: "JDR"},
+	{id: 41, num: 14, bdd: null, img: "14h", hide: "cache5.webp", rarity:       "Rare", variant: "Holographique", name: "JDR"},
+	{id: 42, num: 14, bdd:   31, img: "14s", hide: "cache6.webp", rarity:       "Rare", variant:      "E-X Card", name: "JDR"},
+	{id: 43, num: 15, bdd:   15, img:  "15", hide: "cache4.webp", rarity:       "Rare", variant:       "Normale", name: "Sponsor"},
+	{id: 44, num: 15, bdd: null, img: "15h", hide: "cache5.webp", rarity:       "Rare", variant: "Holographique", name: "Sponsor"},
+	{id: 45, num: 15, bdd:   32, img: "15s", hide: "cache6.webp", rarity:       "Rare", variant:      "E-X Card", name: "Sponsor"},
+	{id: 46, num: 16, bdd:   16, img:  "16", hide: "cache7.webp", rarity: "Legendaire", variant:       "Normale", name: "Baston"},
+	{id: 47, num: 16, bdd: null, img: "16h", hide: "cache8.webp", rarity: "Legendaire", variant: "Holographique", name: "Baston"},
+	{id: 48, num: 16, bdd:   33, img: "16s", hide: "cache9.webp", rarity: "Legendaire", variant:      "E-X Card", name: "Baston"},
+	{id: 49, num: 17, bdd:   17, img:  "17", hide: "cache7.webp", rarity: "Legendaire", variant:       "Normale", name: "Imposteur"},
+	{id: 50, num: 17, bdd: null, img: "17h", hide: "cache8.webp", rarity: "Legendaire", variant: "Holographique", name: "Imposteur"},
+	{id: 51, num: 17, bdd:   34, img: "17s", hide: "cache9.webp", rarity: "Legendaire", variant:      "E-X Card", name: "Imposteur"},
+	{id: 52, num: 18, bdd:   35, img:  "18", hide: "cache4.webp", rarity:       "Rare", variant:       "Normale", name: "La Cour du Roi"},
+	{id: 53, num: 18, bdd: null, img: "18h", hide: "cache5.webp", rarity:       "Rare", variant: "Holographique", name: "La Cour du Roi"},
+	{id: 54, num: 18, bdd:   36, img: "18s", hide: "cache6.webp", rarity:       "Rare", variant:      "E-X Card", name: "La Cour du Roi"},
 ]
 let collectionsData = {}
 let collector = ""
@@ -69,7 +69,7 @@ const totalCards = allCards.length; // Nombre total de cartes dans la collection
 
 async function fetchUserCards(container) {
 	// Si un élément DOM est passé en argument, on l'utilise pour afficher le message de chargement
-	// Sinon (évenement clic sur le bouton), on utiliser '#card-container'
+	// Sinon (évenement clic sur le bouton), on utilise '#card-container'
 	const cardContainer = container.parentNode ? container : document.getElementById('card-container');
 	cardContainer.innerHTML = `
 		<h2>Les marauds récupèrent prestement vos effets pour que vous puissiez guerroyer, Messire.</h2>
@@ -148,6 +148,13 @@ async function fetchUserCards(container) {
 				//~ fetchTwitchDataMultiple(newUsers);
 			}
 		} catch(e) {console.error(e)}
+
+		for(i in allCards) {
+			allCards[i].stat = 0
+			for(u in collectionsData) {
+				if(collectionsData[u].cards[allCards[i].id]) allCards[i].stat ++;
+			}
+		}
 	} catch (error) {
 		console.error('Error fetching user cards data:', error);
 	}
@@ -218,7 +225,7 @@ function displayAlbumCards() {
 			displayAlbum(collection)
 	}
 
-	function displayRanks(collection) {
+	/*function displayRanks(collection) {
 		let scores = Object.entries(collectionsData);
 		scores.sort((a, b) => (a[1].uniques == b[1].uniques ? (b[1].total - a[1].total) : (b[1].uniques - a[1].uniques)))
 
@@ -241,12 +248,12 @@ function displayAlbumCards() {
 			`;
 
 			for(i in scores) {
-				const progressPercent = (scores[i][1].uniques / 48 * 100).toFixed(2); // Calcul du pourcentage
+				const progressPercent = (scores[i][1].uniques / totalCards * 100).toFixed(2); // Calcul du pourcentage
 				htmlContent += `<tr${scores[i][0] == collector ? ' class="me"' : ''} data-collection="${scores[i][0]}">
 					<td>${i*1 + 1}</td>
 					<td class="pseudo"><img class="avatar" src=${JSON.stringify(scores[i][1].avatar)} alt="${scores[i][1].pseudo}" onerror="this.style.visibility = 'hidden'" width="28" height="28"/> ${scores[i][1].pseudo}</td>
 					<td>${scores[i][1].total} ${scores[i][1].total > 1 ? "cartes" : "carte"}</td>
-					<td>${scores[i][1].uniques} / 48<div class="progress"><div style="width: ${progressPercent}%"></div></div></td>
+					<td>${scores[i][1].uniques} / ${totalCards}<div class="progress"><div style="width: ${progressPercent}%"></div></div></td>
 				</tr>`;
 			}
 
@@ -270,7 +277,83 @@ function displayAlbumCards() {
 				requestAnimationFrame(displayAlbumCards);
 			}
 		}
+	}*/
+	function displayRanks(collection) {
+		let scores = Object.entries(collectionsData);
+		scores.sort((a, b) => (a[1].uniques == b[1].uniques ? (b[1].total - a[1].total) : (b[1].uniques - a[1].uniques)))
+
+		let page = 1;
+		let itemsPerPage = 100;
+		let totalPages = Math.ceil(scores.length / itemsPerPage);
+
+		displayTable();
+
+		function displayTable() {
+			let htmlContent = `<div class="classement">
+				<div class="title"><h1>Classement</h1></div>
+				<table>
+					<thead>
+						<tr>
+							<th>Rang</th>
+							<th>Pseudo</th>
+							<th>Total</th>
+							<th>Uniques</th>
+						</tr>
+					</thead>
+					<tbody>
+			`;
+
+			for(let i = (page - 1) * itemsPerPage; i < page * itemsPerPage && i < scores.length; i++) {
+				const progressPercent = (scores[i][1].uniques / totalCards * 100).toFixed(2); // Calcul du pourcentage
+				htmlContent += `<tr${scores[i][0] == collector ? ' class="me"' : ''} data-collection="${scores[i][0]}">
+					<td>${i*1 + 1}</td>
+					<td class="pseudo"><img class="avatar" src=${JSON.stringify(scores[i][1].avatar)} alt="${scores[i][1].pseudo}" onerror="this.style.visibility = 'hidden'" width="28" height="28"/> ${scores[i][1].pseudo}</td>
+					<td>${scores[i][1].total} ${scores[i][1].total > 1 ? "cartes" : "carte"}</td>
+					<td>${scores[i][1].uniques} / ${totalCards}<div class="progress"><div style="width: ${progressPercent}%"></div></div></td>
+				</tr>`;
+			}
+
+			htmlContent += `</tbody></table>
+				<div class="album-button-container">
+					<button${page == 1 ? ' disabled' : ''} id="prev-page">Page précédente</button>
+					<button${page == totalPages ? ' disabled' : ''} id="next-page">Page suivante</button>
+				</div>
+			</div>`;
+			cardContainer.innerHTML = htmlContent;
+
+			cardContainer.querySelectorAll('tr[data-collection]').forEach(tr => {
+				tr.addEventListener('click', displayStats);
+			})
+
+			document.getElementById('prev-page').addEventListener('click', () => {
+				if(page > 1) {
+					page--;
+					displayTable();
+				}
+			});
+
+			document.getElementById('next-page').addEventListener('click', () => {
+				if(page < totalPages) {
+					page++;
+					displayTable();
+				}
+			});
+		}
+
+		function displayStats(e) {
+			let element = e.target;
+			while(element && !element.dataset.collection) {
+				element = element.parentNode;
+			}
+			if(element) {
+				selectDisplay.dataset.value = 'progress';
+				document.getElementById('collection-name').value = element.dataset.collection;
+				collector = element.dataset.collection;
+				requestAnimationFrame(displayAlbumCards);
+			}
+		}
 	}
+
 
 	function displayStats(collection) {
 		// Statistiques initiales par rareté
@@ -291,18 +374,23 @@ function displayAlbumCards() {
 					rarityStats[card.rarity] += quantity;
 					variantStats[card.variant] += quantity;
 					listContent += `<div class="cardRender ${card.rarity}">
-						<div class="card unlocked${card.variant == 'E-X Card' ?' ex':''}${card.variant == 'Holographique'?' holo':''}">
-							<div><img src="${imagePath}" alt="Carte ${card.name}" width="290" height="400"/></div>
+						<div>
+							<div class="card unlocked${card.variant == 'E-X Card' ?' ex':''}${card.variant == 'Holographique'?' holo':''}">
+								<div><img src="${imagePath}" alt="Carte ${card.name}" width="290" height="400"/></div>
+							</div>
+							<div class="cardInfo">
+								<h3>N°${card.num}</h3>
+								<p>${card.rarity}</p>
+								<h4>Variante</h4>
+								<p>${card.variant}</p>
+								<h4>Quantité</h4>
+								<p>x ${quantity}</p>
+							</div>
 						</div>
-						<div class="cardInfo">
-							<h3>N°${card.num}</h3>
-							<p>${card.rarity}</p>
-							<h4>Variante</h4>
-							<p>${card.variant}</p>
-							<h4>Quantité</h4>
-							<p>x ${quantity}</p>
-						</div>
+						<p><i>Découverte par ${card.stat} personne${card.stat > 1 ? "s" : ""}</i></p>
+						<div class="progress"><div style="width: ${Math.floor(1000 * card.stat / Object.keys(collectionsData).length)/10}%;height: 6px;"></div></div>
 					</div>`;
+						// <div class="progress"><div style="width: ${Math.floor(1000/Math.sqrt(card.stat))/10}%;height: 6px;"></div></div>
 					uniqueStats[card.rarity] ++;
 					uniqueStats[card.variant] ++;
 				}
@@ -752,3 +840,77 @@ document.addEventListener('DOMContentLoaded', async function () {
 	initInput();
 });
 
+function generateGraph() {
+	const ref = Object.keys(collectionsData).length;
+	// Triez la liste allCards
+	allCards.sort((a, b) => {
+		const rarityOrder = { "Commune": 0, "Rare": 1, "Legendaire": 2 };
+		const variantOrder = { "Normale": 0, "Holographique": 1, "E-X Card": 2 };
+		return rarityOrder[a.rarity] - rarityOrder[b.rarity] || a.num - b.num || variantOrder[a.variant] - variantOrder[b.variant];
+	});
+
+	// Créez un SVG
+	const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+	svg.setAttribute("width", "100%");
+	svg.setAttribute("height", ref);
+
+	// Définissez les couleurs des barres
+	const colors = { "Normale": "red", "Holographique": "yellow", "E-X Card": "purple" };
+
+	// Parcourez la liste triée trois fois
+	let pathDataRed = "";
+	let pathDataYellow = "";
+	let pathDataPurple = "";
+	let x = 0;
+	for (let i = 0; i < allCards.length; i++) {
+		const card = allCards[i];
+		const y = ref - card.stat;
+		const width = 10;
+		const height = card.stat;
+
+		// Ajoutez les commandes M et V au path en fonction de la couleur de la barre
+		if (card.variant === "Normale") {
+			pathDataRed += `M${x} ${y} V${y + height} `;
+		} else if (card.variant === "Holographique") {
+			pathDataYellow += `M${x} ${y} V${y + height} `;
+			// Ajoutez l'étiquette sous l'axe des zéros pour les cartes holographiques
+			const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+			text.setAttribute("x", x + width / 2);
+			text.setAttribute("y", ref + 20);
+			text.setAttribute("text-anchor", "middle");
+			text.textContent = card.name;
+			svg.appendChild(text);
+		} else if (card.variant === "E-X Card") {
+			pathDataPurple += `M${x} ${y} V${y + height} `;
+		}
+
+		x += width;
+	}
+
+	// Créez les trois paths
+	const pathRed = document.createElementNS("http://www.w3.org/2000/svg", "path");
+	pathRed.setAttribute("d", pathDataRed);
+	pathRed.setAttribute("fill", "none");
+	pathRed.setAttribute("stroke", "red");
+	pathRed.setAttribute("stroke-width", "9");
+	svg.appendChild(pathRed);
+
+	const pathYellow = document.createElementNS("http://www.w3.org/2000/svg", "path");
+	pathYellow.setAttribute("d", pathDataYellow);
+	pathYellow.setAttribute("fill", "none");
+	pathYellow.setAttribute("stroke", "yellow");
+	pathYellow.setAttribute("stroke-width", "9");
+	svg.appendChild(pathYellow);
+
+	const pathPurple = document.createElementNS("http://www.w3.org/2000/svg", "path");
+	pathPurple.setAttribute("d", pathDataPurple);
+	pathPurple.setAttribute("fill", "none");
+	pathPurple.setAttribute("stroke", "purple");
+	pathPurple.setAttribute("stroke-width", "9");
+	svg.appendChild(pathPurple);
+
+	// Ajoutez le SVG à la page
+	document.body.appendChild(svg);
+
+
+}
