@@ -109,6 +109,7 @@ header nav div {
 	}
 	label {
 		width: 140px;
+		font-size: 12px;
 	}
 }
 
@@ -223,6 +224,7 @@ header button:hover {
 	gap: 2vh;
 	width: 47.5vh;
 	height: 66vh;
+    align-content: center;
 }
 .album-page-head {
 	width: 100%;
@@ -491,6 +493,12 @@ div.stats {
 	display: flex;
 	margin: 8px;
 	color: #fff8d5;
+	flex-direction: column;
+}
+
+.cardList .cardRender>div {
+	display: flex;
+	width: 100%;
 }
 
 .cardList .cardRender.Rare {
@@ -757,7 +765,34 @@ div.stats {
 .classement .me {
 	border: solid 2px #f22;
 }
-
+@media (max-width: 660px) {
+	.classement table {
+		font-size: 14px;
+	}
+	.classement th {
+		font-size: 16px;
+	}
+	header h1 button {
+		font-size: 14px
+		width: 160px;
+	}
+	#style-select button {
+		font-size: 14px;
+	}
+}
+@media (max-width: 500px) {
+	.classement table {
+		font-size: 12px;
+	}
+	.classement th {
+		font-size: 14px;
+	}
+	.classement table img {
+		margin: 1px 6px 1px 2px;
+		height: 24px;
+		width: 24px;
+	}
+}
 
 
 /* Affichage spécial */
@@ -767,6 +802,12 @@ div.stats {
 	width: 31vh;
 	margin: 0 8.25vh;
 	justify-items: center;
+}
+#page-2 .album-page-grid {
+	gap: 0;
+	grid-template-columns: auto auto;
+	justify-content: center;
+	align-content: space-around;
 }
 
 .album-page #card-48, .album-page #card-51 {
@@ -780,7 +821,7 @@ div.stats {
 	transform: scale(1.1);
 }
 
-.album-page #card-7, .album-page #card-8, .album-page #card-9 {
+/*.album-page #card-7, .album-page #card-8, .album-page #card-9 {
 	margin: 0 -1vh 0 1vh;
 }
 
@@ -788,6 +829,19 @@ div.stats {
 	.album-page #card-10, .album-page #card-11, .album-page #card-12 {
 		margin: 0 1vh 0 -1vh;
 	}
+}*/
+
+.cardRender .progress {
+	margin: 0;
+}
+.Commune .progress>div {
+	background-color: #888;
+}
+.Rare .progress>div {
+	background-color: #08e;
+}
+.Legendaire .progress>div {
+	background-color: #d83;
 }
 
 /* EE */
