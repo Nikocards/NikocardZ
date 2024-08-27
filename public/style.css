@@ -1,3 +1,7 @@
+@font-face {
+  font-family: arcade;
+  src: url(arcade.regular.ttf);
+}
 
 body {
 	margin: 0;
@@ -53,7 +57,7 @@ header {
 	padding: 20px 16px;
 	margin: 0 0 20px 0;
 	border-bottom: solid 1px #000;
-	position: sticky;
+	/*position: sticky;*/
 	top: 0;
 	z-index: 20;
 }
@@ -93,13 +97,14 @@ header nav div {
 	align-items: center;
 }
 
-@media (max-width: 660px) {
+@media (max-width: 760px) {
 	header nav div {
 		margin: 4px 0;
 		width: 100%;
 	}
 	header h1 {
 		font-size: 28px;
+		flex-direction: column;
 	}
 	header {
 		padding: 12px;
@@ -320,7 +325,7 @@ img:hover + .card-count {
 }
 .card-count {
 	display: none;
-	margin: 16vh 6px 0 0;
+	margin: 15vh 6px 0 0;
 	position: fixed;
 	z-index: 30;
 	color: #fff;
@@ -402,7 +407,7 @@ img:hover + .card-count {
 	100% { background-position-x: 24px; }
 }
 
-@media (max-width: 660px) {
+@media (max-width: 760px) {
 	.album-page-grid {
 		gap: 1vh;
 		width: 45.5vh;
@@ -504,10 +509,17 @@ div.stats {
 .cardList .cardRender.Rare {
 	border-color: #4bf;
 	background: #123;
+	order: 2;
+}
+.cardList .cardRender.Epique {
+	border-color: #f6f;
+	background: #313;
+	order: 3;
 }
 .cardList .cardRender.Legendaire {
 	border-color: #ff8;
 	background: #221;
+	order: 4;
 }
 
 .cardRender .card {
@@ -542,7 +554,7 @@ div.stats {
 }
 
 
-@media (max-width: 660px) {
+@media (max-width: 760px) {
 	div.stats {
 		flex-direction: column;
 		align-items: center;
@@ -765,7 +777,7 @@ div.stats {
 .classement .me {
 	border: solid 2px #f22;
 }
-@media (max-width: 660px) {
+@media (max-width: 760px) {
 	.classement table {
 		font-size: 14px;
 	}
@@ -797,17 +809,17 @@ div.stats {
 
 /* Affichage spécial */
 
-#page-7 .album-page-grid, #page-8 .album-page-grid {
+#page-7 .album-page-grid, #page-8 .album-page-grid, #page-9 .album-page-grid, #page-10 .album-page-grid {
 	grid-template-columns: auto auto;
-	width: 31vh;
-	margin: 0 8.25vh;
 	justify-items: center;
+	justify-content: center;
+	align-content: center;
 }
 #page-2 .album-page-grid {
 	gap: 0;
 	grid-template-columns: auto auto;
 	justify-content: center;
-	align-content: space-around;
+	align-content: space-evenly;
 }
 
 .album-page #card-48, .album-page #card-51 {
@@ -819,6 +831,27 @@ div.stats {
 }
 .album-page #card-48.unlocked:hover, .album-page #card-51.unlocked:hover {
 	transform: scale(1.1);
+}
+
+#page-2.album-page .card,
+#page-7.album-page .card,
+#page-8.album-page .card,
+#page-9.album-page .card {
+	max-height: 24vh;
+	max-width: 17.4vh;
+}
+#page-2 .card-count,
+#page-7 .card-count,
+#page-8 .card-count,
+#page-9 .card-count {
+	margin: 19vh 6px 0 0;
+}
+#card-22, #card-37, #card-52 {
+	grid-column: 1;
+}
+#card-16, #card-17, #card-19, #card-20,
+#card-34, #card-35, #card-40, #card-41, #card-43, #card-44 {
+	margin: 0 -8vh 0 8vh;
 }
 
 /*.album-page #card-7, .album-page #card-8, .album-page #card-9 {
@@ -839,6 +872,9 @@ div.stats {
 }
 .Rare .progress>div {
 	background-color: #08e;
+}
+.Epique .progress>div {
+	background-color: #f6f;
 }
 .Legendaire .progress>div {
 	background-color: #d83;
@@ -1089,3 +1125,40 @@ div.stats {
 #btnp:hover {
    background: linear-gradient(161deg, #e9ff0d, #fa970a, #e6ff0d);
 }
+
+
+.timer {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    padding: 4px;
+    width: 280px
+}
+.timer>p {
+    font-weight: 700;
+    margin: 0;
+    font-size: 14px
+}
+#timer {
+    display: flex;
+    gap: 6px;
+    align-items: center
+}
+#timer p {
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0
+}
+#timer>div {
+    background: var(--secondary);
+    width: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4px 0
+}
+#timer>div p:last-child {
+    font-size: 14px;
+    font-variant: all-petite-caps
+}
+

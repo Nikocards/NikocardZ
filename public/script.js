@@ -14,21 +14,17 @@ let allCards = [
 	{id:  4, num:  2, bdd:    2, img:   "2", hide: "cache1.webp", rarity:    "Commune", variant:       "Normale", name: "Caca"},
 	{id:  5, num:  2, bdd: null, img:  "2h", hide: "cache2.webp", rarity:    "Commune", variant: "Holographique", name: "Caca"},
 	{id:  6, num:  2, bdd:   19, img:  "2s", hide: "cache3.webp", rarity:    "Commune", variant:      "E-X Card", name: "Caca"},
-	{id:  7, num:  3, bdd:    3, img:   "3", hide: "cache1.webp", rarity:    "Commune", variant:       "Normale", name: "Raid 1"},
-	{id:  8, num:  3, bdd: null, img:  "3h", hide: "cache2.webp", rarity:    "Commune", variant: "Holographique", name: "Raid 1"},
-	{id:  9, num:  3, bdd:   20, img:  "3s", hide: "cache3.webp", rarity:    "Commune", variant:      "E-X Card", name: "Raid 1"},
-	{id: 10, num:  4, bdd:    4, img:   "4", hide: "cache1.webp", rarity:    "Commune", variant:       "Normale", name: "Raid 2"},
-	{id: 11, num:  4, bdd: null, img:  "4h", hide: "cache2.webp", rarity:    "Commune", variant: "Holographique", name: "Raid 2"},
-	{id: 12, num:  4, bdd:   21, img:  "4s", hide: "cache3.webp", rarity:    "Commune", variant:      "E-X Card", name: "Raid 2"},
 	{id: 13, num:  5, bdd:    5, img:   "5", hide: "cache1.webp", rarity:    "Commune", variant:       "Normale", name: "Artiste"},
 	{id: 14, num:  5, bdd: null, img:  "5h", hide: "cache2.webp", rarity:    "Commune", variant: "Holographique", name: "Artiste"},
 	{id: 15, num:  5, bdd:   22, img:  "5s", hide: "cache3.webp", rarity:    "Commune", variant:      "E-X Card", name: "Artiste"},
+	{id:  7, num:  3, bdd:    3, img:   "3", hide: "cache1.webp", rarity:    "Commune", variant:       "Normale", name: "Raid 1"},
+	{id:  8, num:  3, bdd: null, img:  "3h", hide: "cache2.webp", rarity:    "Commune", variant: "Holographique", name: "Raid 1"},
+	{id: 10, num:  4, bdd:    4, img:   "4", hide: "cache1.webp", rarity:    "Commune", variant:       "Normale", name: "Raid 2"},
+	{id: 11, num:  4, bdd: null, img:  "4h", hide: "cache2.webp", rarity:    "Commune", variant: "Holographique", name: "Raid 2"},
 	{id: 16, num:  6, bdd:    6, img:   "6", hide: "cache1.webp", rarity:    "Commune", variant:       "Normale", name: "Lecture"},
 	{id: 17, num:  6, bdd: null, img:  "6h", hide: "cache2.webp", rarity:    "Commune", variant: "Holographique", name: "Lecture"},
-	{id: 18, num:  6, bdd:   23, img:  "6s", hide: "cache3.webp", rarity:    "Commune", variant:      "E-X Card", name: "Lecture"},
 	{id: 19, num:  7, bdd:    7, img:   "7", hide: "cache1.webp", rarity:    "Commune", variant:       "Normale", name: "Tournois"},
 	{id: 20, num:  7, bdd: null, img:  "7h", hide: "cache2.webp", rarity:    "Commune", variant: "Holographique", name: "Tournois"},
-	{id: 21, num:  7, bdd:   24, img:  "7s", hide: "cache3.webp", rarity:    "Commune", variant:      "E-X Card", name: "Tournois"},
 	{id: 22, num:  8, bdd:    8, img:   "8", hide: "cache1.webp", rarity:    "Commune", variant:       "Normale", name: "Lurk"},
 	{id: 23, num:  8, bdd: null, img:  "8h", hide: "cache2.webp", rarity:    "Commune", variant: "Holographique", name: "Lurk"},
 	{id: 24, num:  8, bdd:   25, img:  "8s", hide: "cache3.webp", rarity:    "Commune", variant:      "E-X Card", name: "Lurk"},
@@ -43,25 +39,29 @@ let allCards = [
 	{id: 33, num: 11, bdd:   28, img: "11s", hide: "cache6.webp", rarity:       "Rare", variant:      "E-X Card", name: "Princess Lexi"},
 	{id: 34, num: 12, bdd:   12, img:  "12", hide: "cache4.webp", rarity:       "Rare", variant:       "Normale", name: "Ban"},
 	{id: 35, num: 12, bdd: null, img: "12h", hide: "cache5.webp", rarity:       "Rare", variant: "Holographique", name: "Ban"},
-	{id: 36, num: 12, bdd:   29, img: "12s", hide: "cache6.webp", rarity:       "Rare", variant:      "E-X Card", name: "Ban"},
 	{id: 37, num: 13, bdd:   13, img:  "13", hide: "cache4.webp", rarity:       "Rare", variant:       "Normale", name: "Poulet"},
 	{id: 38, num: 13, bdd: null, img: "13h", hide: "cache5.webp", rarity:       "Rare", variant: "Holographique", name: "Poulet"},
 	{id: 39, num: 13, bdd:   30, img: "13s", hide: "cache6.webp", rarity:       "Rare", variant:      "E-X Card", name: "Poulet"},
 	{id: 40, num: 14, bdd:   14, img:  "14", hide: "cache4.webp", rarity:       "Rare", variant:       "Normale", name: "JDR"},
 	{id: 41, num: 14, bdd: null, img: "14h", hide: "cache5.webp", rarity:       "Rare", variant: "Holographique", name: "JDR"},
-	{id: 42, num: 14, bdd:   31, img: "14s", hide: "cache6.webp", rarity:       "Rare", variant:      "E-X Card", name: "JDR"},
 	{id: 43, num: 15, bdd:   15, img:  "15", hide: "cache4.webp", rarity:       "Rare", variant:       "Normale", name: "Sponsor"},
 	{id: 44, num: 15, bdd: null, img: "15h", hide: "cache5.webp", rarity:       "Rare", variant: "Holographique", name: "Sponsor"},
-	{id: 45, num: 15, bdd:   32, img: "15s", hide: "cache6.webp", rarity:       "Rare", variant:      "E-X Card", name: "Sponsor"},
+	{id: 52, num: 18, bdd:   35, img:  "18", hide: "cache4.webp", rarity:       "Rare", variant:       "Normale", name: "La Cour du Roi"},
+	{id: 53, num: 18, bdd: null, img: "18h", hide: "cache5.webp", rarity:       "Rare", variant: "Holographique", name: "La Cour du Roi"},
+	{id: 54, num: 18, bdd:   36, img: "18s", hide: "cache6.webp", rarity:       "Rare", variant:      "E-X Card", name: "La Cour du Roi"},
+	{id: 60, num: 19, bdd:   50, img:  "19", hide: "cacheA.webp", rarity:     "Epique", variant:       "Normale", name: "Carte 24h Retro #1"},
+	{id: 61, num: 19, bdd: null, img: "19h", hide: "cacheB.webp", rarity:     "Epique", variant: "Holographique", name: "Carte 24h Retro #1"},
+	{id: 62, num: 20, bdd:   50, img:  "20", hide: "cacheA.webp", rarity:     "Epique", variant:       "Normale", name: "Carte 24h Retro #2"},
+	{id: 63, num: 20, bdd: null, img: "20h", hide: "cacheB.webp", rarity:     "Epique", variant: "Holographique", name: "Carte 24h Retro #2"},
+	{id: 64, num: 21, bdd:   50, img:  "21", hide: "cacheA.webp", rarity:     "Epique", variant:       "Normale", name: "Carte 24h Retro #3"},
+	{id: 65, num: 21, bdd: null, img: "21h", hide: "cacheB.webp", rarity:     "Epique", variant: "Holographique", name: "Carte 24h Retro #3"},
+	{id: 66, num: 22, bdd:   50, img:  "22", hide: "cacheA.webp", rarity:     "Epique", variant:       "Normale", name: "Carte 24h Retro #4"},
+	{id: 67, num: 22, bdd: null, img: "22h", hide: "cacheB.webp", rarity:     "Epique", variant: "Holographique", name: "Carte 24h Retro #4"},
 	{id: 46, num: 16, bdd:   16, img:  "16", hide: "cache7.webp", rarity: "Legendaire", variant:       "Normale", name: "Baston"},
 	{id: 47, num: 16, bdd: null, img: "16h", hide: "cache8.webp", rarity: "Legendaire", variant: "Holographique", name: "Baston"},
 	{id: 48, num: 16, bdd:   33, img: "16s", hide: "cache9.webp", rarity: "Legendaire", variant:      "E-X Card", name: "Baston"},
 	{id: 49, num: 17, bdd:   17, img:  "17", hide: "cache7.webp", rarity: "Legendaire", variant:       "Normale", name: "Imposteur"},
 	{id: 50, num: 17, bdd: null, img: "17h", hide: "cache8.webp", rarity: "Legendaire", variant: "Holographique", name: "Imposteur"},
-	{id: 51, num: 17, bdd:   34, img: "17s", hide: "cache9.webp", rarity: "Legendaire", variant:      "E-X Card", name: "Imposteur"},
-	{id: 52, num: 18, bdd:   35, img:  "18", hide: "cache4.webp", rarity:       "Rare", variant:       "Normale", name: "La Cour du Roi"},
-	{id: 53, num: 18, bdd: null, img: "18h", hide: "cache5.webp", rarity:       "Rare", variant: "Holographique", name: "La Cour du Roi"},
-	{id: 54, num: 18, bdd:   36, img: "18s", hide: "cache6.webp", rarity:       "Rare", variant:      "E-X Card", name: "La Cour du Roi"},
 ]
 let collectionsData = {}
 let collector = ""
@@ -149,7 +149,13 @@ async function fetchUserCards(container) {
 			}
 		} catch(e) {console.error(e)}
 
+		collectionsData.demo = {pseudo: "demo", cards: {}}
+
+
 		for(i in allCards) {
+
+			if(allCards[i].id != null) collectionsData.demo.cards[allCards[i].id] = 5;
+
 			allCards[i].stat = 0
 			for(u in collectionsData) {
 				if(collectionsData[u].cards[allCards[i].id]) allCards[i].stat ++;
@@ -225,59 +231,6 @@ function displayAlbumCards() {
 			displayAlbum(collection)
 	}
 
-	/*function displayRanks(collection) {
-		let scores = Object.entries(collectionsData);
-		scores.sort((a, b) => (a[1].uniques == b[1].uniques ? (b[1].total - a[1].total) : (b[1].uniques - a[1].uniques)))
-
-		let page = 1
-		displayTable()
-
-		function displayTable() {
-			let htmlContent = `<div class="classement">
-				<div class="title"><h1>Classement</h1></div>
-				<table>
-					<thead>
-						<tr>
-							<th>Rang</th>
-							<th>Pseudo</th>
-							<th>Total</th>
-							<th>Uniques</th>
-						</tr>
-					</thead>
-					<tbody>
-			`;
-
-			for(i in scores) {
-				const progressPercent = (scores[i][1].uniques / totalCards * 100).toFixed(2); // Calcul du pourcentage
-				htmlContent += `<tr${scores[i][0] == collector ? ' class="me"' : ''} data-collection="${scores[i][0]}">
-					<td>${i*1 + 1}</td>
-					<td class="pseudo"><img class="avatar" src=${JSON.stringify(scores[i][1].avatar)} alt="${scores[i][1].pseudo}" onerror="this.style.visibility = 'hidden'" width="28" height="28"/> ${scores[i][1].pseudo}</td>
-					<td>${scores[i][1].total} ${scores[i][1].total > 1 ? "cartes" : "carte"}</td>
-					<td>${scores[i][1].uniques} / ${totalCards}<div class="progress"><div style="width: ${progressPercent}%"></div></div></td>
-				</tr>`;
-			}
-
-			htmlContent += `</tbody></table></div>`;
-			cardContainer.innerHTML = htmlContent;
-
-			cardContainer.querySelectorAll('tr[data-collection]').forEach(tr => {
-				tr.addEventListener('click', displayStats);
-			})
-		}
-
-		function displayStats(e) {
-			let element = e.target;
-			while(element && !element.dataset.collection) {
-				element = element.parentNode;
-			}
-			if(element) {
-				selectDisplay.dataset.value = 'progress';
-				document.getElementById('collection-name').value = element.dataset.collection;
-				collector = element.dataset.collection;
-				requestAnimationFrame(displayAlbumCards);
-			}
-		}
-	}*/
 	function displayRanks(collection) {
 		let scores = Object.entries(collectionsData);
 		scores.sort((a, b) => (a[1].uniques == b[1].uniques ? (b[1].total - a[1].total) : (b[1].uniques - a[1].uniques)))
@@ -357,11 +310,16 @@ function displayAlbumCards() {
 
 	function displayStats(collection) {
 		// Statistiques initiales par rareté
-		const totalCards = { Commune: 30, Rare: 18, Legendaire: 6, Normale: 18, Holographique: 18, "E-X Card": 18 }; // Total par type
-		const rarityStats = { Commune: 0, Rare: 0, Legendaire: 0 };
-		const variantStats = { Normale: 0, Holographique: 0, "E-X Card": 0 };
-		const uniqueStats = { Commune: 0, Rare: 0, Legendaire: 0, Normale: 0, Holographique: 0, "E-X Card": 0 };
-
+		let totalCards = { Commune: 0, Rare: 0, Epique: 0, Legendaire: 0, Normale: 0, Holographique: 0, "E-X Card": 0}; // Total par type
+		for(c of allCards) {
+			totalCards[c.rarity] ++;
+			totalCards[c.variant] ++;
+		}
+		console.log(totalCards)
+		let rarityStats = { Commune: 0, Rare: 0, Epique: 0, Legendaire: 0 };
+		let variantStats = { Normale: 0, Holographique: 0, "E-X Card": 0 };
+		let uniqueStats = { Commune: 0, Rare: 0, Epique: 0, Legendaire: 0, Normale: 0, Holographique: 0, "E-X Card": 0, Total: 0 };
+		let totalStats = 0;
 		let listContent = '<div class="cardList">';
 
 		// Calcul des statistiques
@@ -373,6 +331,7 @@ function displayAlbumCards() {
 
 					rarityStats[card.rarity] += quantity;
 					variantStats[card.variant] += quantity;
+					totalStats += quantity;
 					listContent += `<div class="cardRender ${card.rarity}">
 						<div>
 							<div class="card unlocked${card.variant == 'E-X Card' ?' ex':''}${card.variant == 'Holographique'?' holo':''}">
@@ -393,6 +352,7 @@ function displayAlbumCards() {
 						// <div class="progress"><div style="width: ${Math.floor(1000/Math.sqrt(card.stat))/10}%;height: 6px;"></div></div>
 					uniqueStats[card.rarity] ++;
 					uniqueStats[card.variant] ++;
+					uniqueStats.Total ++;
 				}
 			}
 		});
@@ -435,6 +395,11 @@ function displayAlbumCards() {
 				<td><p>${uniques}/${total}</p><div class="progress"><div style="width: ${progressPercent}%"></div></div></td>
 			</tr>`;
 		});
+		htmlContent += `<tr>
+			<td><b>Total</b></td>
+			<td><b>${totalStats}</b></td>
+			<td><p>${uniqueStats.Total}/${allCards.length}</p><div class="progress"><div style="width: ${(uniqueStats.Total / allCards.length * 100).toFixed(2)}%"></div></div></td>
+		</tr>`;
 
 		htmlContent += '</table></div>';
 		htmlContent += listContent;
@@ -449,13 +414,16 @@ function displayAlbumCards() {
 	function displayAlbum(collection) {
 		const pages = [
 			[1, 2, 3, 4, 5, 6, 13,14,15],
-			[7, 10, 8,11, 9,12],
-			[16,17,18,19,20,21,22,23,24],
+			[7, 10, 8,11],
+			[16,17, 22,23,24, 19,20],
 			[25,26,27,28,29,30],
-			[31,32,33,34,35,36,37,38,39],
-			[40,41,42,43,44,45,52,53,54],
-			[46,47,48],
-			[49,50,51]
+
+			[31,32,33, 34,35, 37,38,39],
+			[40,41, 52,53,54, 43,44],
+			[60,61,62,63],
+			[64,65,66,67],
+			[46,47,49,50],
+			[48]
 		];
 
 		const totalPages = pages.length;
@@ -838,6 +806,35 @@ document.addEventListener('DOMContentLoaded', async function () {
 	<input type="text" id="start-name" placeholder="Votre pseudo Twitch">
 	<div id="start-dropDown"></div>`;
 	initInput();
+
+
+	(end => {
+		let display = "";
+		let container = document.getElementById("timer");
+		function refresh() {
+			let d = Math.floor((end - Date.now())/ 1000);
+			if(d < 0) d = 0;
+			let s = d % 60;
+			d = Math.floor(d / 60);
+			let m = d % 60;
+			d = Math.floor(d / 60);
+			let h = d % 24;
+			d = Math.floor(d / 24);
+			// let out = `${d.toString().padStart(2,'0')} - ${h.toString().padStart(2,'0')} - ${m.toString().padStart(2,'0')} - ${s.toString().padStart(2,'0')}`;
+			let out = `
+	<div><p>${d.toString().padStart(2,'0')}</p><p>jours</p></div><p>:</p>
+	<div><p>${h.toString().padStart(2,'0')}</p><p>heures</p></div><p>:</p>
+	<div><p>${m.toString().padStart(2,'0')}</p><p>minutes</p></div><p>:</p>
+	<div><p>${s.toString().padStart(2,'0')}</p><p>secondes</p></div>`;
+			if(display != out) {
+				display = out;
+				//console.log(out)
+				container.innerHTML = out
+			}
+			requestAnimationFrame(refresh);
+		}
+		requestAnimationFrame(refresh);
+	})(1726252200000) // 13 sept 2024 20h30 Paris
 });
 
 function generateGraph() {
@@ -911,6 +908,5 @@ function generateGraph() {
 
 	// Ajoutez le SVG à la page
 	document.body.appendChild(svg);
-
 
 }
