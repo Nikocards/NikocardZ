@@ -149,12 +149,12 @@ async function fetchUserCards(container) {
 			}
 		} catch(e) {console.error(e)}
 
-		collectionsData.demo = {pseudo: "demo", cards: {}}
+		//~ collectionsData.demo = {pseudo: "demo", cards: {}}
 
 
 		for(i in allCards) {
 
-			if(allCards[i].id != null) collectionsData.demo.cards[allCards[i].id] = 5;
+			//~ if(allCards[i].id != null) collectionsData.demo.cards[allCards[i].id] = 5;
 
 			allCards[i].stat = 0
 			for(u in collectionsData) {
