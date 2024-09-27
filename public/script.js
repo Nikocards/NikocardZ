@@ -55,8 +55,8 @@ let allCards = [
 	{id: 63, num: 20, bdd: null, img: "20h", hide: "cacheB.webp", rarity:     "Epique", variant: "Holographique", name: "Carte 24h Retro #2"},
 	{id: 64, num: 21, bdd:   39, img:  "21", hide: "cacheA.webp", rarity:     "Epique", variant:       "Normale", name: "Carte 24h Retro #3"},
 	{id: 65, num: 21, bdd: null, img: "21h", hide: "cacheB.webp", rarity:     "Epique", variant: "Holographique", name: "Carte 24h Retro #3"},
-	{id: 66, num: 22, bdd:   40, img:  "22", hide: "cacheA.webp", rarity:     "Epique", variant:       "Normale", name: "Carte 24h Retro #4"},
-	{id: 67, num: 22, bdd: null, img: "22h", hide: "cacheB.webp", rarity:     "Epique", variant: "Holographique", name: "Carte 24h Retro #4"},
+	//~ {id: 66, num: 22, bdd:   40, img:  "22", hide: "cacheA.webp", rarity:     "Epique", variant:       "Normale", name: "Carte 24h Retro #4"},
+	//~ {id: 67, num: 22, bdd: null, img: "22h", hide: "cacheB.webp", rarity:     "Epique", variant: "Holographique", name: "Carte 24h Retro #4"},
 	{id: 46, num: 16, bdd:   16, img:  "16", hide: "cache7.webp", rarity: "Legendaire", variant:       "Normale", name: "Baston"},
 	{id: 47, num: 16, bdd: null, img: "16h", hide: "cache8.webp", rarity: "Legendaire", variant: "Holographique", name: "Baston"},
 	{id: 48, num: 16, bdd:   33, img: "16s", hide: "cache9.webp", rarity: "Legendaire", variant:      "E-X Card", name: "Baston"},
@@ -807,7 +807,8 @@ document.addEventListener('DOMContentLoaded', async function () {
 	<div id="start-dropDown"></div>`;
 	initInput();
 
-
+/*
+	// Compte à rebourds
 	(end => {
 		let display = "";
 		let container = document.getElementById("timer");
@@ -835,6 +836,60 @@ document.addEventListener('DOMContentLoaded', async function () {
 		}
 		requestAnimationFrame(refresh);
 	})(1726252200000) // 13 sept 2024 20h30 Paris
+*/
+	let cagnotteAmount = 0;
+	let intervalId = setInterval(checkCagnotte, 10000);
+	checkCagnotte();
+
+	async function checkCagnotte() {
+		const response = await fetch("https://tomaijerrie.vercel.app/api/ulule");
+		const data = await response.json();
+
+		const currentDate = new Date();
+		const endDate = new Date(data.date_end);
+
+		if (currentDate > endDate) {
+			clearInterval(intervalId);
+			console.log("Cagnotte fermée")
+			return;
+		}
+
+		if (cagnotteAmount !== data.amount_raised) {
+			cagnotteAmount = data.amount_raised;
+			refreshCagnotte(cagnotteAmount);
+		}
+	}
+
+	function refreshCagnotte(amount) {
+		console.log(amount)
+		let steps = [
+			{goal:  3000, name: "Matériel de base"},
+			{goal:  5000, name: "Création du masque"},
+			{goal:  7500, name: "Nourrir les acteurs"},
+			{goal: 10000, name: "Tournage 100% financé"},
+			{goal: 15000, name: "Nouvelle fin alternative"},
+			{goal: 20000, name: "Avant-première au cinéma"},
+			{goal: 25000, name: "Making-of Exclusif"},
+			{goal: 30000, name: "Evénement intéractif"},
+			{goal: 40000, name: "Préparation de la suite"},
+			{goal: 50000, name: "Rémunération de toute l'équipe"}
+		]
+		let i = 0;
+		for(i = 0; i < steps.length && amount > steps[i].goal; i++) {}
+		document.getElementById("cagnotte").innerHTML = `
+			<p style="font-size: 12px;">Collecte de fonds pour réaliser le jeu<p>
+			<p style="font-size: 32px;">Silence, ça tourne !</p>
+			<p style="font-size: 32px; text-align: center;">${amount} €</p>
+			<p style="font-size: 16px; margin-top: 8px;">Palier ${i + 1}: ${steps[i].name}</p>
+			<div id="cagnotteprog" class="progress" style="height: 12px; margin: 0 0 8px 0;"><div style="width: ${Math.floor(100 * amount / steps[i].goal)}%"></div></div>
+			<a href="https://fr.ulule.com/silence-ca-tourne/" target="_blank"><button style="margin: auto; justify-content: center;">Découvrir
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12">
+					<path d="M5 3H1v8H9V7m2-2V1H7m4 0L6 6" stroke="#FFF5ED" stroke-width="1" fill="none"/>
+				</svg>
+			</button></a>
+		`;
+	}
+
 });
 
 function generateGraph() {
